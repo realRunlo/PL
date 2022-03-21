@@ -10,7 +10,7 @@ class Header:
         self.tipo = tipo #0 -> faz nada, 1 -> soma, 2 -> media
 
 args = sys.argv[1:] # argumentos
-fp = open(args[0])
+fp = open(args[0],"r",encoding="utf-8")
 hd = fp.readline() # le header do ficheiro
 
 headerExp = re.compile(r"(?P<lm>[^,\s]+\{(\d,\d|\d)\}::media)|(?P<ls>[^,\s]+\{(\d,\d|\d)\}::sum)|(?P<l>[^,\s]+\{(\d,\d|\d)\})|(?P<n>(\w+)|\"\S+\")")
