@@ -1,12 +1,6 @@
-
+from statistics import median
 import re
-from statistics import median 
 import sys
-from tokenize import group
-import ply.lex as lex
-import statistics
-
-import json
 
 class Header:
     def __init__(self, nome, quant_min, quant_max, tipo):
@@ -31,7 +25,7 @@ for i in l:
     max = 0
     tipo = 0
     if i.group("n"):
-        nome = i.group("n")
+        nome = re.sub(r'"',r'\"',i.group("n"))
         min = 1
         max = 1
         tipo = 0
@@ -91,8 +85,9 @@ for linha in fp:
 
             lista.clear()
     fpjson.seek(fpjson.tell()-1)
-    fpjson.write("},")
+    fpjson.write("},\n")
 
-fpjson.seek(fpjson.tell()-1) #remover a virgula que fica a mais
+fpjson.seek(fpjson.tell()-2) #remover a virgula que fica a mais
 fpjson.write("]")
 fpjson.close()
+
