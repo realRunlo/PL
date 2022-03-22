@@ -129,5 +129,6 @@ file.close()
 
 file = open("texto.json","w+",encoding="utf-8")
 file.write("[\n")
+#TODO: escrever o dict no json
 file.write("\n]")
 file.close()
