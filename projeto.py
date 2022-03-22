@@ -1,5 +1,6 @@
 import re
 import statistics
+import sys
 import ply.lex as lex
 
 def str_to_list (str):
@@ -17,6 +18,11 @@ def increment_str(str):
     else:
         str = "a" + str[0:]
     return str
+
+def change_name(csv):
+    json = re.sub(r'(\w+\.)(CSV|csv)',r'\1json',csv)
+    print(json)
+    return json
 
 tokens = ["LISTA","SEPARADOR","NOME"]
 
@@ -71,7 +77,7 @@ lexer.exp = r''
 lexer.separator = False
 lexer.i = "a"
 
-file = open("texto.csv","r",encoding="utf-8")
+file = open(sys.argv[1],"r",encoding="utf-8")
 
 header = file.readline()
 
@@ -127,7 +133,7 @@ for mo in mos:
     print(dict)
 file.close()
 
-file = open("texto.json","w+",encoding="utf-8")
+file = open(change_name(sys.argv[1]),"w+",encoding="utf-8")
 file.write("[\n")
 #TODO: escrever o dict no json
 file.write("\n]")
