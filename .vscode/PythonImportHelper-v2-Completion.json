@@ -1,0 +1,1260 @@
+[
+    {
+        "label": "generators",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "copy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "copy",
+        "description": "copy",
+        "detail": "copy",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "os.path",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.path",
+        "description": "os.path",
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "types",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "types",
+        "description": "types",
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "inspect",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "inspect",
+        "description": "inspect",
+        "detail": "inspect",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "statistics",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "statistics",
+        "description": "statistics",
+        "detail": "statistics",
+        "documentation": {}
+    },
+    {
+        "label": "median",
+        "importPath": "statistics",
+        "description": "statistics",
+        "isExtraImport": true,
+        "detail": "statistics",
+        "documentation": {}
+    },
+    {
+        "label": "ply.lex",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "Macro",
+        "kind": 6,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "class Macro(object):\n    def __init__(self,name,value,arglist=None,variadic=False):\n        self.name = name\n        self.value = value\n        self.arglist = arglist\n        self.variadic = variadic\n        if variadic:\n            self.vararg = arglist[-1]\n        self.source = None\n# ------------------------------------------------------------------",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "Preprocessor",
+        "kind": 6,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "class Preprocessor(object):\n    def __init__(self,lexer=None):\n        if lexer is None:\n            lexer = lex.lexer\n        self.lexer = lexer\n        self.macros = { }\n        self.path = []\n        self.temp_path = []\n        # Probe the lexer for selected tokens\n        self.lexprobe()",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_WS",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def t_CPP_WS(t):\n    r'\\s+'\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\nt_CPP_POUND = r'\\#'\nt_CPP_DPOUND = r'\\#\\#'\n# Identifier\nt_CPP_ID = r'[A-Za-z_][\\w_]*'\n# Integer literal\ndef CPP_INTEGER(t):",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "CPP_INTEGER",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def CPP_INTEGER(t):\n    r'(((((0x)|(0X))[0-9a-fA-F]+)|(\\d+))([uU][lL]|[lL][uU]|[uU]|[lL])?)'\n    return t\nt_CPP_INTEGER = CPP_INTEGER\n# Floating literal\nt_CPP_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\ndef t_CPP_STRING(t):\n    r'\\\"([^\\\\\\n]|(\\\\(.|\\n)))*?\\\"'\n    t.lexer.lineno += t.value.count(\"\\n\")",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_STRING",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def t_CPP_STRING(t):\n    r'\\\"([^\\\\\\n]|(\\\\(.|\\n)))*?\\\"'\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\n# Character constant 'c' or L'c'\ndef t_CPP_CHAR(t):\n    r'(L)?\\'([^\\\\\\n]|(\\\\(.|\\n)))*?\\''\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\n# Comment",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_CHAR",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def t_CPP_CHAR(t):\n    r'(L)?\\'([^\\\\\\n]|(\\\\(.|\\n)))*?\\''\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\n# Comment\ndef t_CPP_COMMENT1(t):\n    r'(/\\*(.|\\n)*?\\*/)'\n    ncr = t.value.count(\"\\n\")\n    t.lexer.lineno += ncr\n    # replace with one space or a number of '\\n'",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_COMMENT1",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def t_CPP_COMMENT1(t):\n    r'(/\\*(.|\\n)*?\\*/)'\n    ncr = t.value.count(\"\\n\")\n    t.lexer.lineno += ncr\n    # replace with one space or a number of '\\n'\n    t.type = 'CPP_WS'; t.value = '\\n' * ncr if ncr else ' '\n    return t\n# Line comment\ndef t_CPP_COMMENT2(t):\n    r'(//.*?(\\n|$))'",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_COMMENT2",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def t_CPP_COMMENT2(t):\n    r'(//.*?(\\n|$))'\n    # replace with '/n'\n    t.type = 'CPP_WS'; t.value = '\\n'\n    return t\ndef t_error(t):\n    t.type = t.value[0]\n    t.value = t.value[0]\n    t.lexer.skip(1)\n    return t",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_error",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def t_error(t):\n    t.type = t.value[0]\n    t.value = t.value[0]\n    t.lexer.skip(1)\n    return t\nimport re\nimport copy\nimport time\nimport os.path\n# -----------------------------------------------------------------------------",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "trigraph",
+        "kind": 2,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "def trigraph(input):\n    return _trigraph_pat.sub(lambda g: _trigraph_rep[g.group()[-1]],input)\n# ------------------------------------------------------------------\n# Macro object\n#\n# This object holds information about preprocessor macros\n#\n#    .name      - Macro name (string)\n#    .value     - Macro value (a list of tokens)\n#    .arglist   - List of argument names",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "tokens",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "tokens = (\n   'CPP_ID','CPP_INTEGER', 'CPP_FLOAT', 'CPP_STRING', 'CPP_CHAR', 'CPP_WS', 'CPP_COMMENT1', 'CPP_COMMENT2', 'CPP_POUND','CPP_DPOUND'\n)\nliterals = \"+-*/%|&~^<>=!?()[]{}.,;:\\\\\\'\\\"\"\n# Whitespace\ndef t_CPP_WS(t):\n    r'\\s+'\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\nt_CPP_POUND = r'\\#'",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "literals",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "literals = \"+-*/%|&~^<>=!?()[]{}.,;:\\\\\\'\\\"\"\n# Whitespace\ndef t_CPP_WS(t):\n    r'\\s+'\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\nt_CPP_POUND = r'\\#'\nt_CPP_DPOUND = r'\\#\\#'\n# Identifier\nt_CPP_ID = r'[A-Za-z_][\\w_]*'",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_POUND",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "t_CPP_POUND = r'\\#'\nt_CPP_DPOUND = r'\\#\\#'\n# Identifier\nt_CPP_ID = r'[A-Za-z_][\\w_]*'\n# Integer literal\ndef CPP_INTEGER(t):\n    r'(((((0x)|(0X))[0-9a-fA-F]+)|(\\d+))([uU][lL]|[lL][uU]|[uU]|[lL])?)'\n    return t\nt_CPP_INTEGER = CPP_INTEGER\n# Floating literal",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_DPOUND",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "t_CPP_DPOUND = r'\\#\\#'\n# Identifier\nt_CPP_ID = r'[A-Za-z_][\\w_]*'\n# Integer literal\ndef CPP_INTEGER(t):\n    r'(((((0x)|(0X))[0-9a-fA-F]+)|(\\d+))([uU][lL]|[lL][uU]|[uU]|[lL])?)'\n    return t\nt_CPP_INTEGER = CPP_INTEGER\n# Floating literal\nt_CPP_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_ID",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "t_CPP_ID = r'[A-Za-z_][\\w_]*'\n# Integer literal\ndef CPP_INTEGER(t):\n    r'(((((0x)|(0X))[0-9a-fA-F]+)|(\\d+))([uU][lL]|[lL][uU]|[uU]|[lL])?)'\n    return t\nt_CPP_INTEGER = CPP_INTEGER\n# Floating literal\nt_CPP_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\ndef t_CPP_STRING(t):",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_INTEGER",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "t_CPP_INTEGER = CPP_INTEGER\n# Floating literal\nt_CPP_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\ndef t_CPP_STRING(t):\n    r'\\\"([^\\\\\\n]|(\\\\(.|\\n)))*?\\\"'\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\n# Character constant 'c' or L'c'\ndef t_CPP_CHAR(t):",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPP_FLOAT",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "t_CPP_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\ndef t_CPP_STRING(t):\n    r'\\\"([^\\\\\\n]|(\\\\(.|\\n)))*?\\\"'\n    t.lexer.lineno += t.value.count(\"\\n\")\n    return t\n# Character constant 'c' or L'c'\ndef t_CPP_CHAR(t):\n    r'(L)?\\'([^\\\\\\n]|(\\\\(.|\\n)))*?\\''\n    t.lexer.lineno += t.value.count(\"\\n\")",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "_trigraph_pat",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "_trigraph_pat = re.compile(r'''\\?\\?[=/\\'\\(\\)\\!<>\\-]''')\n_trigraph_rep = {\n    '=':'#',\n    '/':'\\\\',\n    \"'\":'^',\n    '(':'[',\n    ')':']',\n    '!':'|',\n    '<':'{',\n    '>':'}',",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "_trigraph_rep",
+        "kind": 5,
+        "importPath": "ply.cpp",
+        "description": "ply.cpp",
+        "peekOfCode": "_trigraph_rep = {\n    '=':'#',\n    '/':'\\\\',\n    \"'\":'^',\n    '(':'[',\n    ')':']',\n    '!':'|',\n    '<':'{',\n    '>':'}',\n    '-':'~'",
+        "detail": "ply.cpp",
+        "documentation": {}
+    },
+    {
+        "label": "t_COMMENT",
+        "kind": 2,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "def t_COMMENT(t):\n    r'/\\*(.|\\n)*?\\*/'\n    t.lexer.lineno += t.value.count('\\n')\n    return t\n# Comment (C++-Style)\ndef t_CPPCOMMENT(t):\n    r'//.*\\n'\n    t.lexer.lineno += 1\n    return t",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "t_CPPCOMMENT",
+        "kind": 2,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "def t_CPPCOMMENT(t):\n    r'//.*\\n'\n    t.lexer.lineno += 1\n    return t",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "tokens",
+        "kind": 5,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "tokens = [\n    # Literals (identifier, integer constant, float constant, string constant, char const)\n    'ID', 'TYPEID', 'INTEGER', 'FLOAT', 'STRING', 'CHARACTER',\n    # Operators (+,-,*,/,%,|,&,~,^,<<,>>, ||, &&, !, <, <=, >, >=, ==, !=)\n    'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'MODULO',\n    'OR', 'AND', 'NOT', 'XOR', 'LSHIFT', 'RSHIFT',\n    'LOR', 'LAND', 'LNOT',\n    'LT', 'LE', 'GT', 'GE', 'EQ', 'NE',\n    # Assignment (=, *=, /=, %=, +=, -=, <<=, >>=, &=, ^=, |=)\n    'EQUALS', 'TIMESEQUAL', 'DIVEQUAL', 'MODEQUAL', 'PLUSEQUAL', 'MINUSEQUAL',",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "t_ID",
+        "kind": 5,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "t_ID = r'[A-Za-z_][A-Za-z0-9_]*'\n# Integer literal\nt_INTEGER = r'\\d+([uU]|[lL]|[uU][lL]|[lL][uU])?'\n# Floating literal\nt_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\nt_STRING = r'\\\"([^\\\\\\n]|(\\\\.))*?\\\"'\n# Character constant 'c' or L'c'\nt_CHARACTER = r'(L)?\\'([^\\\\\\n]|(\\\\.))*?\\''\n# Comment (C-Style)",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "t_INTEGER",
+        "kind": 5,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "t_INTEGER = r'\\d+([uU]|[lL]|[uU][lL]|[lL][uU])?'\n# Floating literal\nt_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\nt_STRING = r'\\\"([^\\\\\\n]|(\\\\.))*?\\\"'\n# Character constant 'c' or L'c'\nt_CHARACTER = r'(L)?\\'([^\\\\\\n]|(\\\\.))*?\\''\n# Comment (C-Style)\ndef t_COMMENT(t):\n    r'/\\*(.|\\n)*?\\*/'",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "t_FLOAT",
+        "kind": 5,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "t_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'\n# String literal\nt_STRING = r'\\\"([^\\\\\\n]|(\\\\.))*?\\\"'\n# Character constant 'c' or L'c'\nt_CHARACTER = r'(L)?\\'([^\\\\\\n]|(\\\\.))*?\\''\n# Comment (C-Style)\ndef t_COMMENT(t):\n    r'/\\*(.|\\n)*?\\*/'\n    t.lexer.lineno += t.value.count('\\n')\n    return t",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "t_STRING",
+        "kind": 5,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "t_STRING = r'\\\"([^\\\\\\n]|(\\\\.))*?\\\"'\n# Character constant 'c' or L'c'\nt_CHARACTER = r'(L)?\\'([^\\\\\\n]|(\\\\.))*?\\''\n# Comment (C-Style)\ndef t_COMMENT(t):\n    r'/\\*(.|\\n)*?\\*/'\n    t.lexer.lineno += t.value.count('\\n')\n    return t\n# Comment (C++-Style)\ndef t_CPPCOMMENT(t):",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "t_CHARACTER",
+        "kind": 5,
+        "importPath": "ply.ctokens",
+        "description": "ply.ctokens",
+        "peekOfCode": "t_CHARACTER = r'(L)?\\'([^\\\\\\n]|(\\\\.))*?\\''\n# Comment (C-Style)\ndef t_COMMENT(t):\n    r'/\\*(.|\\n)*?\\*/'\n    t.lexer.lineno += t.value.count('\\n')\n    return t\n# Comment (C++-Style)\ndef t_CPPCOMMENT(t):\n    r'//.*\\n'\n    t.lexer.lineno += 1",
+        "detail": "ply.ctokens",
+        "documentation": {}
+    },
+    {
+        "label": "LexError",
+        "kind": 6,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "class LexError(Exception):\n    def __init__(self, message, s):\n        self.args = (message,)\n        self.text = s\n# Token class.  This class is used to represent the tokens produced.\nclass LexToken(object):\n    def __str__(self):\n        return 'LexToken(%s,%r,%d,%d)' % (self.type, self.value, self.lineno, self.lexpos)\n    def __repr__(self):\n        return str(self)",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "LexToken",
+        "kind": 6,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "class LexToken(object):\n    def __str__(self):\n        return 'LexToken(%s,%r,%d,%d)' % (self.type, self.value, self.lineno, self.lexpos)\n    def __repr__(self):\n        return str(self)\n# This object is a stand-in for a logging object created by the\n# logging module.\nclass PlyLogger(object):\n    def __init__(self, f):\n        self.f = f",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "PlyLogger",
+        "kind": 6,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "class PlyLogger(object):\n    def __init__(self, f):\n        self.f = f\n    def critical(self, msg, *args, **kwargs):\n        self.f.write((msg % args) + '\\n')\n    def warning(self, msg, *args, **kwargs):\n        self.f.write('WARNING: ' + (msg % args) + '\\n')\n    def error(self, msg, *args, **kwargs):\n        self.f.write('ERROR: ' + (msg % args) + '\\n')\n    info = critical",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "NullLogger",
+        "kind": 6,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "class NullLogger(object):\n    def __getattribute__(self, name):\n        return self\n    def __call__(self, *args, **kwargs):\n        return self\n# -----------------------------------------------------------------------------\n#                        === Lexing Engine ===\n#\n# The following Lexer class implements the lexer runtime.   There are only\n# a few public methods and attributes:",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "Lexer",
+        "kind": 6,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "class Lexer:\n    def __init__(self):\n        self.lexre = None             # Master regular expression. This is a list of\n                                      # tuples (re, findex) where re is a compiled\n                                      # regular expression and findex is a list\n                                      # mapping regex group numbers to rules\n        self.lexretext = None         # Current regular expression strings\n        self.lexstatere = {}          # Dictionary mapping lexer states to master regexs\n        self.lexstateretext = {}      # Dictionary mapping lexer states to regex strings\n        self.lexstaterenames = {}     # Dictionary mapping lexer states to symbol names",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "LexerReflect",
+        "kind": 6,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "class LexerReflect(object):\n    def __init__(self, ldict, log=None, reflags=0):\n        self.ldict      = ldict\n        self.error_func = None\n        self.tokens     = []\n        self.reflags    = reflags\n        self.stateinfo  = {'INITIAL': 'inclusive'}\n        self.modules    = set()\n        self.error      = False\n        self.log        = PlyLogger(sys.stderr) if log is None else log",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "get_caller_module_dict",
+        "kind": 2,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "def get_caller_module_dict(levels):\n    f = sys._getframe(levels)\n    ldict = f.f_globals.copy()\n    if f.f_globals != f.f_locals:\n        ldict.update(f.f_locals)\n    return ldict\n# -----------------------------------------------------------------------------\n# _funcs_to_names()\n#\n# Given a list of regular expression functions, this converts it to a list",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "lex",
+        "kind": 2,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "def lex(module=None, object=None, debug=False, optimize=False, lextab='lextab',\n        reflags=int(re.VERBOSE), nowarn=False, outputdir=None, debuglog=None, errorlog=None):\n    if lextab is None:\n        lextab = 'lextab'\n    global lexer\n    ldict = None\n    stateinfo  = {'INITIAL': 'inclusive'}\n    lexobj = Lexer()\n    lexobj.lexoptimize = optimize\n    global token, input",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "runmain",
+        "kind": 2,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "def runmain(lexer=None, data=None):\n    if not data:\n        try:\n            filename = sys.argv[1]\n            f = open(filename)\n            data = f.read()\n            f.close()\n        except IndexError:\n            sys.stdout.write('Reading from standard input (type EOF to end):\\n')\n            data = sys.stdin.read()",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "TOKEN",
+        "kind": 2,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "def TOKEN(r):\n    def set_regex(f):\n        if hasattr(r, '__call__'):\n            f.regex = _get_regex(r)\n        else:\n            f.regex = r\n        return f\n    return set_regex\n# Alternative spelling of the TOKEN decorator\nToken = TOKEN",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "__tabversion__",
+        "kind": 5,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "__tabversion__ = '3.10'\nimport re\nimport sys\nimport types\nimport copy\nimport os\nimport inspect\n# This tuple contains known string types\ntry:\n    # Python 2.6",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "_is_identifier",
+        "kind": 5,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "_is_identifier = re.compile(r'^[a-zA-Z0-9_]+$')\n# Exception thrown when invalid token encountered and no default error\n# handler is defined.\nclass LexError(Exception):\n    def __init__(self, message, s):\n        self.args = (message,)\n        self.text = s\n# Token class.  This class is used to represent the tokens produced.\nclass LexToken(object):\n    def __str__(self):",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "Token",
+        "kind": 5,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "peekOfCode": "Token = TOKEN",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "PlyLogger",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class PlyLogger(object):\n    def __init__(self, f):\n        self.f = f\n    def debug(self, msg, *args, **kwargs):\n        self.f.write((msg % args) + '\\n')\n    info = debug\n    def warning(self, msg, *args, **kwargs):\n        self.f.write('WARNING: ' + (msg % args) + '\\n')\n    def error(self, msg, *args, **kwargs):\n        self.f.write('ERROR: ' + (msg % args) + '\\n')",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "NullLogger",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class NullLogger(object):\n    def __getattribute__(self, name):\n        return self\n    def __call__(self, *args, **kwargs):\n        return self\n# Exception raised for yacc-related errors\nclass YaccError(Exception):\n    pass\n# Format the result message that the parser produces when running in debug mode.\ndef format_result(r):",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "YaccError",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class YaccError(Exception):\n    pass\n# Format the result message that the parser produces when running in debug mode.\ndef format_result(r):\n    repr_str = repr(r)\n    if '\\n' in repr_str:\n        repr_str = repr(repr_str)\n    if len(repr_str) > resultlimit:\n        repr_str = repr_str[:resultlimit] + ' ...'\n    result = '<%s @ 0x%x> (%s)' % (type(r).__name__, id(r), repr_str)",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "YaccSymbol",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class YaccSymbol:\n    def __str__(self):\n        return self.type\n    def __repr__(self):\n        return str(self)\n# This class is a wrapper around the objects actually passed to each\n# grammar rule.   Index lookup and assignment actually assign the\n# .value attribute of the underlying YaccSymbol object.\n# The lineno() method returns the line number of a given\n# item (or 0 if not defined).   The linespan() method returns",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "YaccProduction",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class YaccProduction:\n    def __init__(self, s, stack=None):\n        self.slice = s\n        self.stack = stack\n        self.lexer = None\n        self.parser = None\n    def __getitem__(self, n):\n        if isinstance(n, slice):\n            return [s.value for s in self.slice[n]]\n        elif n >= 0:",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "LRParser",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class LRParser:\n    def __init__(self, lrtab, errorf):\n        self.productions = lrtab.lr_productions\n        self.action = lrtab.lr_action\n        self.goto = lrtab.lr_goto\n        self.errorfunc = errorf\n        self.set_defaulted_states()\n        self.errorok = True\n    def errok(self):\n        self.errorok = True",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "Production",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class Production(object):\n    reduced = 0\n    def __init__(self, number, name, prod, precedence=('right', 0), func=None, file='', line=0):\n        self.name     = name\n        self.prod     = tuple(prod)\n        self.number   = number\n        self.func     = func\n        self.callable = None\n        self.file     = file\n        self.line     = line",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "MiniProduction",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class MiniProduction(object):\n    def __init__(self, str, name, len, func, file, line):\n        self.name     = name\n        self.len      = len\n        self.func     = func\n        self.callable = None\n        self.file     = file\n        self.line     = line\n        self.str      = str\n    def __str__(self):",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "LRItem",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class LRItem(object):\n    def __init__(self, p, n):\n        self.name       = p.name\n        self.prod       = list(p.prod)\n        self.number     = p.number\n        self.lr_index   = n\n        self.lookaheads = {}\n        self.prod.insert(n, '.')\n        self.prod       = tuple(self.prod)\n        self.len        = len(self.prod)",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "GrammarError",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class GrammarError(YaccError):\n    pass\nclass Grammar(object):\n    def __init__(self, terminals):\n        self.Productions  = [None]  # A list of all of the productions.  The first\n                                    # entry is always reserved for the purpose of\n                                    # building an augmented grammar\n        self.Prodnames    = {}      # A dictionary mapping the names of nonterminals to a list of all\n                                    # productions of that nonterminal.\n        self.Prodmap      = {}      # A dictionary that is only used to detect duplicate",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "Grammar",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class Grammar(object):\n    def __init__(self, terminals):\n        self.Productions  = [None]  # A list of all of the productions.  The first\n                                    # entry is always reserved for the purpose of\n                                    # building an augmented grammar\n        self.Prodnames    = {}      # A dictionary mapping the names of nonterminals to a list of all\n                                    # productions of that nonterminal.\n        self.Prodmap      = {}      # A dictionary that is only used to detect duplicate\n                                    # productions.\n        self.Terminals    = {}      # A dictionary mapping the names of terminal symbols to a",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "VersionError",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class VersionError(YaccError):\n    pass\nclass LRTable(object):\n    def __init__(self):\n        self.lr_action = None\n        self.lr_goto = None\n        self.lr_productions = None\n        self.lr_method = None\n    def read_table(self, module):\n        if isinstance(module, types.ModuleType):",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "LRTable",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class LRTable(object):\n    def __init__(self):\n        self.lr_action = None\n        self.lr_goto = None\n        self.lr_productions = None\n        self.lr_method = None\n    def read_table(self, module):\n        if isinstance(module, types.ModuleType):\n            parsetab = module\n        else:",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "LALRError",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class LALRError(YaccError):\n    pass\n# -----------------------------------------------------------------------------\n#                             == LRGeneratedTable ==\n#\n# This class implements the LR table generation algorithm.  There are no\n# public methods except for write()\n# -----------------------------------------------------------------------------\nclass LRGeneratedTable(LRTable):\n    def __init__(self, grammar, method='LALR', log=None):",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "LRGeneratedTable",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class LRGeneratedTable(LRTable):\n    def __init__(self, grammar, method='LALR', log=None):\n        if method not in ['SLR', 'LALR']:\n            raise LALRError('Unsupported method %s' % method)\n        self.grammar = grammar\n        self.lr_method = method\n        # Set up the logger\n        if not log:\n            log = NullLogger()\n        self.log = log",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "ParserReflect",
+        "kind": 6,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "class ParserReflect(object):\n    def __init__(self, pdict, log=None):\n        self.pdict      = pdict\n        self.start      = None\n        self.error_func = None\n        self.tokens     = None\n        self.modules    = set()\n        self.grammar    = []\n        self.error      = False\n        if log is None:",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "format_result",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def format_result(r):\n    repr_str = repr(r)\n    if '\\n' in repr_str:\n        repr_str = repr(repr_str)\n    if len(repr_str) > resultlimit:\n        repr_str = repr_str[:resultlimit] + ' ...'\n    result = '<%s @ 0x%x> (%s)' % (type(r).__name__, id(r), repr_str)\n    return result\n# Format stack entries when the parser is running in debug mode\ndef format_stack_entry(r):",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "format_stack_entry",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def format_stack_entry(r):\n    repr_str = repr(r)\n    if '\\n' in repr_str:\n        repr_str = repr(repr_str)\n    if len(repr_str) < 16:\n        return repr_str\n    else:\n        return '<%s @ 0x%x>' % (type(r).__name__, id(r))\n# Panic mode error recovery support.   This feature is being reworked--much of the\n# code here is to offer a deprecation/backwards compatible transition",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "errok",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def errok():\n    warnings.warn(_warnmsg)\n    return _errok()\ndef restart():\n    warnings.warn(_warnmsg)\n    return _restart()\ndef token():\n    warnings.warn(_warnmsg)\n    return _token()\n# Utility function to call the p_error() function with some deprecation hacks",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "restart",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def restart():\n    warnings.warn(_warnmsg)\n    return _restart()\ndef token():\n    warnings.warn(_warnmsg)\n    return _token()\n# Utility function to call the p_error() function with some deprecation hacks\ndef call_errorfunc(errorfunc, token, parser):\n    global _errok, _token, _restart\n    _errok = parser.errok",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "token",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def token():\n    warnings.warn(_warnmsg)\n    return _token()\n# Utility function to call the p_error() function with some deprecation hacks\ndef call_errorfunc(errorfunc, token, parser):\n    global _errok, _token, _restart\n    _errok = parser.errok\n    _token = parser.token\n    _restart = parser.restart\n    r = errorfunc(token)",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "call_errorfunc",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def call_errorfunc(errorfunc, token, parser):\n    global _errok, _token, _restart\n    _errok = parser.errok\n    _token = parser.token\n    _restart = parser.restart\n    r = errorfunc(token)\n    try:\n        del _errok, _token, _restart\n    except NameError:\n        pass",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "rightmost_terminal",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def rightmost_terminal(symbols, terminals):\n    i = len(symbols) - 1\n    while i >= 0:\n        if symbols[i] in terminals:\n            return symbols[i]\n        i -= 1\n    return None\n# -----------------------------------------------------------------------------\n#                           === GRAMMAR CLASS ===\n#",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "digraph",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def digraph(X, R, FP):\n    N = {}\n    for x in X:\n        N[x] = 0\n    stack = []\n    F = {}\n    for x in X:\n        if N[x] == 0:\n            traverse(x, N, stack, F, X, R, FP)\n    return F",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "traverse",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def traverse(x, N, stack, F, X, R, FP):\n    stack.append(x)\n    d = len(stack)\n    N[x] = d\n    F[x] = FP(x)             # F(X) <- F'(x)\n    rel = R(x)               # Get y's related to x\n    for y in rel:\n        if N[y] == 0:\n            traverse(y, N, stack, F, X, R, FP)\n        N[x] = min(N[x], N[y])",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "get_caller_module_dict",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def get_caller_module_dict(levels):\n    f = sys._getframe(levels)\n    ldict = f.f_globals.copy()\n    if f.f_globals != f.f_locals:\n        ldict.update(f.f_locals)\n    return ldict\n# -----------------------------------------------------------------------------\n# parse_grammar()\n#\n# This takes a raw grammar rule string and parses it into production data",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "parse_grammar",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def parse_grammar(doc, file, line):\n    grammar = []\n    # Split the doc string into lines\n    pstrings = doc.splitlines()\n    lastp = None\n    dline = line\n    for ps in pstrings:\n        dline += 1\n        p = ps.split()\n        if not p:",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "yacc",
+        "kind": 2,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "def yacc(method='LALR', debug=yaccdebug, module=None, tabmodule=tab_module, start=None,\n         check_recursion=True, optimize=False, write_tables=True, debugfile=debug_file,\n         outputdir=None, debuglog=None, errorlog=None, picklefile=None):\n    if tabmodule is None:\n        tabmodule = tab_module\n    # Reference to the parsing method of the last built parser\n    global parse\n    # If pickling is enabled, table files are not created\n    if picklefile:\n        write_tables = 0",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "__tabversion__",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "__tabversion__ = '3.10'\n#-----------------------------------------------------------------------------\n#                     === User configurable parameters ===\n#\n# Change these to modify the default behavior of yacc (if you wish)\n#-----------------------------------------------------------------------------\nyaccdebug   = True             # Debugging mode.  If set, yacc generates a\n                               # a 'parser.out' file in the current directory\ndebug_file  = 'parser.out'     # Default name of the debugging file\ntab_module  = 'parsetab'       # Default name of the table module",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "error_count",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "error_count = 3                # Number of symbols that must be shifted to leave recovery mode\nyaccdevel   = False            # Set to True if developing yacc.  This turns off optimized\n                               # implementations of certain functions.\nresultlimit = 40               # Size limit of results when running in debug mode.\npickle_protocol = 0            # Protocol to use when writing pickle files\n# String type-checking compatibility\nif sys.version_info[0] < 3:\n    string_types = basestring\nelse:\n    string_types = str",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "resultlimit",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "resultlimit = 40               # Size limit of results when running in debug mode.\npickle_protocol = 0            # Protocol to use when writing pickle files\n# String type-checking compatibility\nif sys.version_info[0] < 3:\n    string_types = basestring\nelse:\n    string_types = str\nMAXINT = sys.maxsize\n# This object is a stand-in for a logging object created by the\n# logging module.   PLY will use this by default to create things",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "pickle_protocol",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "pickle_protocol = 0            # Protocol to use when writing pickle files\n# String type-checking compatibility\nif sys.version_info[0] < 3:\n    string_types = basestring\nelse:\n    string_types = str\nMAXINT = sys.maxsize\n# This object is a stand-in for a logging object created by the\n# logging module.   PLY will use this by default to create things\n# such as the parser.out file.  If a user wants more detailed",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "MAXINT",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "MAXINT = sys.maxsize\n# This object is a stand-in for a logging object created by the\n# logging module.   PLY will use this by default to create things\n# such as the parser.out file.  If a user wants more detailed\n# information, they can create their own logging object and pass\n# it into PLY.\nclass PlyLogger(object):\n    def __init__(self, f):\n        self.f = f\n    def debug(self, msg, *args, **kwargs):",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_errok",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_errok = None\n_token = None\n_restart = None\n_warnmsg = '''PLY: Don't use global functions errok(), token(), and restart() in p_error().\nInstead, invoke the methods on the associated parser instance:\n    def p_error(p):\n        ...\n        # Use parser.errok(), parser.token(), parser.restart()\n        ...\n    parser = yacc.yacc()",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_token",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_token = None\n_restart = None\n_warnmsg = '''PLY: Don't use global functions errok(), token(), and restart() in p_error().\nInstead, invoke the methods on the associated parser instance:\n    def p_error(p):\n        ...\n        # Use parser.errok(), parser.token(), parser.restart()\n        ...\n    parser = yacc.yacc()\n'''",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_restart",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_restart = None\n_warnmsg = '''PLY: Don't use global functions errok(), token(), and restart() in p_error().\nInstead, invoke the methods on the associated parser instance:\n    def p_error(p):\n        ...\n        # Use parser.errok(), parser.token(), parser.restart()\n        ...\n    parser = yacc.yacc()\n'''\ndef errok():",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_warnmsg",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_warnmsg = '''PLY: Don't use global functions errok(), token(), and restart() in p_error().\nInstead, invoke the methods on the associated parser instance:\n    def p_error(p):\n        ...\n        # Use parser.errok(), parser.token(), parser.restart()\n        ...\n    parser = yacc.yacc()\n'''\ndef errok():\n    warnings.warn(_warnmsg)",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_is_identifier",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_is_identifier = re.compile(r'^[a-zA-Z0-9_-]+$')\n# -----------------------------------------------------------------------------\n# class Production:\n#\n# This class stores the raw information about a single production or grammar rule.\n# A grammar rule refers to a specification such as this:\n#\n#       expr : expr PLUS term\n#\n# Here are the basic attributes defined on all productions",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_tabversion",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_tabversion = %r\n_lr_method = %r\n_lr_signature = %r\n    ''' % (os.path.basename(filename), __tabversion__, self.lr_method, signature))\n            # Change smaller to 0 to go back to original tables\n            smaller = 1\n            # Factor out names to try and make smaller\n            if smaller:\n                items = {}\n                for s, nd in self.lr_action.items():",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_lr_method",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_lr_method = %r\n_lr_signature = %r\n    ''' % (os.path.basename(filename), __tabversion__, self.lr_method, signature))\n            # Change smaller to 0 to go back to original tables\n            smaller = 1\n            # Factor out names to try and make smaller\n            if smaller:\n                items = {}\n                for s, nd in self.lr_action.items():\n                    for name, v in nd.items():",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_lr_signature",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_lr_signature = %r\n    ''' % (os.path.basename(filename), __tabversion__, self.lr_method, signature))\n            # Change smaller to 0 to go back to original tables\n            smaller = 1\n            # Factor out names to try and make smaller\n            if smaller:\n                items = {}\n                for s, nd in self.lr_action.items():\n                    for name, v in nd.items():\n                        i = items.get(name)",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_lr_action",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n''')\n            else:\n                f.write('\\n_lr_action = { ')\n                for k, v in self.lr_action.items():",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "_lr_goto",
+        "kind": 5,
+        "importPath": "ply.yacc",
+        "description": "ply.yacc",
+        "peekOfCode": "_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):\n       if not _x in _lr_goto: _lr_goto[_x] = {}\n       _lr_goto[_x][_k] = _y\ndel _lr_goto_items\n''')\n            else:\n                f.write('\\n_lr_goto = { ')\n                for k, v in self.lr_goto.items():",
+        "detail": "ply.yacc",
+        "documentation": {}
+    },
+    {
+        "label": "get_source_range",
+        "kind": 2,
+        "importPath": "ply.ygen",
+        "description": "ply.ygen",
+        "peekOfCode": "def get_source_range(lines, tag):\n    srclines = enumerate(lines)\n    start_tag = '#--! %s-start' % tag\n    end_tag = '#--! %s-end' % tag\n    for start_index, line in srclines:\n        if line.strip().startswith(start_tag):\n            break\n    for end_index, line in srclines:\n        if line.strip().endswith(end_tag):\n            break",
+        "detail": "ply.ygen",
+        "documentation": {}
+    },
+    {
+        "label": "filter_section",
+        "kind": 2,
+        "importPath": "ply.ygen",
+        "description": "ply.ygen",
+        "peekOfCode": "def filter_section(lines, tag):\n    filtered_lines = []\n    include = True\n    tag_text = '#--! %s' % tag\n    for line in lines:\n        if line.strip().startswith(tag_text):\n            include = not include\n        elif include:\n            filtered_lines.append(line)\n    return filtered_lines",
+        "detail": "ply.ygen",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "ply.ygen",
+        "description": "ply.ygen",
+        "peekOfCode": "def main():\n    dirname = os.path.dirname(__file__)\n    shutil.copy2(os.path.join(dirname, 'yacc.py'), os.path.join(dirname, 'yacc.py.bak'))\n    with open(os.path.join(dirname, 'yacc.py'), 'r') as f:\n        lines = f.readlines()\n    parse_start, parse_end = get_source_range(lines, 'parsedebug')\n    parseopt_start, parseopt_end = get_source_range(lines, 'parseopt')\n    parseopt_notrack_start, parseopt_notrack_end = get_source_range(lines, 'parseopt-notrack')\n    # Get the original source\n    orig_lines = lines[parse_start:parse_end]",
+        "detail": "ply.ygen",
+        "documentation": {}
+    },
+    {
+        "label": "args",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "args = sys.argv[1:] # get filename\nf = open(args[0])\nfjson = open(\"teste.json\",\"w\")\nheader = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "f",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "f = open(args[0])\nfjson = open(\"teste.json\",\"w\")\nheader = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "fjson",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "fjson = open(\"teste.json\",\"w\")\nheader = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "header",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "header = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "columns",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "columns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "headerexp",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "headerexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")\nfjson.write(\"]\")",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "exp",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "exp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")\nfjson.write(\"]\")",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "xp",
+        "kind": 5,
+        "importPath": "dict",
+        "description": "dict",
+        "peekOfCode": "xp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")\nfjson.write(\"]\")",
+        "detail": "dict",
+        "documentation": {}
+    },
+    {
+        "label": "str_to_lis",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def str_to_list (str):\n    return [int(s) for s in str.split(',')]\ndef str_to_sum (str):\n    return sum([int(s) for s in str.split(',')])\ndef str_to_media (str):\n    return statistics.mean([int(s) for s in str.split(',')])\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "str_to_su",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def str_to_sum (str):\n    return sum([int(s) for s in str.split(',')])\ndef str_to_media (str):\n    return statistics.mean([int(s) for s in str.split(',')])\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "str_to_medi",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def str_to_media (str):\n    return statistics.mean([int(s) for s in str.split(',')])\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)\n    if(m.group(\"nome\")):\n        t.value = m.group(\"nome\")",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "t_LISTA",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)\n    if(m.group(\"nome\")):\n        t.value = m.group(\"nome\")\n    if(m.group(\"funcao\")):\n        lexer.funcoes.append((t.value,m.group(\"funcao\")))\n    else: lexer.funcoes.append((t.value,\"normal\"))",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "t_NOME",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def t_NOME(t):\n    r'([^,\\n]+)|(\"[^\"]+\")'\n    lexer.exp = lexer.exp + r'(?P<' + t.value + r'>([^,\\n]+)|(\"[^\"]+\"))'\n    lexer.separator = False\n    return t\ndef t_SEPARADOR(t):\n    r','\n    if(not(lexer.separator)): \n        lexer.exp = lexer.exp + r','\n        lexer.separator = True",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "t_SEPARADOR",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def t_SEPARADOR(t):\n    r','\n    if(not(lexer.separator)): \n        lexer.exp = lexer.exp + r','\n        lexer.separator = True\n    return t\nt_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Illegal Character\")\nlexer = lex.lex()",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "t_ANY_error",
+        "kind": 2,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "def t_ANY_error(t):\n    print(\"Illegal Character\")\nlexer = lex.lex()\nlexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "tokens",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "tokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)\n    if(m.group(\"nome\")):\n        t.value = m.group(\"nome\")\n    if(m.group(\"funcao\")):\n        lexer.funcoes.append((t.value,m.group(\"funcao\")))",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "t_ignore",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "t_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Illegal Character\")\nlexer = lex.lex()\nlexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "lexer",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "lexer = lex.lex()\nlexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.funcoes",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "lexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.exp",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "lexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.separator",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "lexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.i",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "lexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)\n#lexer.exp = lexer.exp + r'$'",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "file",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "file = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)\n#lexer.exp = lexer.exp + r'$'\nexp = re.compile(lexer.exp)",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "header",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "header = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)\n#lexer.exp = lexer.exp + r'$'\nexp = re.compile(lexer.exp)\ni = 0",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "#lexer.exp",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "#lexer.exp = lexer.exp + r'$'\nexp = re.compile(lexer.exp)\ni = 0\ncontent = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "exp",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "exp = re.compile(lexer.exp)\ni = 0\ncontent = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):\n        dict = m.groupdict()",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "i",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "i = 0\ncontent = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):\n        dict = m.groupdict()\n        for lista in lexer.funcoes:",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "content",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "content = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):\n        dict = m.groupdict()\n        for lista in lexer.funcoes:\n            if(lista[1] == \"normal\"):",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "mos",
+        "kind": 5,
+        "importPath": "projeto",
+        "description": "projeto",
+        "peekOfCode": "mos = exp.finditer(content)\nfor mo in mos:\n    dict = mo.groupdict()\n    for tuplo in lexer.funcoes:\n            funcao = tuplo[1]\n            nome = tuplo[0]\n            if(funcao == \"normal\"):\n                dict[nome] = str_to_list(dict[nome])\n            elif(funcao == \"::sum\"):\n                dict[nome] = str_to_sum(dict[nome])",
+        "detail": "projeto",
+        "documentation": {}
+    },
+    {
+        "label": "Header",
+        "kind": 6,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "class Header:\n    def __init__(self, nome, quant_min, quant_max, tipo):\n        self.nome = nome #nome do intervalo\n        self.quant_min = quant_min #se nao for uma lista, quantidade = 1\n        self.quant_max = quant_max #se nao for uma lista, quantidade = 1\n        self.tipo = tipo #0 -> faz nada, 1 -> soma, 2 -> media\nargs = sys.argv[1:] # argumentos\nfp = open(args[0],\"r\",encoding=\"utf-8\")\nhd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "args",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "args = sys.argv[1:] # argumentos\nfp = open(args[0],\"r\",encoding=\"utf-8\")\nhd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "fp",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "fp = open(args[0],\"r\",encoding=\"utf-8\")\nhd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "hd",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "hd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "headerExp",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "headerExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "l",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "l = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):\n        nome = re.sub(r'\"',r'\\\"',i.group(\"n\"))",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "listaExp",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "listaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):\n        nome = re.sub(r'\"',r'\\\"',i.group(\"n\"))\n        min = 1",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "headers",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "headers = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):\n        nome = re.sub(r'\"',r'\\\"',i.group(\"n\"))\n        min = 1\n        max = 1",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "json_filename",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "json_filename = args[0][:-3]\njson_filename += \"json\"\nfpjson = open(json_filename,\"w+\")\nfpjson.write(\"[\")\nfor linha in fp:\n    fpjson.write(\"{\")\n    linha = linha.split(\",\") # mas assim fica mal nos casos de virgulas nos nomes\n    indice_linha = 0\n    for h in headers:   \n        if h.quant_min == 1 and h.quant_max == 1:",
+        "detail": "v1",
+        "documentation": {}
+    },
+    {
+        "label": "fpjson",
+        "kind": 5,
+        "importPath": "v1",
+        "description": "v1",
+        "peekOfCode": "fpjson = open(json_filename,\"w+\")\nfpjson.write(\"[\")\nfor linha in fp:\n    fpjson.write(\"{\")\n    linha = linha.split(\",\") # mas assim fica mal nos casos de virgulas nos nomes\n    indice_linha = 0\n    for h in headers:   \n        if h.quant_min == 1 and h.quant_max == 1:\n            fpjson.write(\"\\\"\" + h.nome + \"\\\"\" + \":\" + \"\\\"\" + linha[indice_linha] + \"\\\"\" + \",\")\n            indice_linha +=1",
+        "detail": "v1",
+        "documentation": {}
+    }
+]

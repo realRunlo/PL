@@ -14,10 +14,10 @@ def str_to_media (str):
 tokens = ["LISTA","SEPARADOR","NOME"]
 
 def t_LISTA(t):
-    r'((\w+)|(".*"))\{\d+(,\d+)?\}(::\w+)?'
+    r'(([^,\n]+)|("[^"]+"))\{\d+(,\d+)?\}(::\w+)?'
     q_min = 0
     q_max = 0
-    m = re.match(r'(?P<nome>(\w+)|(\".*\"))\{(?P<q_min>\d)(,(?P<q_max>\d))?\}(?P<funcao>::\w+)?',t.value)
+    m = re.match(r'(?P<nome>([^,\n]+)|(\"[^"]+"))\{(?P<q_min>\d)(,(?P<q_max>\d))?\}(?P<funcao>::\w+)?',t.value)
     if(m.group("nome")):
         t.value = m.group("nome")
     if(m.group("funcao")):
@@ -27,26 +27,26 @@ def t_LISTA(t):
         q_min = int(m.group("q_min"))
     if(m.group("q_max")):
         q_max = int(m.group("q_max"))
-    lexer.exp = lexer.exp + '(?P<'+t.value+'>'
+    lexer.exp = lexer.exp + r'(?P<' + t.value+ r'>'
     for i in range(q_min-1):
-        lexer.exp = lexer.exp + '\d+,'
-    lexer.exp = lexer.exp + '\d+'
+        lexer.exp = lexer.exp + r'\d+,'
+    lexer.exp = lexer.exp + r'\d+'
     for i in range(q_min,q_max):
-        lexer.exp = lexer.exp + ',(\d+)?'
+        lexer.exp = lexer.exp + r',(\d+)?'
     lexer.separator = False
-    lexer.exp = lexer.exp + ')'
+    lexer.exp = lexer.exp + r')'
     return t
 
 def t_NOME(t):
-    r'(\w+)|(".*")'
-    lexer.exp = lexer.exp + '(?P<' + t.value + '>(\w+)|(".*"))'
+    r'([^,\n]+)|("[^"]+")'
+    lexer.exp = lexer.exp + r'(?P<' + t.value + r'>([^,\n]+)|("[^"]+"))'
     lexer.separator = False
     return t
 
 def t_SEPARADOR(t):
     r','
     if(not(lexer.separator)): 
-        lexer.exp = lexer.exp + ','
+        lexer.exp = lexer.exp + r','
         lexer.separator = True
     return t
 
@@ -57,24 +57,31 @@ def t_ANY_error(t):
 
 lexer = lex.lex()
 lexer.funcoes = []
-lexer.exp = r'^'
+lexer.exp = r''
 lexer.separator = False
+lexer.i = 0
 
 file = open("texto.csv","r",encoding="utf-8")
 
-content = file.readline()
+header = file.readline()
 
-lexer.input(content)
+lexer.input(header)
 for tok in lexer:
-    print(tok)
+    pass
 
 if lexer.exp[-1] == ",":
     lexer.exp = lexer.exp[:-1]
 
-print(lexer.funcoes)
+#print(lexer.funcoes)
+
+#lexer.exp = lexer.exp + r'$'
 
 exp = re.compile(lexer.exp)
 i = 0
+
+content = file.read()
+
+"""
 for l in file:
     print(l[:-1])
     print(lexer.exp)
@@ -90,3 +97,20 @@ for l in file:
                 dict[lista[0]] = str_to_media(dict[lista[0]])
             i+=1
         print(dict)
+"""
+print(lexer.exp)
+mos = exp.finditer(content)
+for mo in mos:
+    dict = mo.groupdict()
+    for tuplo in lexer.funcoes:
+            funcao = tuplo[1]
+            nome = tuplo[0]
+            if(funcao == "normal"):
+                dict[nome] = str_to_list(dict[nome])
+            elif(funcao == "::sum"):
+                dict[nome] = str_to_sum(dict[nome])
+            elif(funcao == "::media"):
+                dict[nome] = str_to_media(dict[nome])
+            i+=1
+    print(dict)
+file.close()
