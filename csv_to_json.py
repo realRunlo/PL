@@ -3,7 +3,6 @@ import statistics
 import sys
 import ply.lex as lex
 
-
 # argumentos
 args = sys.argv[1:] 
 
@@ -23,27 +22,27 @@ else:
 
 # função que transforma uma string de números numa lista
 def str_to_list (str):
-    return [int(s) for s in re.findall("\d+",str)]
+    return re.findall(r'[^\n,]+',str)
 
 # função que transforma uma string de números numa soma
 def str_to_sum (str):
-    return sum([int(s) for s in re.findall("\d+",str)])
+    return sum([float(s) for s in re.findall(r'(\d+(?:\.\d+)?)',str)])
 
 # função que transforma uma string de números na média
 def str_to_media (str):
-    return statistics.mean([int(s) for s in re.findall("\d+",str)])
+    return statistics.mean([float(s) for s in re.findall(r'(\d+(?:\.\d+)?)',str)])
 
 # função que transforma uma string de números numa soma
 def str_to_max (str):
-    return max([int(s) for s in re.findall("\d+",str)])
+    return max([float(s) for s in re.findall(r'(\d+(?:\.\d+)?)',str)])
 
 # função que transforma uma string de números numa soma
 def str_to_min (str):
-    return min([int(s) for s in re.findall("\d+",str)])
+    return min([float(s) for s in re.findall(r'(\d+(?:\.\d+)?)',str)])
 
 # função que transforma uma string de números numa lista com os seus quadrados
 def str_to_quadrado (str):
-    return ([pow(int(s),2) for s in re.findall("\d+",str)])
+    return ([pow(float(s),2) for s in re.findall(r'(\d+(?:\.\d+)?)',str)])
 
 # função que incrementa uma string
 def increment_str(str):
@@ -64,45 +63,55 @@ tokens = ["LISTA","SEPARADOR","NOME"]
 
 def t_LISTA(t):
     r'(([^",\n]+)|("[^"\n]+"))\{\d+(,\d+)?\}(::\w+)?'
-    q_min = 0
-    q_max = 0
-    m = re.match(r'(?P<nome>([^",\n]+)|(\"[^"\n]+"))\{(?P<q_min>\d)(,(?P<q_max>\d))?\}(?P<funcao>::\w+)?',t.value)
-    if(m.group("nome")):
-        t.value = m.group("nome")
+    m = re.match(r'(?P<nome>([^",\n]+)|(\"[^"\n]+"))\{(?P<min>\d)(,(?P<max>\d))?\}(?P<funcao>::\w+)?',t.value)
+    num = r'(\d+(\.\d+)?)'
+    elem = r'([^\n,]+)'
+    
+    t.value = m.group("nome")
+
+    min = int(m.group("min"))
+    max = min
+    
+    if(m.group("max")):
+        max = int(m.group("max"))
+    lexer.nfields+=max
+    
+    regex = r'(?P<' + lexer.i + r'>'
+
     if(m.group("funcao")):
         lexer.content.append((lexer.i,m.group("funcao"),t.value))
-    else: lexer.content.append((lexer.i,"::",t.value))
-    if(m.group("q_min")):
-        q_min = int(m.group("q_min"))
-    if(m.group("q_max")):
-        q_max = int(m.group("q_max"))
-    else:
-        q_max = q_min
-    lexer.exp = lexer.exp + r'(?P<' + lexer.i + r'>'
-    for i in range(q_min-1):
-        lexer.exp = lexer.exp + r'\d+,'
-    lexer.exp = lexer.exp + r'\d+'
-    for i in range(q_min,q_max):
-        lexer.exp = lexer.exp + r',(\d+)?'
-    lexer.separator = False
-    lexer.exp = lexer.exp + r')'
+        cont = num
+    else: 
+        lexer.content.append((lexer.i,"::",t.value))
+        cont = elem
+
+    for i in range(min-1):
+        regex += cont + r','
+        lexer.commaslista+=1
+    regex += cont
+    for i in range(min,max):
+        regex += r',' + cont + r'?'
+        lexer.commaslista+=1  
+    regex += r')'
     lexer.i = increment_str(lexer.i)
-    lexer.nfields+=q_max+1
+    lexer.regex+=regex
+    lexer.ncommas+=lexer.commaslista
 
 def t_NOME(t):
     r'([^",\n]+)|("[^"\n]+")'
-    lexer.exp = lexer.exp + r'(?P<' + lexer.i + r'>([^",\n]+)|("[^"\n]+"))'
+    regex = r'(?P<' + lexer.i + r'>([^",\n]+)|("[^"\n]+"))?'
     lexer.content.append((lexer.i,"",t.value))
     lexer.i = increment_str(lexer.i)
-    lexer.separator = False
     lexer.nfields+=1
+    lexer.regex+=regex
 
 def t_SEPARADOR(t):
     r','
-    lexer.ncommas+=1
-    if(not(lexer.separator)): 
-        lexer.exp = lexer.exp + r','
-        lexer.separator = True
+    if lexer.commaslista > 0:
+        lexer.commaslista-=1
+    elif lexer.ncommas < lexer.nfields: 
+        lexer.regex += r','
+        lexer.ncommas+=1
 
 t_ignore = "\n"
 
@@ -112,18 +121,22 @@ def t_ANY_error(t):
 
 lexer = lex.lex()
 lexer.content = []
-lexer.exp = r''
-lexer.separator = False
+lexer.regex = r''
 lexer.i = "a"
 lexer.ncommas = 0
 lexer.nfields = 0
+lexer.commaslista = 0
 
 file = open(args[0],"r",encoding="utf-8")
 header = file.readline()
 
+
+
 lexer.input(header)
+
 for tok in lexer:
     pass
+
 
 #verifica se o header é valido (numero de virgulas = numero de campos-1)
 if lexer.ncommas != lexer.nfields-1:
@@ -131,11 +144,12 @@ if lexer.ncommas != lexer.nfields-1:
     sys.exit()
 
 # tira a virgula final na expressão regular que o lexer mete a mais caso acabe numa LISTA
-if lexer.exp[-1] == ",":
-    lexer.exp = lexer.exp[:-1]
+if lexer.regex[-1] == ",":
+    lexer.regex = lexer.regex[:-1]
+    print(lexer.regex)
 
 # compilamos a expressão regular criada no lexer
-exp = re.compile(lexer.exp)
+exp = re.compile(lexer.regex)
 # lemos o resto do csv
 content = file.read()
 
@@ -156,6 +170,8 @@ for mo in mos: #para cada match object vamos construir o dicionario
             strName = re.sub(r'^"|"$',"",str(tuplo[2]))
             if(funcao == "::"):
                 strValue = str(str_to_list(dict[nomeProv]))
+                strValue = re.sub(r"'([^\']+)'",r'"\1"',strValue)
+                strValue = re.sub(r'"(\d+(.\d+)?)"',r'\1',strValue)
             elif(funcao == "::sum"):
                 strValue = str(str_to_sum(dict[nomeProv]))
             elif(funcao == "::media"):
@@ -168,6 +184,8 @@ for mo in mos: #para cada match object vamos construir o dicionario
                 strValue = str(str_to_min(dict[nomeProv]))
             else:
                 strValue = '"' + re.sub(r'^"|"$',"",str(dict[nomeProv])) + '"'
+                strValue = re.sub(r'None',"",strValue)
+            strValue = re.sub(r'"(\d+(.\d+)?)"',r'\1',strValue)
             fpjson.write("      \"" + strName + "\"" + ": " + strValue)
             fpjson.write(",\n")
     fpjson.seek(fpjson.tell()-3)
