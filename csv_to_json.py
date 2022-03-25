@@ -67,9 +67,9 @@ def change_name(csv):
 
 #PLY
 
-tokens = ["LISTA","SEPARADOR","NOME"]
+tokens = ["LISTFIELD","SEPARATOR","FIELD"]
 
-def t_LISTA(t):
+def t_LISTFIELD(t):
     r'(([^",\n]+)|("[^"\n]+"))\{\d+(,\d+)?\}(::\w+)?'
     m = re.match(r'(?P<nome>([^",\n]+)|(\"[^"\n]+"))\{(?P<min>\d+)(,(?P<max>\d+))?\}(?P<funcao>::\w+)?',t.value)
     num = r'(\d+(\.\d+)?)'
@@ -86,36 +86,36 @@ def t_LISTA(t):
     regex = r'(?P<' + lexer.id + r'>'
 
     if(m.group("funcao")):
-        lexer.content.append((lexer.id,m.group("funcao"),t.value))
+        lexer.fields.append((lexer.id,m.group("funcao"),t.value))
         cont = num
     else: 
-        lexer.content.append((lexer.id,"::",t.value))
+        lexer.fields.append((lexer.id,"::",t.value))
         cont = elem
 
     for i in range(min-1):
         regex += cont + r','
-        lexer.ncommaslist+=1
+        lexer.nlistcommas+=1
     regex += cont
     for i in range(min,max):
         regex += r',' + cont + r'?'
-        lexer.ncommaslist+=1  
+        lexer.nlistcommas+=1  
     regex += r')'
     lexer.id = increment_str(lexer.id)
     lexer.regex+=regex
-    lexer.ncommas+=lexer.ncommaslist
+    lexer.ncommas+=lexer.nlistcommas
 
-def t_NOME(t):
+def t_FIELD(t):
     r'([^",\n]+)|("[^"\n]+")'
     regex = r'(?P<' + lexer.id + r'>([^",\n]+)|("[^"\n]+"))?'
-    lexer.content.append((lexer.id,"",t.value))
+    lexer.fields.append((lexer.id,"",t.value))
     lexer.id = increment_str(lexer.id)
     lexer.nfields+=1
     lexer.regex+=regex
 
-def t_SEPARADOR(t):
+def t_SEPARATOR(t):
     r','
-    if lexer.ncommaslist > 0:
-        lexer.ncommaslist-=1
+    if lexer.nlistcommas > 0:
+        lexer.nlistcommas-=1
     else: 
         lexer.regex += r','
         lexer.ncommas+=1
@@ -127,12 +127,12 @@ def t_ANY_error(t):
     sys.exit()
 
 lexer = lex.lex()
-lexer.content = []
+lexer.fields = []
 lexer.regex = r''
 lexer.id = "a"
 lexer.ncommas = 0
 lexer.nfields = 0
-lexer.ncommaslist = 0
+lexer.nlistcommas = 0
 
 file = open(args[0],"r",encoding="utf-8")
 header = file.readline()
@@ -170,10 +170,10 @@ fpjson.write("[\n")
 for mo in mos: #para cada match object vamos construir o dicionario
     fpjson.write("  {\n")
     dict = mo.groupdict()
-    for tuplo in lexer.content:
-            nomeProv = tuplo[0]
-            funcao = tuplo[1]
-            strName = re.sub(r'^([^"\n]+)$',r'"\1"',str(tuplo[2])) 
+    for header in lexer.fields:
+            nomeProv = header[0]
+            funcao = header[1]
+            strName = re.sub(r'^([^"\n]+)$',r'"\1"',str(header[2])) 
             if(funcao == "::"): #significa que é apenas uma lista
                 strValue = str(str_to_list(dict[nomeProv])) #transformamos a string numa lista
                 strValue = re.sub(r"'([^\']+)'",r'"\1"',strValue) #colocamos aspas em todos os elementos (como o json quer) [antes tinham peliculas]

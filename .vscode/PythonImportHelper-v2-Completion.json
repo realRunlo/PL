@@ -966,34 +966,34 @@
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def change_name(csv):\n    json = re.sub(r'(\\w+\\.)(CSV|csv)',r'\\1json',csv)\n    return json\n#PLY\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'",
+        "peekOfCode": "def change_name(csv):\n    json = re.sub(r'(\\w+\\.)(CSV|csv)',r'\\1json',csv)\n    return json\n#PLY\ntokens = [\"LISTFIELD\",\"SEPARATOR\",\"FIELD\"]\ndef t_LISTFIELD(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'",
         "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "t_LISTA",
+        "label": "t_LISTFIELD",
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def t_LISTA(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):\n        max = int(m.group(\"max\"))",
+        "peekOfCode": "def t_LISTFIELD(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):\n        max = int(m.group(\"max\"))",
         "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "t_NOME",
+        "label": "t_FIELD",
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def t_NOME(t):\n    r'([^\",\\n]+)|(\"[^\"\\n]+\")'\n    regex = r'(?P<' + lexer.id + r'>([^\",\\n]+)|(\"[^\"\\n]+\"))?'\n    lexer.content.append((lexer.id,\"\",t.value))\n    lexer.id = increment_str(lexer.id)\n    lexer.nfields+=1\n    lexer.regex+=regex\ndef t_SEPARADOR(t):\n    r','\n    if lexer.ncommaslist > 0:",
+        "peekOfCode": "def t_FIELD(t):\n    r'([^\",\\n]+)|(\"[^\"\\n]+\")'\n    regex = r'(?P<' + lexer.id + r'>([^\",\\n]+)|(\"[^\"\\n]+\"))?'\n    lexer.fields.append((lexer.id,\"\",t.value))\n    lexer.id = increment_str(lexer.id)\n    lexer.nfields+=1\n    lexer.regex+=regex\ndef t_SEPARATOR(t):\n    r','\n    if lexer.nlistcommas > 0:",
         "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "t_SEPARADOR",
+        "label": "t_SEPARATOR",
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def t_SEPARADOR(t):\n    r','\n    if lexer.ncommaslist > 0:\n        lexer.ncommaslist-=1\n    else: \n        lexer.regex += r','\n        lexer.ncommas+=1\nt_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Invalid Header in csv.\")",
+        "peekOfCode": "def t_SEPARATOR(t):\n    r','\n    if lexer.nlistcommas > 0:\n        lexer.nlistcommas-=1\n    else: \n        lexer.regex += r','\n        lexer.ncommas+=1\nt_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Invalid Header in csv.\")",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1002,7 +1002,7 @@
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def t_ANY_error(t):\n    print(\"Invalid Header in csv.\")\n    sys.exit()\nlexer = lex.lex()\nlexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0",
+        "peekOfCode": "def t_ANY_error(t):\n    print(\"Invalid Header in csv.\")\n    sys.exit()\nlexer = lex.lex()\nlexer.fields = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.nlistcommas = 0",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1047,7 +1047,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "tokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):",
+        "peekOfCode": "tokens = [\"LISTFIELD\",\"SEPARATOR\",\"FIELD\"]\ndef t_LISTFIELD(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1056,7 +1056,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "t_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Invalid Header in csv.\")\n    sys.exit()\nlexer = lex.lex()\nlexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0",
+        "peekOfCode": "t_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Invalid Header in csv.\")\n    sys.exit()\nlexer = lex.lex()\nlexer.fields = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1065,16 +1065,16 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer = lex.lex()\nlexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)",
+        "peekOfCode": "lexer = lex.lex()\nlexer.fields = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)",
         "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "lexer.content",
+        "label": "lexer.fields",
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:",
+        "peekOfCode": "lexer.fields = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1083,7 +1083,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass",
+        "peekOfCode": "lexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1092,7 +1092,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)",
+        "peekOfCode": "lexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1101,7 +1101,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:",
+        "peekOfCode": "lexer.ncommas = 0\nlexer.nfields = 0\nlexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1110,16 +1110,16 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")",
+        "peekOfCode": "lexer.nfields = 0\nlexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")",
         "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "lexer.ncommaslist",
+        "label": "lexer.nlistcommas",
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "lexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")\n    sys.exit()",
+        "peekOfCode": "lexer.nlistcommas = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")\n    sys.exit()",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1164,7 +1164,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "json_filename = change_name(args[0])\nfpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for tuplo in lexer.content:",
+        "peekOfCode": "json_filename = change_name(args[0])\nfpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for header in lexer.fields:",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1173,7 +1173,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "fpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for tuplo in lexer.content:\n            nomeProv = tuplo[0]",
+        "peekOfCode": "fpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for header in lexer.fields:\n            nomeProv = header[0]",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1182,7 +1182,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "mos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for tuplo in lexer.content:\n            nomeProv = tuplo[0]\n            funcao = tuplo[1]",
+        "peekOfCode": "mos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for header in lexer.fields:\n            nomeProv = header[0]\n            funcao = header[1]",
         "detail": "csv_to_json",
         "documentation": {}
     },
