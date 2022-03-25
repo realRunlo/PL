@@ -966,7 +966,7 @@
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def change_name(csv):\n    json = re.sub(r'(\\w+\\.)(CSV|csv)',r'\\1json',csv)\n    return json\n#PLY\ntokens = [\"LISTFIELD\",\"SEPARATOR\",\"FIELD\"]\ndef t_LISTFIELD(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'",
+        "peekOfCode": "def change_name(csv):\n    json = re.sub(r'(\\w+\\.)(CSV|csv)',r'\\1json',csv)\n    return json\n#PLY\ntokens = [\"LISTFIELD\",\"SEPARATOR\",\"FIELD\"]\ndef t_LISTFIELD(t):\n    r'(([^\",]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    abc = r'([^\\n,]+)'",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -975,7 +975,7 @@
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def t_LISTFIELD(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):\n        max = int(m.group(\"max\"))",
+        "peekOfCode": "def t_LISTFIELD(t):\n    r'(([^\",]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    abc = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):\n        max = int(m.group(\"max\"))",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -984,7 +984,7 @@
         "kind": 2,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "def t_FIELD(t):\n    r'([^\",\\n]+)|(\"[^\"\\n]+\")'\n    regex = r'(?P<' + lexer.id + r'>([^\",\\n]+)|(\"[^\"\\n]+\"))?'\n    lexer.fields.append((lexer.id,\"\",t.value))\n    lexer.id = increment_str(lexer.id)\n    lexer.nfields+=1\n    lexer.regex+=regex\ndef t_SEPARATOR(t):\n    r','\n    if lexer.nlistcommas > 0:",
+        "peekOfCode": "def t_FIELD(t):\n    r'([^\",]+)|(\"[^\"]+\")'\n    regex = r'(?P<' + lexer.id + r'>([^\",\\n]+)|(\"[^\"\\n]+\"))?'\n    lexer.fields.append((lexer.id,\"\",t.value))\n    lexer.id = increment_str(lexer.id)\n    lexer.nfields+=1\n    lexer.regex+=regex\ndef t_SEPARATOR(t):\n    r','\n    if lexer.nlistcommas > 0:",
         "detail": "csv_to_json",
         "documentation": {}
     },
@@ -1047,7 +1047,7 @@
         "kind": 5,
         "importPath": "csv_to_json",
         "description": "csv_to_json",
-        "peekOfCode": "tokens = [\"LISTFIELD\",\"SEPARATOR\",\"FIELD\"]\ndef t_LISTFIELD(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):",
+        "peekOfCode": "tokens = [\"LISTFIELD\",\"SEPARATOR\",\"FIELD\"]\ndef t_LISTFIELD(t):\n    r'(([^\",]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    abc = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):",
         "detail": "csv_to_json",
         "documentation": {}
     },

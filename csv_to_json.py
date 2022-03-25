@@ -70,10 +70,10 @@ def change_name(csv):
 tokens = ["LISTFIELD","SEPARATOR","FIELD"]
 
 def t_LISTFIELD(t):
-    r'(([^",\n]+)|("[^"\n]+"))\{\d+(,\d+)?\}(::\w+)?'
+    r'(([^",]+)|("[^"]+"))\{\d+(,\d+)?\}(::\w+)?'
     m = re.match(r'(?P<nome>([^",\n]+)|(\"[^"\n]+"))\{(?P<min>\d+)(,(?P<max>\d+))?\}(?P<funcao>::\w+)?',t.value)
     num = r'(\d+(\.\d+)?)'
-    elem = r'([^\n,]+)'
+    abc = r'([^\n,]+)'
     t.value = m.group("nome")
 
     min = int(m.group("min"))
@@ -87,17 +87,17 @@ def t_LISTFIELD(t):
 
     if(m.group("funcao")):
         lexer.fields.append((lexer.id,m.group("funcao"),t.value))
-        cont = num
+        elem = num
     else: 
         lexer.fields.append((lexer.id,"::",t.value))
-        cont = elem
+        elem = abc
 
     for i in range(min-1):
-        regex += cont + r','
+        regex += elem + r','
         lexer.nlistcommas+=1
-    regex += cont
+    regex += elem
     for i in range(min,max):
-        regex += r',' + cont + r'?'
+        regex += r',' + elem + r'?'
         lexer.nlistcommas+=1  
     regex += r')'
     lexer.id = increment_str(lexer.id)
@@ -105,7 +105,7 @@ def t_LISTFIELD(t):
     lexer.ncommas+=lexer.nlistcommas
 
 def t_FIELD(t):
-    r'([^",\n]+)|("[^"\n]+")'
+    r'([^",]+)|("[^"]+")'
     regex = r'(?P<' + lexer.id + r'>([^",\n]+)|("[^"\n]+"))?'
     lexer.fields.append((lexer.id,"",t.value))
     lexer.id = increment_str(lexer.id)
