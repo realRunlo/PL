@@ -1,3 +1,4 @@
+
 import re
 import statistics
 import sys
@@ -159,6 +160,7 @@ fpjson = open(json_filename,"w+",encoding="utf-8")
 
 mos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro
 
+print("Creating " + json_filename + "...")
 #Escreve o dicionário no .json
 fpjson.write("[\n")
 for mo in mos: #para cada match object vamos construir o dicionario
@@ -188,10 +190,9 @@ for mo in mos: #para cada match object vamos construir o dicionario
             strValue = re.sub(r'"(\d+(.\d+)?)"',r'\1',strValue)
             fpjson.write("      \"" + strName + "\"" + ": " + strValue)
             fpjson.write(",\n")
-    fpjson.seek(fpjson.tell()-3)
+    fpjson.seek(fpjson.tell()-2)
     fpjson.write("\n  },\n")
-fpjson.seek(fpjson.tell()-3)
+fpjson.seek(fpjson.tell()-2)
 fpjson.write("\n]")
 fpjson.close()
 file.close()
-
