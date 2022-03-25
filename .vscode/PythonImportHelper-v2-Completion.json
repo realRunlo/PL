@@ -98,28 +98,11 @@
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
         "label": "statistics",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "statistics",
         "description": "statistics",
-        "detail": "statistics",
-        "documentation": {}
-    },
-    {
-        "label": "median",
-        "importPath": "statistics",
-        "description": "statistics",
-        "isExtraImport": true,
         "detail": "statistics",
         "documentation": {}
     },
@@ -130,6 +113,15 @@
         "importPath": "ply.lex",
         "description": "ply.lex",
         "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "platform",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "platform",
+        "description": "platform",
+        "detail": "platform",
         "documentation": {}
     },
     {
@@ -907,354 +899,309 @@
         "documentation": {}
     },
     {
-        "label": "args",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "args = sys.argv[1:] # get filename\nf = open(args[0])\nfjson = open(\"teste.json\",\"w\")\nheader = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "f",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "f = open(args[0])\nfjson = open(\"teste.json\",\"w\")\nheader = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "fjson",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "fjson = open(\"teste.json\",\"w\")\nheader = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "header",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "header = f.readline()\ncolumns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "columns",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "columns = header.split(\",\")\nheaderexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "headerexp",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "headerexp = re.compile(r'[^,\\d{}:\\n]+')\nexp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")\nfjson.write(\"]\")",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "exp",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "exp = r\"\"\nfor c in headerexp.findall(header):\n    exp = exp + r\"(?P<\" + c + r\">[\\w\\s]+),?\"\nxp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")\nfjson.write(\"]\")",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
-        "label": "xp",
-        "kind": 5,
-        "importPath": "dict",
-        "description": "dict",
-        "peekOfCode": "xp = re.compile(exp)\nfjson.write(\"[\")\nfor line in f:\n    fjson.write(json.dumps(xp.match(line).groupdict()))\n    fjson.write(\",\")\nfjson.write(\"]\")",
-        "detail": "dict",
-        "documentation": {}
-    },
-    {
         "label": "str_to_lis",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def str_to_list (str):\n    return [int(s) for s in str.split(',')]\ndef str_to_sum (str):\n    return sum([int(s) for s in str.split(',')])\ndef str_to_media (str):\n    return statistics.mean([int(s) for s in str.split(',')])\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def str_to_list (str):\n    return re.findall(r'[^\\n,]+',str)\n# função que transforma uma string de números numa soma\ndef str_to_sum (str):\n    return sum([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números na média\ndef str_to_media (str):\n    return statistics.mean([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa soma\ndef str_to_max (str):",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "str_to_su",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def str_to_sum (str):\n    return sum([int(s) for s in str.split(',')])\ndef str_to_media (str):\n    return statistics.mean([int(s) for s in str.split(',')])\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def str_to_sum (str):\n    return sum([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números na média\ndef str_to_media (str):\n    return statistics.mean([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa soma\ndef str_to_max (str):\n    return max([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa soma\ndef str_to_min (str):",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "str_to_medi",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def str_to_media (str):\n    return statistics.mean([int(s) for s in str.split(',')])\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)\n    if(m.group(\"nome\")):\n        t.value = m.group(\"nome\")",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def str_to_media (str):\n    return statistics.mean([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa soma\ndef str_to_max (str):\n    return max([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa soma\ndef str_to_min (str):\n    return min([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa lista com os seus quadrados\ndef str_to_quadrado (str):",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "str_to_ma",
+        "kind": 2,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def str_to_max (str):\n    return max([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa soma\ndef str_to_min (str):\n    return min([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa lista com os seus quadrados\ndef str_to_quadrado (str):\n    return ([pow(float(s),2) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que incrementa uma string\ndef increment_str(str):",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "str_to_mi",
+        "kind": 2,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def str_to_min (str):\n    return min([float(s) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que transforma uma string de números numa lista com os seus quadrados\ndef str_to_quadrado (str):\n    return ([pow(float(s),2) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que incrementa uma string\ndef increment_str(str):\n    if(ord(str[0]) < 122):\n        str = chr(ord(str[0])+1) + str[1:]\n    else:",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "str_to_quadrad",
+        "kind": 2,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def str_to_quadrado (str):\n    return ([pow(float(s),2) for s in re.findall(r'(\\d+(?:\\.\\d+)?)',str)])\n# função que incrementa uma string\ndef increment_str(str):\n    if(ord(str[0]) < 122):\n        str = chr(ord(str[0])+1) + str[1:]\n    else:\n        str = \"a\" + str[0:]\n    return str\n# função que troca o nome de um ficheiro.csv para ficheiro.json",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "increment_str",
+        "kind": 2,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def increment_str(str):\n    if(ord(str[0]) < 122):\n        str = chr(ord(str[0])+1) + str[1:]\n    else:\n        str = \"a\" + str[0:]\n    return str\n# função que troca o nome de um ficheiro.csv para ficheiro.json\ndef change_name(csv):\n    json = re.sub(r'(\\w+\\.)(CSV|csv)',r'\\1json',csv)\n    return json",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "change_name",
+        "kind": 2,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def change_name(csv):\n    json = re.sub(r'(\\w+\\.)(CSV|csv)',r'\\1json',csv)\n    return json\n#PLY\ntokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "t_LISTA",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)\n    if(m.group(\"nome\")):\n        t.value = m.group(\"nome\")\n    if(m.group(\"funcao\")):\n        lexer.funcoes.append((t.value,m.group(\"funcao\")))\n    else: lexer.funcoes.append((t.value,\"normal\"))",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def t_LISTA(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):\n        max = int(m.group(\"max\"))",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "t_NOME",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def t_NOME(t):\n    r'([^,\\n]+)|(\"[^\"]+\")'\n    lexer.exp = lexer.exp + r'(?P<' + t.value + r'>([^,\\n]+)|(\"[^\"]+\"))'\n    lexer.separator = False\n    return t\ndef t_SEPARADOR(t):\n    r','\n    if(not(lexer.separator)): \n        lexer.exp = lexer.exp + r','\n        lexer.separator = True",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def t_NOME(t):\n    r'([^\",\\n]+)|(\"[^\"\\n]+\")'\n    regex = r'(?P<' + lexer.id + r'>([^\",\\n]+)|(\"[^\"\\n]+\"))?'\n    lexer.content.append((lexer.id,\"\",t.value))\n    lexer.id = increment_str(lexer.id)\n    lexer.nfields+=1\n    lexer.regex+=regex\ndef t_SEPARADOR(t):\n    r','\n    if lexer.ncommaslist > 0:",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "t_SEPARADOR",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def t_SEPARADOR(t):\n    r','\n    if(not(lexer.separator)): \n        lexer.exp = lexer.exp + r','\n        lexer.separator = True\n    return t\nt_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Illegal Character\")\nlexer = lex.lex()",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def t_SEPARADOR(t):\n    r','\n    if lexer.ncommaslist > 0:\n        lexer.ncommaslist-=1\n    else: \n        lexer.regex += r','\n        lexer.ncommas+=1\nt_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Invalid Header in csv.\")",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "t_ANY_error",
         "kind": 2,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "def t_ANY_error(t):\n    print(\"Illegal Character\")\nlexer = lex.lex()\nlexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)",
-        "detail": "projeto",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "def t_ANY_error(t):\n    print(\"Invalid Header in csv.\")\n    sys.exit()\nlexer = lex.lex()\nlexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "tokens",
+        "label": "platform",
         "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "tokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^,\\n]+)|(\"[^\"]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    q_min = 0\n    q_max = 0\n    m = re.match(r'(?P<nome>([^,\\n]+)|(\\\"[^\"]+\"))\\{(?P<q_min>\\d)(,(?P<q_max>\\d))?\\}(?P<funcao>::\\w+)?',t.value)\n    if(m.group(\"nome\")):\n        t.value = m.group(\"nome\")\n    if(m.group(\"funcao\")):\n        lexer.funcoes.append((t.value,m.group(\"funcao\")))",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "t_ignore",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "t_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Illegal Character\")\nlexer = lex.lex()\nlexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "lexer",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "lexer = lex.lex()\nlexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "lexer.funcoes",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "lexer.funcoes = []\nlexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "lexer.exp",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "lexer.exp = r''\nlexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "lexer.separator",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "lexer.separator = False\nlexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "lexer.i",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "lexer.i = 0\nfile = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)\n#lexer.exp = lexer.exp + r'$'",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "file",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "file = open(\"texto.csv\",\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)\n#lexer.exp = lexer.exp + r'$'\nexp = re.compile(lexer.exp)",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "header",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "header = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\nif lexer.exp[-1] == \",\":\n    lexer.exp = lexer.exp[:-1]\n#print(lexer.funcoes)\n#lexer.exp = lexer.exp + r'$'\nexp = re.compile(lexer.exp)\ni = 0",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "#lexer.exp",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "#lexer.exp = lexer.exp + r'$'\nexp = re.compile(lexer.exp)\ni = 0\ncontent = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "exp",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "exp = re.compile(lexer.exp)\ni = 0\ncontent = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):\n        dict = m.groupdict()",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "i",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "i = 0\ncontent = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):\n        dict = m.groupdict()\n        for lista in lexer.funcoes:",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "content",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "content = file.read()\n\"\"\"\nfor l in file:\n    print(l[:-1])\n    print(lexer.exp)\n    m = exp.match(l)\n    if(m):\n        dict = m.groupdict()\n        for lista in lexer.funcoes:\n            if(lista[1] == \"normal\"):",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "mos",
-        "kind": 5,
-        "importPath": "projeto",
-        "description": "projeto",
-        "peekOfCode": "mos = exp.finditer(content)\nfor mo in mos:\n    dict = mo.groupdict()\n    for tuplo in lexer.funcoes:\n            funcao = tuplo[1]\n            nome = tuplo[0]\n            if(funcao == \"normal\"):\n                dict[nome] = str_to_list(dict[nome])\n            elif(funcao == \"::sum\"):\n                dict[nome] = str_to_sum(dict[nome])",
-        "detail": "projeto",
-        "documentation": {}
-    },
-    {
-        "label": "Header",
-        "kind": 6,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "class Header:\n    def __init__(self, nome, quant_min, quant_max, tipo):\n        self.nome = nome #nome do intervalo\n        self.quant_min = quant_min #se nao for uma lista, quantidade = 1\n        self.quant_max = quant_max #se nao for uma lista, quantidade = 1\n        self.tipo = tipo #0 -> faz nada, 1 -> soma, 2 -> media\nargs = sys.argv[1:] # argumentos\nfp = open(args[0],\"r\",encoding=\"utf-8\")\nhd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "platform = platform.system()\nif platform == \"Linux\" or  platform ==\"Darwin\":\n    corr = 2\nelif platform == \"Windows\":\n    corr = 3\n# argumentos\nargs = sys.argv[1:] \n# verifica se recebeu 1 argumento\nlenargs = len(args)\nif lenargs != 1:",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "args",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "args = sys.argv[1:] # argumentos\nfp = open(args[0],\"r\",encoding=\"utf-8\")\nhd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "args = sys.argv[1:] \n# verifica se recebeu 1 argumento\nlenargs = len(args)\nif lenargs != 1:\n    print(\"number of arguments invalid! please give one argument.\")\n    sys.exit()\n# verifica se o argumento que recebeu é um .csv\nvalid = re.match(r'\\w+\\.(CSV|csv)$',args[0])\nif valid:\n    print(\"Loading \"+ args[0] +\"...\") ",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "fp",
+        "label": "lenargs",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "fp = open(args[0],\"r\",encoding=\"utf-8\")\nhd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lenargs = len(args)\nif lenargs != 1:\n    print(\"number of arguments invalid! please give one argument.\")\n    sys.exit()\n# verifica se o argumento que recebeu é um .csv\nvalid = re.match(r'\\w+\\.(CSV|csv)$',args[0])\nif valid:\n    print(\"Loading \"+ args[0] +\"...\") \nelse: \n    print(\"invalid arguments!\")",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "hd",
+        "label": "valid",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "hd = fp.readline() # le header do ficheiro\nheaderExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "valid = re.match(r'\\w+\\.(CSV|csv)$',args[0])\nif valid:\n    print(\"Loading \"+ args[0] +\"...\") \nelse: \n    print(\"invalid arguments!\")\n    sys.exit()\n# função que transforma uma string de números numa lista\ndef str_to_list (str):\n    return re.findall(r'[^\\n,]+',str)\n# função que transforma uma string de números numa soma",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "headerExp",
+        "label": "tokens",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "headerExp = re.compile(r\"(?P<lm>[^,\\s]+\\{(\\d,\\d|\\d)\\}::media)|(?P<ls>[^,\\s]+\\{(\\d,\\d|\\d)\\}::sum)|(?P<l>[^,\\s]+\\{(\\d,\\d|\\d)\\})|(?P<n>(\\w+)|\\\"\\S+\\\")\")\nl = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "tokens = [\"LISTA\",\"SEPARADOR\",\"NOME\"]\ndef t_LISTA(t):\n    r'(([^\",\\n]+)|(\"[^\"\\n]+\"))\\{\\d+(,\\d+)?\\}(::\\w+)?'\n    m = re.match(r'(?P<nome>([^\",\\n]+)|(\\\"[^\"\\n]+\"))\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}(?P<funcao>::\\w+)?',t.value)\n    num = r'(\\d+(\\.\\d+)?)'\n    elem = r'([^\\n,]+)'\n    t.value = m.group(\"nome\")\n    min = int(m.group(\"min\"))\n    max = min\n    if(m.group(\"max\")):",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "l",
+        "label": "t_ignore",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "l = headerExp.finditer(hd)\nlistaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):\n        nome = re.sub(r'\"',r'\\\"',i.group(\"n\"))",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "t_ignore = \"\\n\"\ndef t_ANY_error(t):\n    print(\"Invalid Header in csv.\")\n    sys.exit()\nlexer = lex.lex()\nlexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "listaExp",
+        "label": "lexer",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "listaExp = re.compile(r\"(?P<nome>[^{]+)\\{(?P<min>\\d+)(,(?P<max>\\d+))?\\}\")\nheaders = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):\n        nome = re.sub(r'\"',r'\\\"',i.group(\"n\"))\n        min = 1",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer = lex.lex()\nlexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
-        "label": "headers",
+        "label": "lexer.content",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "headers = []\nfor i in l:\n    nome = \"\"\n    min = 0\n    max = 0\n    tipo = 0\n    if i.group(\"n\"):\n        nome = re.sub(r'\"',r'\\\"',i.group(\"n\"))\n        min = 1\n        max = 1",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer.content = []\nlexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.regex",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer.regex = r''\nlexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.id",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer.id = \"a\"\nlexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.ncommas",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer.ncommas = 0\nlexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.nfields",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer.nfields = 0\nlexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "lexer.ncommaslist",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "lexer.ncommaslist = 0\nfile = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")\n    sys.exit()",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "file",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "file = open(args[0],\"r\",encoding=\"utf-8\")\nheader = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")\n    sys.exit()\n# tira a virgula final na expressão regular que o lexer mete a mais caso acabe numa LISTA",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "header",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "header = file.readline()\nlexer.input(header)\nfor tok in lexer:\n    pass\n#verifica se o header é valido (numero de virgulas = numero de campos-1)\nif lexer.ncommas != lexer.nfields-1:\n    print(\"invalid header\")\n    sys.exit()\n# tira a virgula final na expressão regular que o lexer mete a mais caso acabe numa LISTA\nif lexer.regex[-1] == \",\":",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "exp",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "exp = re.compile(lexer.regex)\n# lemos o resto do csv\ncontent = file.read()\n#Cria e abre o ficheiro .json\njson_filename = change_name(args[0])\nfpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "content",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "content = file.read()\n#Cria e abre o ficheiro .json\njson_filename = change_name(args[0])\nfpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "json_filename",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "json_filename = args[0][:-3]\njson_filename += \"json\"\nfpjson = open(json_filename,\"w+\")\nfpjson.write(\"[\")\nfor linha in fp:\n    fpjson.write(\"{\")\n    linha = linha.split(\",\") # mas assim fica mal nos casos de virgulas nos nomes\n    indice_linha = 0\n    for h in headers:   \n        if h.quant_min == 1 and h.quant_max == 1:",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "json_filename = change_name(args[0])\nfpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for tuplo in lexer.content:",
+        "detail": "csv_to_json",
         "documentation": {}
     },
     {
         "label": "fpjson",
         "kind": 5,
-        "importPath": "v1",
-        "description": "v1",
-        "peekOfCode": "fpjson = open(json_filename,\"w+\")\nfpjson.write(\"[\")\nfor linha in fp:\n    fpjson.write(\"{\")\n    linha = linha.split(\",\") # mas assim fica mal nos casos de virgulas nos nomes\n    indice_linha = 0\n    for h in headers:   \n        if h.quant_min == 1 and h.quant_max == 1:\n            fpjson.write(\"\\\"\" + h.nome + \"\\\"\" + \":\" + \"\\\"\" + linha[indice_linha] + \"\\\"\" + \",\")\n            indice_linha +=1",
-        "detail": "v1",
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "fpjson = open(json_filename,\"w+\",encoding=\"utf-8\")\nmos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for tuplo in lexer.content:\n            nomeProv = tuplo[0]",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "mos",
+        "kind": 5,
+        "importPath": "csv_to_json",
+        "description": "csv_to_json",
+        "peekOfCode": "mos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro\nprint(\"Creating \" + json_filename + \"...\")\n#Escreve o dicionário no .json\nfpjson.write(\"[\\n\")\nfor mo in mos: #para cada match object vamos construir o dicionario\n    fpjson.write(\"  {\\n\")\n    dict = mo.groupdict()\n    for tuplo in lexer.content:\n            nomeProv = tuplo[0]\n            funcao = tuplo[1]",
+        "detail": "csv_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "xx",
+        "kind": 5,
+        "importPath": "teste",
+        "description": "teste",
+        "peekOfCode": "xx = \"guru99.,edu32cation is fun\"\nr1 = re.findall(r\"\\d+\\.\",xx)\nprint(r1)",
+        "detail": "teste",
+        "documentation": {}
+    },
+    {
+        "label": "r1",
+        "kind": 5,
+        "importPath": "teste",
+        "description": "teste",
+        "peekOfCode": "r1 = re.findall(r\"\\d+\\.\",xx)\nprint(r1)",
+        "detail": "teste",
         "documentation": {}
     }
 ]

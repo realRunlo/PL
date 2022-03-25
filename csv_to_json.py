@@ -3,12 +3,12 @@ import re
 import statistics
 import sys
 import ply.lex as lex
+import platform
 
-from sys import platform
-print("Platform: " + platform)
-if platform == "linux" or platform == "linux2":
+platform = platform.system()
+if platform == "Linux" or  platform =="Darwin":
     corr = 2
-elif platform == "win32":
+elif platform == "Windows":
     corr = 3
 
 # argumentos
