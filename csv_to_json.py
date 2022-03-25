@@ -64,7 +64,7 @@ tokens = ["LISTA","SEPARADOR","NOME"]
 
 def t_LISTA(t):
     r'(([^",\n]+)|("[^"\n]+"))\{\d+(,\d+)?\}(::\w+)?'
-    m = re.match(r'(?P<nome>([^",\n]+)|(\"[^"\n]+"))\{(?P<min>\d)(,(?P<max>\d))?\}(?P<funcao>::\w+)?',t.value)
+    m = re.match(r'(?P<nome>([^",\n]+)|(\"[^"\n]+"))\{(?P<min>\d+)(,(?P<max>\d+))?\}(?P<funcao>::\w+)?',t.value)
     num = r'(\d+(\.\d+)?)'
     elem = r'([^\n,]+)'
     
