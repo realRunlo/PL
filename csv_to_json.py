@@ -86,10 +86,10 @@ def t_LISTFIELD(t):
     regex = r'(?P<' + lexer.id + r'>'
 
     if(m.group("funcao")):
-        lexer.fields.append((lexer.id,m.group("funcao"),t.value))
+        lexer.fields.append((lexer.id,t.value,m.group("funcao")))
         elem = num
     else: 
-        lexer.fields.append((lexer.id,"::",t.value))
+        lexer.fields.append((lexer.id,t.value,"::"))
         elem = abc
 
     for i in range(min-1):
@@ -107,7 +107,7 @@ def t_LISTFIELD(t):
 def t_FIELD(t):
     r'([^",]+)|("[^"]+")'
     regex = r'(?P<' + lexer.id + r'>([^",\n]+)|("[^"\n]+"))?'
-    lexer.fields.append((lexer.id,"",t.value))
+    lexer.fields.append((lexer.id,t.value,""))
     lexer.id = increment_str(lexer.id)
     lexer.nfields+=1
     lexer.regex+=regex
@@ -134,7 +134,7 @@ lexer.ncommas = 0
 lexer.nfields = 0
 lexer.nlistcommas = 0
 
-file = open(args[0],"r",encoding="utf-8")
+file = open(args[0],"r",encoding="utf-8",errors="surrogateescape")
 header = file.readline()
 
 lexer.input(header)
@@ -152,6 +152,7 @@ if lexer.regex[-1] == ",":
     lexer.regex = lexer.regex[:-1]
     print(lexer.regex)
 
+
 # compilamos a expressão regular criada no lexer
 exp = re.compile(lexer.regex)
 
@@ -160,7 +161,7 @@ content = file.read()
 
 #Cria e abre o ficheiro .json
 json_filename = change_name(args[0])
-fpjson = open(json_filename,"w+",encoding="utf-8")
+fpjson = open(json_filename,"w+",encoding="utf-8",errors="surrogateescape")
 
 mos = exp.finditer(content) #fazer a lista de match objects que deram match com o resto do ficheiro
 
@@ -169,11 +170,11 @@ print("Creating " + json_filename + "...")
 fpjson.write("[\n")
 for mo in mos: #para cada match object vamos construir o dicionario
     fpjson.write("  {\n")
-    dict = mo.groupdict()
+    dict = mo.groupdict() #gerar o dicionário
     for header in lexer.fields:
             nomeProv = header[0]
-            funcao = header[1]
-            strName = re.sub(r'^([^"\n]+)$',r'"\1"',str(header[2])) 
+            funcao = header[2]
+            strName = re.sub(r'^([^"\n]+)$',r'"\1"',str(header[1])) 
             if(funcao == "::"): #significa que é apenas uma lista
                 strValue = str(str_to_list(dict[nomeProv])) #transformamos a string numa lista
                 strValue = re.sub(r"'([^\']+)'",r'"\1"',strValue) #colocamos aspas em todos os elementos (como o json quer) [antes tinham peliculas]
