@@ -1,0 +1,30 @@
+###### FORMULAÇÃO LEXER ######
+
+------- TOKENS --------
+LEX = %%LEX
+LT = %literals
+IG = %ignore
+TK = %tokens
+lit = r"[^\"] | \" "
+ign = r"[\"]*"
+tok = [a-zA-Z]+
+
+------- LITERAIS -------
+=
+"
+[
+]
+%
+(
+)
+
+------- ESTADOS ------- 
+
+SINACTION
+PRODUCTION
+
+
+------- DESCRIÇÃO ------- 
+
+
+
