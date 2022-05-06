@@ -1,0 +1,378 @@
+[
+    {
+        "label": "literals",
+        "importPath": "lib2to3.pgen2",
+        "description": "lib2to3.pgen2",
+        "isExtraImport": true,
+        "detail": "lib2to3.pgen2",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "T",
+        "importPath": "re",
+        "description": "re",
+        "isExtraImport": true,
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "ply.lex",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ply.lex",
+        "description": "ply.lex",
+        "detail": "ply.lex",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "t_LX",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_LX(t):\n    r\"LEX:\"\n    return t\ndef t_LT(t):\n    r\"literals\"\n    return t\ndef t_IG(t):\n    r\"ignore\"\n    return t\ndef t_TK(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_LT",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_LT(t):\n    r\"literals\"\n    return t\ndef t_IG(t):\n    r\"ignore\"\n    return t\ndef t_TK(t):\n    r\"tokens\"\n    return t\ndef t_RT(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_IG",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_IG(t):\n    r\"ignore\"\n    return t\ndef t_TK(t):\n    r\"tokens\"\n    return t\ndef t_RT(t):\n    r\"return\"\n    return t\ndef t_tvalue(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_TK",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_TK(t):\n    r\"tokens\"\n    return t\ndef t_RT(t):\n    r\"return\"\n    return t\ndef t_tvalue(t):\n    r\"t.value\"\n    return t\ndef t_TYPE(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_RT",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_RT(t):\n    r\"return\"\n    return t\ndef t_tvalue(t):\n    r\"t.value\"\n    return t\ndef t_TYPE(t):\n    r\"(float)|(int)|(double)\"\n    return t\ndef t_TVALUE(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_tvalue",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_tvalue(t):\n    r\"t.value\"\n    return t\ndef t_TYPE(t):\n    r\"(float)|(int)|(double)\"\n    return t\ndef t_TVALUE(t):\n    r\"t.value\"\n    return t\ndef t_LFUNC(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_TYPE",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_TYPE(t):\n    r\"(float)|(int)|(double)\"\n    return t\ndef t_TVALUE(t):\n    r\"t.value\"\n    return t\ndef t_LFUNC(t):\n    r\"lfunc:\"\n    t.lexer.begin('REGEX')\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_TVALUE",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_TVALUE(t):\n    r\"t.value\"\n    return t\ndef t_LFUNC(t):\n    r\"lfunc:\"\n    t.lexer.begin('REGEX')\n    return t\ndef t_REGEX_PCA(t):\n    r\"{\"\n    t.lexer.begin('INITIAL')",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_LFUNC",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_LFUNC(t):\n    r\"lfunc:\"\n    t.lexer.begin('REGEX')\n    return t\ndef t_REGEX_PCA(t):\n    r\"{\"\n    t.lexer.begin('INITIAL')\n    return t\ndef t_PCF(t):\n    r\"}\"",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_REGEX_PCA",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_REGEX_PCA(t):\n    r\"{\"\n    t.lexer.begin('INITIAL')\n    return t\ndef t_PCF(t):\n    r\"}\"\n    return t\ndef t_YC(t):\n    r\"YACC\"\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_PCF",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_PCF(t):\n    r\"}\"\n    return t\ndef t_YC(t):\n    r\"YACC\"\n    return t\ndef t_REGEX_GRAMMAR_DOTS(t):\n    r\":\"\n    t.lexer.begin('INITIAL')\ndef t_REGEX_RGX(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_YC",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_YC(t):\n    r\"YACC\"\n    return t\ndef t_REGEX_GRAMMAR_DOTS(t):\n    r\":\"\n    t.lexer.begin('INITIAL')\ndef t_REGEX_RGX(t):\n    r\"((\\\\:)|[^:])+\"\n    return t\ndef t_aspval(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_REGEX_GRAMMAR_DOTS",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_REGEX_GRAMMAR_DOTS(t):\n    r\":\"\n    t.lexer.begin('INITIAL')\ndef t_REGEX_RGX(t):\n    r\"((\\\\:)|[^:])+\"\n    return t\ndef t_aspval(t):\n    r\"\\\"[^0-9\\n]+\\\"\" #n percebo porque é que se puser \\n funciona..\n    return t\ndef t_pelval(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_REGEX_RGX",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_REGEX_RGX(t):\n    r\"((\\\\:)|[^:])+\"\n    return t\ndef t_aspval(t):\n    r\"\\\"[^0-9\\n]+\\\"\" #n percebo porque é que se puser \\n funciona..\n    return t\ndef t_pelval(t):\n    r\"'[A-Za-z]+'\"\n    return t\ndef t_DEC(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_aspval",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_aspval(t):\n    r\"\\\"[^0-9\\n]+\\\"\" #n percebo porque é que se puser \\n funciona..\n    return t\ndef t_pelval(t):\n    r\"'[A-Za-z]+'\"\n    return t\ndef t_DEC(t):\n    r\"declaration:\"\n    return t\ndef t_DEC(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_pelval",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_pelval(t):\n    r\"'[A-Za-z]+'\"\n    return t\ndef t_DEC(t):\n    r\"declaration:\"\n    return t\ndef t_DEC(t):\n    r\"precedend\"\n    return t\ndef t_LEFT(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_DEC",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_DEC(t):\n    r\"declaration:\"\n    return t\ndef t_DEC(t):\n    r\"precedend\"\n    return t\ndef t_LEFT(t):\n    r\"'left'\"\n    return t\ndef t_RIGHT(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_DEC",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_DEC(t):\n    r\"precedend\"\n    return t\ndef t_LEFT(t):\n    r\"'left'\"\n    return t\ndef t_RIGHT(t):\n    r\"'right'\"\n    return t\ndef t_ID(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_LEFT",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_LEFT(t):\n    r\"'left'\"\n    return t\ndef t_RIGHT(t):\n    r\"'right'\"\n    return t\ndef t_ID(t):\n    r\"[A-Za-z]+\"\n    return t\ndef t_GRAMMAR_NT(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_RIGHT",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_RIGHT(t):\n    r\"'right'\"\n    return t\ndef t_ID(t):\n    r\"[A-Za-z]+\"\n    return t\ndef t_GRAMMAR_NT(t):\n    r\"[a-z]+\"\n    return t\ndef t_GRAMMAR_T(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_ID",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_ID(t):\n    r\"[A-Za-z]+\"\n    return t\ndef t_GRAMMAR_NT(t):\n    r\"[a-z]+\"\n    return t\ndef t_GRAMMAR_T(t):\n    r\"[A-Z]+\"\n    return t\ndef t_grammar(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_GRAMMAR_NT",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_GRAMMAR_NT(t):\n    r\"[a-z]+\"\n    return t\ndef t_GRAMMAR_T(t):\n    r\"[A-Z]+\"\n    return t\ndef t_grammar(t):\n    r\"grammar:\"\n    t.lexer.begin('GRAMMAR')\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_GRAMMAR_T",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_GRAMMAR_T(t):\n    r\"[A-Z]+\"\n    return t\ndef t_grammar(t):\n    r\"grammar:\"\n    t.lexer.begin('GRAMMAR')\n    return t\ndef t_GRAMMAR_yfuncs(t):\n    r\"yfuncs:\"\n    t.lexer.begin('INITIAL')",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_grammar",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_grammar(t):\n    r\"grammar:\"\n    t.lexer.begin('GRAMMAR')\n    return t\ndef t_GRAMMAR_yfuncs(t):\n    r\"yfuncs:\"\n    t.lexer.begin('INITIAL')\n    return t\ndef t_GRAMMAR_L(t):\n    r\"'.'\"",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_GRAMMAR_yfuncs",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_GRAMMAR_yfuncs(t):\n    r\"yfuncs:\"\n    t.lexer.begin('INITIAL')\n    return t\ndef t_GRAMMAR_L(t):\n    r\"'.'\"\n    return t\ndef t_error(t):\n    r\"error(.*)\"\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_GRAMMAR_L",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_GRAMMAR_L(t):\n    r\"'.'\"\n    return t\ndef t_error(t):\n    r\"error(.*)\"\n    return t\ndef t_GRAMMAR_PCA(t):\n    r\"{\"\n    t.lexer.begin('CODIGO')\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_error",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_error(t):\n    r\"error(.*)\"\n    return t\ndef t_GRAMMAR_PCA(t):\n    r\"{\"\n    t.lexer.begin('CODIGO')\n    return t\ndef t_CODIGO_PCF(t):\n    r\"}\"\n    t.lexer.begin('GRAMMAR')",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_GRAMMAR_PCA",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_GRAMMAR_PCA(t):\n    r\"{\"\n    t.lexer.begin('CODIGO')\n    return t\ndef t_CODIGO_PCF(t):\n    r\"}\"\n    t.lexer.begin('GRAMMAR')\n    return t\ndef t_CODIGO_cod(t):\n    r\".*\"    #dps ver isto melhor i guess",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_CODIGO_PCF",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_CODIGO_PCF(t):\n    r\"}\"\n    t.lexer.begin('GRAMMAR')\n    return t\ndef t_CODIGO_cod(t):\n    r\".*\"    #dps ver isto melhor i guess\n    return t\ndef t_error(t):\n    print(f\"Illegal character ’{t.value[0]}’, [{t.lexer.lineno}]\")\n    t.lexer.skip(1)",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_CODIGO_cod",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_CODIGO_cod(t):\n    r\".*\"    #dps ver isto melhor i guess\n    return t\ndef t_error(t):\n    print(f\"Illegal character ’{t.value[0]}’, [{t.lexer.lineno}]\")\n    t.lexer.skip(1)\nlexer = lex.lex()\nfile = sys.stdin.read()\nlexer.input(file)\nfor tok in lexer:",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_error",
+        "kind": 2,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "def t_error(t):\n    print(f\"Illegal character ’{t.value[0]}’, [{t.lexer.lineno}]\")\n    t.lexer.skip(1)\nlexer = lex.lex()\nfile = sys.stdin.read()\nlexer.input(file)\nfor tok in lexer:\n    print(tok)",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "states",
+        "kind": 5,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "states = [('REGEX','exclusive'),('GRAMMAR','exclusive'),('CODIGO','exclusive')]\nliterals = ['=',',','[',']','(',')']\ntokens = [\"LX\",\"LT\",\"IG\",\"TK\",\"RGX\",\"YC\",\"DOTS\",\"RT\",\"TVALUE\",\"PCF\",\"TYPE\",\"aspval\",\"pelval\",\"str\",\"DEC\"\n,\"PREC\",\"LEFT\",\"RIGHT\",\"ID\",\"NT\",\"T\",\"grammar\",\"yfuncs\",\"L\",\"error\",\"cod\"]\nt_ignore = \"\\t\\n \"\ndef t_LX(t):\n    r\"LEX:\"\n    return t\ndef t_LT(t):\n    r\"literals\"",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "literals",
+        "kind": 5,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "literals = ['=',',','[',']','(',')']\ntokens = [\"LX\",\"LT\",\"IG\",\"TK\",\"RGX\",\"YC\",\"DOTS\",\"RT\",\"TVALUE\",\"PCF\",\"TYPE\",\"aspval\",\"pelval\",\"str\",\"DEC\"\n,\"PREC\",\"LEFT\",\"RIGHT\",\"ID\",\"NT\",\"T\",\"grammar\",\"yfuncs\",\"L\",\"error\",\"cod\"]\nt_ignore = \"\\t\\n \"\ndef t_LX(t):\n    r\"LEX:\"\n    return t\ndef t_LT(t):\n    r\"literals\"\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "tokens",
+        "kind": 5,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "tokens = [\"LX\",\"LT\",\"IG\",\"TK\",\"RGX\",\"YC\",\"DOTS\",\"RT\",\"TVALUE\",\"PCF\",\"TYPE\",\"aspval\",\"pelval\",\"str\",\"DEC\"\n,\"PREC\",\"LEFT\",\"RIGHT\",\"ID\",\"NT\",\"T\",\"grammar\",\"yfuncs\",\"L\",\"error\",\"cod\"]\nt_ignore = \"\\t\\n \"\ndef t_LX(t):\n    r\"LEX:\"\n    return t\ndef t_LT(t):\n    r\"literals\"\n    return t\ndef t_IG(t):",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "t_ignore",
+        "kind": 5,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "t_ignore = \"\\t\\n \"\ndef t_LX(t):\n    r\"LEX:\"\n    return t\ndef t_LT(t):\n    r\"literals\"\n    return t\ndef t_IG(t):\n    r\"ignore\"\n    return t",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "lexer",
+        "kind": 5,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "lexer = lex.lex()\nfile = sys.stdin.read()\nlexer.input(file)\nfor tok in lexer:\n    print(tok)",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    },
+    {
+        "label": "file",
+        "kind": 5,
+        "importPath": "ply-simple_lex",
+        "description": "ply-simple_lex",
+        "peekOfCode": "file = sys.stdin.read()\nlexer.input(file)\nfor tok in lexer:\n    print(tok)",
+        "detail": "ply-simple_lex",
+        "documentation": {}
+    }
+]
