@@ -4,7 +4,7 @@ ignore  = " \t\n "
 tokens = ['VAR','NUMBER']
 
 lfunc: [a-zA-Z_\][\:a-zA-Z0-9_]*\: : return('VAR', t.value)
-lfunc: \d+(\.\d+)? : return('NUMBER', float(t.value) }
+lfunc: \d+(\.\d+)? : return('NUMBER', float(t.value))
 lfunc: .  : error(f"Illegal character '{t.value[0]}', [{t.lexer.lineno}]",t.lexer.skip(1) )
 
 YACC:

@@ -196,8 +196,12 @@ def t_INITIAL_REGEX_CODIGO_GRAMMAR_YFUNC_error(t):
     t.lexer.skip(1)
 
 lexer = lex.lex()
+
+
 file = sys.stdin.read()
 
 lexer.input(file)
 for tok in lexer:
     print(tok)
+
+
