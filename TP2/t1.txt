@@ -39,8 +39,8 @@ exp : NUMBER { t[0] = t[1] } #NT DOTS T '{'  cod   '}'
 exp : VAR { t[0] = getval(t[1]) } #NT DOTS T '{'  cod   '}'
 
 yfuncs: #YFUNCS
-def p_error(t): #CHAPAR O TEXT
-    print(f"Syntax error at ’{t.value}’, [{t.lexer.lineno}]")
-def getval(n):
-    if n not in ts: print(f"Undefined name ’{n}’")
-    return ts.get(n,0)
+def p_error(t): #DEF FUNC '(' arg ')'
+    print(f"Syntax error at ’{t.value}’, [{t.lexer.lineno}]") #cod
+def getval(n): #DEF FUNC '(' arg ')'
+    if n not in ts: print(f"Undefined name ’{n}’") #cod
+    return ts.get(n,0) #cod
