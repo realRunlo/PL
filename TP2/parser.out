@@ -1,0 +1,418 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    DEC
+    DEF
+    FUNC
+    ID
+    L
+    LEFT
+    NT
+    PCA
+    PCF
+    PREC
+    PRECEDENT
+    RIGHT
+    T
+    YC
+    arg
+    cod
+    grammar
+    str
+    yfuncs
+
+Grammar
+
+Rule 0     S' -> Ply
+Rule 1     Ply -> Lex
+Rule 2     Lex -> LX Literals Ignore Tokens Lfuncs
+Rule 3     Literals -> LT = aspval
+Rule 4     Literals -> <empty>
+Rule 5     Ignore -> IG = aspval
+Rule 6     Ignore -> <empty>
+Rule 7     Tokens -> TK = [ Tokl ]
+Rule 8     Tokl -> Tokl , pelval
+Rule 9     Tokl -> pelval
+Rule 10    Lfuncs -> Lfuncs Lfunc
+Rule 11    Lfuncs -> <empty>
+Rule 12    Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF
+Rule 13    Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF
+Rule 14    Lfunc -> LFUNC RGX DOTS ER PF
+
+Terminals, with rules where they appear
+
+,                    : 8 12 13
+=                    : 3 5 7
+DEC                  : 
+DEF                  : 
+DOTS                 : 12 13 14
+ER                   : 14
+FUNC                 : 
+ID                   : 
+IG                   : 5
+L                    : 
+LEFT                 : 
+LFUNC                : 12 13 14
+LT                   : 3
+LX                   : 2
+NT                   : 
+PA                   : 12 13 13
+PCA                  : 
+PCF                  : 
+PF                   : 12 13 13 14
+PREC                 : 
+PRECEDENT            : 
+RGX                  : 12 13 14
+RIGHT                : 
+RT                   : 12 13
+T                    : 
+TK                   : 7
+TVALUE               : 12 13
+TYPE                 : 13
+YC                   : 
+[                    : 7
+]                    : 7
+arg                  : 
+aspval               : 3 5
+cod                  : 
+error                : 
+grammar              : 
+pelval               : 8 9 12 13
+str                  : 
+yfuncs               : 
+
+Nonterminals, with rules where they appear
+
+Ignore               : 2
+Lex                  : 1
+Lfunc                : 10
+Lfuncs               : 2 10
+Literals             : 2
+Ply                  : 0
+Tokens               : 2
+Tokl                 : 7 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Ply
+    (1) Ply -> . Lex
+    (2) Lex -> . LX Literals Ignore Tokens Lfuncs
+
+    LX              shift and go to state 3
+
+    Ply                            shift and go to state 1
+    Lex                            shift and go to state 2
+
+state 1
+
+    (0) S' -> Ply .
+
+
+
+state 2
+
+    (1) Ply -> Lex .
+
+    $end            reduce using rule 1 (Ply -> Lex .)
+
+
+state 3
+
+    (2) Lex -> LX . Literals Ignore Tokens Lfuncs
+    (3) Literals -> . LT = aspval
+    (4) Literals -> .
+
+    LT              shift and go to state 5
+    IG              reduce using rule 4 (Literals -> .)
+    TK              reduce using rule 4 (Literals -> .)
+
+    Literals                       shift and go to state 4
+
+state 4
+
+    (2) Lex -> LX Literals . Ignore Tokens Lfuncs
+    (5) Ignore -> . IG = aspval
+    (6) Ignore -> .
+
+    IG              shift and go to state 7
+    TK              reduce using rule 6 (Ignore -> .)
+
+    Ignore                         shift and go to state 6
+
+state 5
+
+    (3) Literals -> LT . = aspval
+
+    =               shift and go to state 8
+
+
+state 6
+
+    (2) Lex -> LX Literals Ignore . Tokens Lfuncs
+    (7) Tokens -> . TK = [ Tokl ]
+
+    TK              shift and go to state 10
+
+    Tokens                         shift and go to state 9
+
+state 7
+
+    (5) Ignore -> IG . = aspval
+
+    =               shift and go to state 11
+
+
+state 8
+
+    (3) Literals -> LT = . aspval
+
+    aspval          shift and go to state 12
+
+
+state 9
+
+    (2) Lex -> LX Literals Ignore Tokens . Lfuncs
+    (10) Lfuncs -> . Lfuncs Lfunc
+    (11) Lfuncs -> .
+
+    LFUNC           reduce using rule 11 (Lfuncs -> .)
+    $end            reduce using rule 11 (Lfuncs -> .)
+
+    Lfuncs                         shift and go to state 13
+
+state 10
+
+    (7) Tokens -> TK . = [ Tokl ]
+
+    =               shift and go to state 14
+
+
+state 11
+
+    (5) Ignore -> IG = . aspval
+
+    aspval          shift and go to state 15
+
+
+state 12
+
+    (3) Literals -> LT = aspval .
+
+    IG              reduce using rule 3 (Literals -> LT = aspval .)
+    TK              reduce using rule 3 (Literals -> LT = aspval .)
+
+
+state 13
+
+    (2) Lex -> LX Literals Ignore Tokens Lfuncs .
+    (10) Lfuncs -> Lfuncs . Lfunc
+    (12) Lfunc -> . LFUNC RGX DOTS RT PA pelval , TVALUE PF
+    (13) Lfunc -> . LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF
+    (14) Lfunc -> . LFUNC RGX DOTS ER PF
+
+    $end            reduce using rule 2 (Lex -> LX Literals Ignore Tokens Lfuncs .)
+    LFUNC           shift and go to state 17
+
+    Lfunc                          shift and go to state 16
+
+state 14
+
+    (7) Tokens -> TK = . [ Tokl ]
+
+    [               shift and go to state 18
+
+
+state 15
+
+    (5) Ignore -> IG = aspval .
+
+    TK              reduce using rule 5 (Ignore -> IG = aspval .)
+
+
+state 16
+
+    (10) Lfuncs -> Lfuncs Lfunc .
+
+    LFUNC           reduce using rule 10 (Lfuncs -> Lfuncs Lfunc .)
+    $end            reduce using rule 10 (Lfuncs -> Lfuncs Lfunc .)
+
+
+state 17
+
+    (12) Lfunc -> LFUNC . RGX DOTS RT PA pelval , TVALUE PF
+    (13) Lfunc -> LFUNC . RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF
+    (14) Lfunc -> LFUNC . RGX DOTS ER PF
+
+    RGX             shift and go to state 19
+
+
+state 18
+
+    (7) Tokens -> TK = [ . Tokl ]
+    (8) Tokl -> . Tokl , pelval
+    (9) Tokl -> . pelval
+
+    pelval          shift and go to state 21
+
+    Tokl                           shift and go to state 20
+
+state 19
+
+    (12) Lfunc -> LFUNC RGX . DOTS RT PA pelval , TVALUE PF
+    (13) Lfunc -> LFUNC RGX . DOTS RT PA pelval , TYPE PA TVALUE PF PF
+    (14) Lfunc -> LFUNC RGX . DOTS ER PF
+
+    DOTS            shift and go to state 22
+
+
+state 20
+
+    (7) Tokens -> TK = [ Tokl . ]
+    (8) Tokl -> Tokl . , pelval
+
+    ]               shift and go to state 23
+    ,               shift and go to state 24
+
+
+state 21
+
+    (9) Tokl -> pelval .
+
+    ]               reduce using rule 9 (Tokl -> pelval .)
+    ,               reduce using rule 9 (Tokl -> pelval .)
+
+
+state 22
+
+    (12) Lfunc -> LFUNC RGX DOTS . RT PA pelval , TVALUE PF
+    (13) Lfunc -> LFUNC RGX DOTS . RT PA pelval , TYPE PA TVALUE PF PF
+    (14) Lfunc -> LFUNC RGX DOTS . ER PF
+
+    RT              shift and go to state 25
+    ER              shift and go to state 26
+
+
+state 23
+
+    (7) Tokens -> TK = [ Tokl ] .
+
+    LFUNC           reduce using rule 7 (Tokens -> TK = [ Tokl ] .)
+    $end            reduce using rule 7 (Tokens -> TK = [ Tokl ] .)
+
+
+state 24
+
+    (8) Tokl -> Tokl , . pelval
+
+    pelval          shift and go to state 27
+
+
+state 25
+
+    (12) Lfunc -> LFUNC RGX DOTS RT . PA pelval , TVALUE PF
+    (13) Lfunc -> LFUNC RGX DOTS RT . PA pelval , TYPE PA TVALUE PF PF
+
+    PA              shift and go to state 28
+
+
+state 26
+
+    (14) Lfunc -> LFUNC RGX DOTS ER . PF
+
+    PF              shift and go to state 29
+
+
+state 27
+
+    (8) Tokl -> Tokl , pelval .
+
+    ]               reduce using rule 8 (Tokl -> Tokl , pelval .)
+    ,               reduce using rule 8 (Tokl -> Tokl , pelval .)
+
+
+state 28
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA . pelval , TVALUE PF
+    (13) Lfunc -> LFUNC RGX DOTS RT PA . pelval , TYPE PA TVALUE PF PF
+
+    pelval          shift and go to state 30
+
+
+state 29
+
+    (14) Lfunc -> LFUNC RGX DOTS ER PF .
+
+    LFUNC           reduce using rule 14 (Lfunc -> LFUNC RGX DOTS ER PF .)
+    $end            reduce using rule 14 (Lfunc -> LFUNC RGX DOTS ER PF .)
+
+
+state 30
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval . , TVALUE PF
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval . , TYPE PA TVALUE PF PF
+
+    ,               shift and go to state 31
+
+
+state 31
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , . TVALUE PF
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , . TYPE PA TVALUE PF PF
+
+    TVALUE          shift and go to state 32
+    TYPE            shift and go to state 33
+
+
+state 32
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE . PF
+
+    PF              shift and go to state 34
+
+
+state 33
+
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE . PA TVALUE PF PF
+
+    PA              shift and go to state 35
+
+
+state 34
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF .
+
+    LFUNC           reduce using rule 12 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF .)
+    $end            reduce using rule 12 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF .)
+
+
+state 35
+
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA . TVALUE PF PF
+
+    TVALUE          shift and go to state 36
+
+
+state 36
+
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE . PF PF
+
+    PF              shift and go to state 37
+
+
+state 37
+
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF . PF
+
+    PF              shift and go to state 38
+
+
+state 38
+
+    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF .
+
+    LFUNC           reduce using rule 13 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF .)
+    $end            reduce using rule 13 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF .)
+

@@ -1,3 +1,4 @@
+import re
 import ply.yacc as yacc 
 from plysimple_lex import tokens, literals 
 
@@ -11,10 +12,13 @@ def p_Lex(p):
 
 def p_Literals(p):
     "Literals : LT '=' aspval"
-    p[0] = "literals = " + p[3]
+    p[3] = p[3][1:-1] #remove as aspas
+    lits = [char for char in p[3]] #transforma a string numa lista de chars
+    p[0] = "literals = " + str(lits)
 
 def p_Literals_empty(p):
     "Literals : "
+    p[0] = ""
 
 def p_Ignore(p):
     "Ignore : IG '=' aspval"
@@ -22,6 +26,7 @@ def p_Ignore(p):
 
 def p_Ignore_empty(p):
     "Ignore : "
+    p[0] = ""
 
 def p_Tokens(p):
     "Tokens : TK '=' '[' Tokl ']'"
@@ -37,22 +42,27 @@ def p_Tokl_single(p):
 
 def p_Lfuncs(p):
     "Lfuncs : Lfuncs Lfunc"
+    p[0] = ""
 
 
 def p_Lfuncs_empty(p):
     "Lfuncs : "
+    p[0] = ""
 
 
 def p_Lfunc(p):
     "Lfunc : LFUNC RGX DOTS RT PA pelval ',' TVALUE PF "
+    p[0] = ""
 
 
 def p_Lfunc_type(p):
     "Lfunc : LFUNC RGX DOTS RT PA pelval ',' TYPE PA TVALUE PF PF"
+    p[0] = ""
 
 
 def p_Lfunc_error(p):
     "Lfunc : LFUNC RGX DOTS ER PF " #o lexer n está a apanhar tudo para o ER,rever
+    p[0] = ""
 
 
 
