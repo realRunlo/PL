@@ -9,15 +9,12 @@ Unused terminals:
     L
     LEFT
     NT
-    PCA
-    PCF
     PREC
     PRECEDENT
     RIGHT
     T
     YC
     arg
-    cod
     grammar
     str
     yfuncs
@@ -26,7 +23,7 @@ Grammar
 
 Rule 0     S' -> Ply
 Rule 1     Ply -> Lex
-Rule 2     Lex -> LX Literals Ignore Tokens Lfuncs
+Rule 2     Lex -> LX Literals Ignore Tokens Lfuncs Lfuncerror
 Rule 3     Literals -> LT = aspval
 Rule 4     Literals -> <empty>
 Rule 5     Ignore -> IG = aspval
@@ -36,62 +33,73 @@ Rule 8     Tokl -> Tokl , pelval
 Rule 9     Tokl -> pelval
 Rule 10    Lfuncs -> Lfuncs Lfunc
 Rule 11    Lfuncs -> <empty>
-Rule 12    Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF
-Rule 13    Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF
-Rule 14    Lfunc -> LFUNC RGX DOTS ER PF
+Rule 12    Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval PF
+Rule 13    Tval -> TVALUE
+Rule 14    Tval -> TYPE PA TVALUE PF
+Rule 15    Lfuncerror -> LFUNC RGX DOTS ER Codigos PF
+Rule 16    Lfuncerror -> <empty>
+Rule 17    Codigos -> Codigos Codigo
+Rule 18    Codigos -> <empty>
+Rule 19    Codigo -> cod
+Rule 20    Codigo -> PCA Codigo PCF
+Rule 21    Codigo -> PA Codigo PF
 
 Terminals, with rules where they appear
 
-,                    : 8 12 13
+,                    : 8 12
 =                    : 3 5 7
 DEC                  : 
 DEF                  : 
-DOTS                 : 12 13 14
-ER                   : 14
+DOTS                 : 12 15
+ER                   : 15
 FUNC                 : 
 ID                   : 
 IG                   : 5
 L                    : 
 LEFT                 : 
-LFUNC                : 12 13 14
+LFUNC                : 12 15
 LT                   : 3
 LX                   : 2
 NT                   : 
-PA                   : 12 13 13
-PCA                  : 
-PCF                  : 
-PF                   : 12 13 13 14
+PA                   : 12 14 21
+PCA                  : 20
+PCF                  : 20
+PF                   : 12 14 15 21
 PREC                 : 
 PRECEDENT            : 
-RGX                  : 12 13 14
+RGX                  : 12 15
 RIGHT                : 
-RT                   : 12 13
+RT                   : 12
 T                    : 
 TK                   : 7
-TVALUE               : 12 13
-TYPE                 : 13
+TVALUE               : 13 14
+TYPE                 : 14
 YC                   : 
 [                    : 7
 ]                    : 7
 arg                  : 
 aspval               : 3 5
-cod                  : 
+cod                  : 19
 error                : 
 grammar              : 
-pelval               : 8 9 12 13
+pelval               : 8 9 12
 str                  : 
 yfuncs               : 
 
 Nonterminals, with rules where they appear
 
+Codigo               : 17 20 21
+Codigos              : 15 17
 Ignore               : 2
 Lex                  : 1
 Lfunc                : 10
+Lfuncerror           : 2
 Lfuncs               : 2 10
 Literals             : 2
 Ply                  : 0
 Tokens               : 2
 Tokl                 : 7 8
+Tval                 : 12
 
 Parsing method: LALR
 
@@ -99,7 +107,7 @@ state 0
 
     (0) S' -> . Ply
     (1) Ply -> . Lex
-    (2) Lex -> . LX Literals Ignore Tokens Lfuncs
+    (2) Lex -> . LX Literals Ignore Tokens Lfuncs Lfuncerror
 
     LX              shift and go to state 3
 
@@ -121,7 +129,7 @@ state 2
 
 state 3
 
-    (2) Lex -> LX . Literals Ignore Tokens Lfuncs
+    (2) Lex -> LX . Literals Ignore Tokens Lfuncs Lfuncerror
     (3) Literals -> . LT = aspval
     (4) Literals -> .
 
@@ -133,7 +141,7 @@ state 3
 
 state 4
 
-    (2) Lex -> LX Literals . Ignore Tokens Lfuncs
+    (2) Lex -> LX Literals . Ignore Tokens Lfuncs Lfuncerror
     (5) Ignore -> . IG = aspval
     (6) Ignore -> .
 
@@ -151,7 +159,7 @@ state 5
 
 state 6
 
-    (2) Lex -> LX Literals Ignore . Tokens Lfuncs
+    (2) Lex -> LX Literals Ignore . Tokens Lfuncs Lfuncerror
     (7) Tokens -> . TK = [ Tokl ]
 
     TK              shift and go to state 10
@@ -174,7 +182,7 @@ state 8
 
 state 9
 
-    (2) Lex -> LX Literals Ignore Tokens . Lfuncs
+    (2) Lex -> LX Literals Ignore Tokens . Lfuncs Lfuncerror
     (10) Lfuncs -> . Lfuncs Lfunc
     (11) Lfuncs -> .
 
@@ -207,22 +215,23 @@ state 12
 
 state 13
 
-    (2) Lex -> LX Literals Ignore Tokens Lfuncs .
+    (2) Lex -> LX Literals Ignore Tokens Lfuncs . Lfuncerror
     (10) Lfuncs -> Lfuncs . Lfunc
-    (12) Lfunc -> . LFUNC RGX DOTS RT PA pelval , TVALUE PF
-    (13) Lfunc -> . LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF
-    (14) Lfunc -> . LFUNC RGX DOTS ER PF
+    (15) Lfuncerror -> . LFUNC RGX DOTS ER Codigos PF
+    (16) Lfuncerror -> .
+    (12) Lfunc -> . LFUNC RGX DOTS RT PA pelval , Tval PF
 
-    $end            reduce using rule 2 (Lex -> LX Literals Ignore Tokens Lfuncs .)
-    LFUNC           shift and go to state 17
+    LFUNC           shift and go to state 18
+    $end            reduce using rule 16 (Lfuncerror -> .)
 
-    Lfunc                          shift and go to state 16
+    Lfuncerror                     shift and go to state 16
+    Lfunc                          shift and go to state 17
 
 state 14
 
     (7) Tokens -> TK = . [ Tokl ]
 
-    [               shift and go to state 18
+    [               shift and go to state 19
 
 
 state 15
@@ -234,50 +243,55 @@ state 15
 
 state 16
 
+    (2) Lex -> LX Literals Ignore Tokens Lfuncs Lfuncerror .
+
+    $end            reduce using rule 2 (Lex -> LX Literals Ignore Tokens Lfuncs Lfuncerror .)
+
+
+state 17
+
     (10) Lfuncs -> Lfuncs Lfunc .
 
     LFUNC           reduce using rule 10 (Lfuncs -> Lfuncs Lfunc .)
     $end            reduce using rule 10 (Lfuncs -> Lfuncs Lfunc .)
 
 
-state 17
-
-    (12) Lfunc -> LFUNC . RGX DOTS RT PA pelval , TVALUE PF
-    (13) Lfunc -> LFUNC . RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF
-    (14) Lfunc -> LFUNC . RGX DOTS ER PF
-
-    RGX             shift and go to state 19
-
-
 state 18
+
+    (15) Lfuncerror -> LFUNC . RGX DOTS ER Codigos PF
+    (12) Lfunc -> LFUNC . RGX DOTS RT PA pelval , Tval PF
+
+    RGX             shift and go to state 20
+
+
+state 19
 
     (7) Tokens -> TK = [ . Tokl ]
     (8) Tokl -> . Tokl , pelval
     (9) Tokl -> . pelval
 
-    pelval          shift and go to state 21
+    pelval          shift and go to state 22
 
-    Tokl                           shift and go to state 20
-
-state 19
-
-    (12) Lfunc -> LFUNC RGX . DOTS RT PA pelval , TVALUE PF
-    (13) Lfunc -> LFUNC RGX . DOTS RT PA pelval , TYPE PA TVALUE PF PF
-    (14) Lfunc -> LFUNC RGX . DOTS ER PF
-
-    DOTS            shift and go to state 22
-
+    Tokl                           shift and go to state 21
 
 state 20
+
+    (15) Lfuncerror -> LFUNC RGX . DOTS ER Codigos PF
+    (12) Lfunc -> LFUNC RGX . DOTS RT PA pelval , Tval PF
+
+    DOTS            shift and go to state 23
+
+
+state 21
 
     (7) Tokens -> TK = [ Tokl . ]
     (8) Tokl -> Tokl . , pelval
 
-    ]               shift and go to state 23
-    ,               shift and go to state 24
+    ]               shift and go to state 24
+    ,               shift and go to state 25
 
 
-state 21
+state 22
 
     (9) Tokl -> pelval .
 
@@ -285,17 +299,16 @@ state 21
     ,               reduce using rule 9 (Tokl -> pelval .)
 
 
-state 22
-
-    (12) Lfunc -> LFUNC RGX DOTS . RT PA pelval , TVALUE PF
-    (13) Lfunc -> LFUNC RGX DOTS . RT PA pelval , TYPE PA TVALUE PF PF
-    (14) Lfunc -> LFUNC RGX DOTS . ER PF
-
-    RT              shift and go to state 25
-    ER              shift and go to state 26
-
-
 state 23
+
+    (15) Lfuncerror -> LFUNC RGX DOTS . ER Codigos PF
+    (12) Lfunc -> LFUNC RGX DOTS . RT PA pelval , Tval PF
+
+    ER              shift and go to state 26
+    RT              shift and go to state 27
+
+
+state 24
 
     (7) Tokens -> TK = [ Tokl ] .
 
@@ -303,29 +316,34 @@ state 23
     $end            reduce using rule 7 (Tokens -> TK = [ Tokl ] .)
 
 
-state 24
+state 25
 
     (8) Tokl -> Tokl , . pelval
 
-    pelval          shift and go to state 27
-
-
-state 25
-
-    (12) Lfunc -> LFUNC RGX DOTS RT . PA pelval , TVALUE PF
-    (13) Lfunc -> LFUNC RGX DOTS RT . PA pelval , TYPE PA TVALUE PF PF
-
-    PA              shift and go to state 28
+    pelval          shift and go to state 28
 
 
 state 26
 
-    (14) Lfunc -> LFUNC RGX DOTS ER . PF
+    (15) Lfuncerror -> LFUNC RGX DOTS ER . Codigos PF
+    (17) Codigos -> . Codigos Codigo
+    (18) Codigos -> .
 
-    PF              shift and go to state 29
+    PF              reduce using rule 18 (Codigos -> .)
+    cod             reduce using rule 18 (Codigos -> .)
+    PCA             reduce using rule 18 (Codigos -> .)
+    PA              reduce using rule 18 (Codigos -> .)
 
+    Codigos                        shift and go to state 29
 
 state 27
+
+    (12) Lfunc -> LFUNC RGX DOTS RT . PA pelval , Tval PF
+
+    PA              shift and go to state 30
+
+
+state 28
 
     (8) Tokl -> Tokl , pelval .
 
@@ -333,86 +351,182 @@ state 27
     ,               reduce using rule 8 (Tokl -> Tokl , pelval .)
 
 
-state 28
-
-    (12) Lfunc -> LFUNC RGX DOTS RT PA . pelval , TVALUE PF
-    (13) Lfunc -> LFUNC RGX DOTS RT PA . pelval , TYPE PA TVALUE PF PF
-
-    pelval          shift and go to state 30
-
-
 state 29
 
-    (14) Lfunc -> LFUNC RGX DOTS ER PF .
+    (15) Lfuncerror -> LFUNC RGX DOTS ER Codigos . PF
+    (17) Codigos -> Codigos . Codigo
+    (19) Codigo -> . cod
+    (20) Codigo -> . PCA Codigo PCF
+    (21) Codigo -> . PA Codigo PF
 
-    LFUNC           reduce using rule 14 (Lfunc -> LFUNC RGX DOTS ER PF .)
-    $end            reduce using rule 14 (Lfunc -> LFUNC RGX DOTS ER PF .)
+    PF              shift and go to state 31
+    cod             shift and go to state 33
+    PCA             shift and go to state 34
+    PA              shift and go to state 35
 
+    Codigo                         shift and go to state 32
 
 state 30
 
-    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval . , TVALUE PF
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval . , TYPE PA TVALUE PF PF
+    (12) Lfunc -> LFUNC RGX DOTS RT PA . pelval , Tval PF
 
-    ,               shift and go to state 31
+    pelval          shift and go to state 36
 
 
 state 31
 
-    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , . TVALUE PF
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , . TYPE PA TVALUE PF PF
+    (15) Lfuncerror -> LFUNC RGX DOTS ER Codigos PF .
 
-    TVALUE          shift and go to state 32
-    TYPE            shift and go to state 33
+    $end            reduce using rule 15 (Lfuncerror -> LFUNC RGX DOTS ER Codigos PF .)
 
 
 state 32
 
-    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE . PF
+    (17) Codigos -> Codigos Codigo .
 
-    PF              shift and go to state 34
+    PF              reduce using rule 17 (Codigos -> Codigos Codigo .)
+    cod             reduce using rule 17 (Codigos -> Codigos Codigo .)
+    PCA             reduce using rule 17 (Codigos -> Codigos Codigo .)
+    PA              reduce using rule 17 (Codigos -> Codigos Codigo .)
 
 
 state 33
 
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE . PA TVALUE PF PF
+    (19) Codigo -> cod .
 
-    PA              shift and go to state 35
+    PF              reduce using rule 19 (Codigo -> cod .)
+    cod             reduce using rule 19 (Codigo -> cod .)
+    PCA             reduce using rule 19 (Codigo -> cod .)
+    PA              reduce using rule 19 (Codigo -> cod .)
+    PCF             reduce using rule 19 (Codigo -> cod .)
 
 
 state 34
 
-    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF .
+    (20) Codigo -> PCA . Codigo PCF
+    (19) Codigo -> . cod
+    (20) Codigo -> . PCA Codigo PCF
+    (21) Codigo -> . PA Codigo PF
 
-    LFUNC           reduce using rule 12 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF .)
-    $end            reduce using rule 12 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF .)
+    cod             shift and go to state 33
+    PCA             shift and go to state 34
+    PA              shift and go to state 35
 
+    Codigo                         shift and go to state 37
 
 state 35
 
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA . TVALUE PF PF
+    (21) Codigo -> PA . Codigo PF
+    (19) Codigo -> . cod
+    (20) Codigo -> . PCA Codigo PCF
+    (21) Codigo -> . PA Codigo PF
 
-    TVALUE          shift and go to state 36
+    cod             shift and go to state 33
+    PCA             shift and go to state 34
+    PA              shift and go to state 35
 
+    Codigo                         shift and go to state 38
 
 state 36
 
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE . PF PF
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval . , Tval PF
 
-    PF              shift and go to state 37
+    ,               shift and go to state 39
 
 
 state 37
 
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF . PF
+    (20) Codigo -> PCA Codigo . PCF
 
-    PF              shift and go to state 38
+    PCF             shift and go to state 40
 
 
 state 38
 
-    (13) Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF .
+    (21) Codigo -> PA Codigo . PF
 
-    LFUNC           reduce using rule 13 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF .)
-    $end            reduce using rule 13 (Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF .)
+    PF              shift and go to state 41
+
+
+state 39
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , . Tval PF
+    (13) Tval -> . TVALUE
+    (14) Tval -> . TYPE PA TVALUE PF
+
+    TVALUE          shift and go to state 43
+    TYPE            shift and go to state 44
+
+    Tval                           shift and go to state 42
+
+state 40
+
+    (20) Codigo -> PCA Codigo PCF .
+
+    PF              reduce using rule 20 (Codigo -> PCA Codigo PCF .)
+    cod             reduce using rule 20 (Codigo -> PCA Codigo PCF .)
+    PCA             reduce using rule 20 (Codigo -> PCA Codigo PCF .)
+    PA              reduce using rule 20 (Codigo -> PCA Codigo PCF .)
+    PCF             reduce using rule 20 (Codigo -> PCA Codigo PCF .)
+
+
+state 41
+
+    (21) Codigo -> PA Codigo PF .
+
+    PF              reduce using rule 21 (Codigo -> PA Codigo PF .)
+    cod             reduce using rule 21 (Codigo -> PA Codigo PF .)
+    PCA             reduce using rule 21 (Codigo -> PA Codigo PF .)
+    PA              reduce using rule 21 (Codigo -> PA Codigo PF .)
+    PCF             reduce using rule 21 (Codigo -> PA Codigo PF .)
+
+
+state 42
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval . PF
+
+    PF              shift and go to state 45
+
+
+state 43
+
+    (13) Tval -> TVALUE .
+
+    PF              reduce using rule 13 (Tval -> TVALUE .)
+
+
+state 44
+
+    (14) Tval -> TYPE . PA TVALUE PF
+
+    PA              shift and go to state 46
+
+
+state 45
+
+    (12) Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval PF .
+
+    LFUNC           reduce using rule 12 (Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval PF .)
+    $end            reduce using rule 12 (Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval PF .)
+
+
+state 46
+
+    (14) Tval -> TYPE PA . TVALUE PF
+
+    TVALUE          shift and go to state 47
+
+
+state 47
+
+    (14) Tval -> TYPE PA TVALUE . PF
+
+    PF              shift and go to state 48
+
+
+state 48
+
+    (14) Tval -> TYPE PA TVALUE PF .
+
+    PF              reduce using rule 14 (Tval -> TYPE PA TVALUE PF .)
 

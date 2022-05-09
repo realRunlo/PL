@@ -1,5 +1,4 @@
 from lib2to3.pgen2 import literals
-from re import T
 import re
 import ply.lex as lex
 import sys
@@ -11,7 +10,7 @@ literals = ['=',',','[',']']
 tokens = ["LX","LT","IG","TK","RGX","YC","DOTS","RT","TVALUE","PA","PF","PCA","PCF","TYPE","aspval","pelval","str","DEC"
 ,"PRECEDENT","PREC","LEFT","RIGHT","ID","NT","T","grammar","yfuncs","L","ER","cod","LFUNC","DEF","FUNC","arg"]
 
-t_INITIAL_REGEX_GRAMMAR_CODIGO_YFUNC_ARGS_ignore = "\t\n "
+t_ANY_ignore = "\t\n "
 
 def t_LX(t):
     r"LEX:"
@@ -79,6 +78,11 @@ def t_ARGS_arg(t):
     r"[a-z]+"
     return t
 
+def t_ER(t):
+    r"error\("
+    t.lexer.push_state('CODIGO')
+    return t
+
 def t_TYPE(t):
     r"(float)|(int)|(double)"
     return t
@@ -120,7 +124,12 @@ def t_YFUNC_PA(t):
     t.lexer.push_state('ARGS')
     return t
 
-def t_ARGS_PF(t):
+def t_INITIAL_CODIGO_PA(t):
+    r"\("
+    t.lexer.push_state('CODIGO')
+    return t
+
+def t_ARGS_CODIGO_PF(t):
     r"\)"
     t.lexer.pop_state()
     return t
@@ -163,10 +172,6 @@ def t_pelval(t):
     r"'[^']+'"
     return t
 
-def t_ER(t):
-    r"error([^)]*)"
-    return t
-
 def t_GRAMMAR_NT(t):
     r"[a-z]+"
     return t
@@ -184,16 +189,22 @@ def t_ID(t):
     return t
 
 def t_CODIGO_cod(t):
-    r"([^{}])+"
+    r"([^{}\(\)])+"
     return t
 
 def t_YFUNC_cod(t):
     r"\t[^\n]+\n"
     return t
 
-def t_INITIAL_REGEX_CODIGO_GRAMMAR_YFUNC_error(t):
-    print(f"Illegal character ’{t.value[0]}’, [{t.lexer.lineno}]")
+def t_ANY_error(t):
+    print(f"Illegal character '{t.value[0]}', [{t.lexer.lineno}]")
     t.lexer.skip(1)
 
 lexer = lex.lex()
+
+file = open("t.txt","r",encoding="utf-8",errors="surrogateescape")
+lexer.input(file.read())
+
+for token in lexer:
+    print(token)
 

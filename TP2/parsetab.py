@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = "DEC DEF DOTS ER FUNC ID IG L LEFT LFUNC LT LX NT PA PCA PCF PF PREC PRECEDENT RGX RIGHT RT T TK TVALUE TYPE YC arg aspval cod grammar pelval str yfuncsPly : LexLex : LX Literals Ignore Tokens LfuncsLiterals : LT '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TK '=' '[' Tokl ']'Tokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC RGX DOTS RT PA pelval ',' TVALUE PF Lfunc : LFUNC RGX DOTS RT PA pelval ',' TYPE PA TVALUE PF PFLfunc : LFUNC RGX DOTS ER PF "
+_lr_signature = "DEC DEF DOTS ER FUNC ID IG L LEFT LFUNC LT LX NT PA PCA PCF PF PREC PRECEDENT RGX RIGHT RT T TK TVALUE TYPE YC arg aspval cod grammar pelval str yfuncsPly : LexLex : LX Literals Ignore Tokens Lfuncs LfuncerrorLiterals : LT '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TK '=' '[' Tokl ']'Tokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC RGX DOTS RT PA pelval ',' Tval PF Tval : TVALUETval : TYPE PA TVALUE PFLfuncerror : LFUNC RGX DOTS ER Codigos PFLfuncerror : Codigos : Codigos CodigoCodigos : Codigo : codCodigo : PCA Codigo PCFCodigo : PA Codigo PF"
     
-_lr_action_items = {'LX':([0,],[3,]),'$end':([1,2,9,13,16,23,29,34,38,],[0,-1,-11,-2,-10,-7,-14,-12,-13,]),'LT':([3,],[5,]),'IG':([3,4,12,],[-4,7,-3,]),'TK':([3,4,6,12,15,],[-4,-6,10,-3,-5,]),'=':([5,7,10,],[8,11,14,]),'aspval':([8,11,],[12,15,]),'LFUNC':([9,13,16,23,29,34,38,],[-11,17,-10,-7,-14,-12,-13,]),'[':([14,],[18,]),'RGX':([17,],[19,]),'pelval':([18,24,28,],[21,27,30,]),'DOTS':([19,],[22,]),']':([20,21,27,],[23,-9,-8,]),',':([20,21,27,30,],[24,-9,-8,31,]),'RT':([22,],[25,]),'ER':([22,],[26,]),'PA':([25,33,],[28,35,]),'PF':([26,32,36,37,],[29,34,37,38,]),'TVALUE':([31,35,],[32,36,]),'TYPE':([31,],[33,]),}
+_lr_action_items = {'LX':([0,],[3,]),'$end':([1,2,9,13,16,17,24,31,45,],[0,-1,-11,-16,-2,-10,-7,-15,-12,]),'LT':([3,],[5,]),'IG':([3,4,12,],[-4,7,-3,]),'TK':([3,4,6,12,15,],[-4,-6,10,-3,-5,]),'=':([5,7,10,],[8,11,14,]),'aspval':([8,11,],[12,15,]),'LFUNC':([9,13,17,24,45,],[-11,18,-10,-7,-12,]),'[':([14,],[19,]),'RGX':([18,],[20,]),'pelval':([19,25,30,],[22,28,36,]),'DOTS':([20,],[23,]),']':([21,22,28,],[24,-9,-8,]),',':([21,22,28,36,],[25,-9,-8,39,]),'ER':([23,],[26,]),'RT':([23,],[27,]),'PF':([26,29,32,33,38,40,41,42,43,47,48,],[-18,31,-17,-19,41,-20,-21,45,-13,48,-14,]),'cod':([26,29,32,33,34,35,40,41,],[-18,33,-17,-19,33,33,-20,-21,]),'PCA':([26,29,32,33,34,35,40,41,],[-18,34,-17,-19,34,34,-20,-21,]),'PA':([26,27,29,32,33,34,35,40,41,44,],[-18,30,35,-17,-19,35,35,-20,-21,46,]),'PCF':([33,37,40,41,],[-19,40,-20,-21,]),'TVALUE':([39,46,],[43,47,]),'TYPE':([39,],[44,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Ply':([0,],[1,]),'Lex':([0,],[2,]),'Literals':([3,],[4,]),'Ignore':([4,],[6,]),'Tokens':([6,],[9,]),'Lfuncs':([9,],[13,]),'Lfunc':([13,],[16,]),'Tokl':([18,],[20,]),}
+_lr_goto_items = {'Ply':([0,],[1,]),'Lex':([0,],[2,]),'Literals':([3,],[4,]),'Ignore':([4,],[6,]),'Tokens':([6,],[9,]),'Lfuncs':([9,],[13,]),'Lfuncerror':([13,],[16,]),'Lfunc':([13,],[17,]),'Tokl':([19,],[21,]),'Codigos':([26,],[29,]),'Codigo':([29,34,35,],[32,37,38,]),'Tval':([39,],[42,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,18 +27,25 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Ply","S'",1,None,None,None),
-  ('Ply -> Lex','Ply',1,'p_Ply','plysimple_sin.py',5),
-  ('Lex -> LX Literals Ignore Tokens Lfuncs','Lex',5,'p_Lex','plysimple_sin.py',9),
-  ('Literals -> LT = aspval','Literals',3,'p_Literals','plysimple_sin.py',13),
-  ('Literals -> <empty>','Literals',0,'p_Literals_empty','plysimple_sin.py',17),
-  ('Ignore -> IG = aspval','Ignore',3,'p_Ignore','plysimple_sin.py',20),
-  ('Ignore -> <empty>','Ignore',0,'p_Ignore_empty','plysimple_sin.py',24),
-  ('Tokens -> TK = [ Tokl ]','Tokens',5,'p_Tokens','plysimple_sin.py',27),
-  ('Tokl -> Tokl , pelval','Tokl',3,'p_Tokl','plysimple_sin.py',31),
-  ('Tokl -> pelval','Tokl',1,'p_Tokl_single','plysimple_sin.py',35),
-  ('Lfuncs -> Lfuncs Lfunc','Lfuncs',2,'p_Lfuncs','plysimple_sin.py',39),
-  ('Lfuncs -> <empty>','Lfuncs',0,'p_Lfuncs_empty','plysimple_sin.py',43),
-  ('Lfunc -> LFUNC RGX DOTS RT PA pelval , TVALUE PF','Lfunc',9,'p_Lfunc','plysimple_sin.py',47),
-  ('Lfunc -> LFUNC RGX DOTS RT PA pelval , TYPE PA TVALUE PF PF','Lfunc',12,'p_Lfunc_type','plysimple_sin.py',51),
-  ('Lfunc -> LFUNC RGX DOTS ER PF','Lfunc',5,'p_Lfunc_error','plysimple_sin.py',55),
+  ('Ply -> Lex','Ply',1,'p_Ply','plysimple_sin.py',6),
+  ('Lex -> LX Literals Ignore Tokens Lfuncs Lfuncerror','Lex',6,'p_Lex','plysimple_sin.py',10),
+  ('Literals -> LT = aspval','Literals',3,'p_Literals','plysimple_sin.py',14),
+  ('Literals -> <empty>','Literals',0,'p_Literals_empty','plysimple_sin.py',20),
+  ('Ignore -> IG = aspval','Ignore',3,'p_Ignore','plysimple_sin.py',24),
+  ('Ignore -> <empty>','Ignore',0,'p_Ignore_empty','plysimple_sin.py',28),
+  ('Tokens -> TK = [ Tokl ]','Tokens',5,'p_Tokens','plysimple_sin.py',32),
+  ('Tokl -> Tokl , pelval','Tokl',3,'p_Tokl','plysimple_sin.py',36),
+  ('Tokl -> pelval','Tokl',1,'p_Tokl_single','plysimple_sin.py',40),
+  ('Lfuncs -> Lfuncs Lfunc','Lfuncs',2,'p_Lfuncs','plysimple_sin.py',44),
+  ('Lfuncs -> <empty>','Lfuncs',0,'p_Lfuncs_empty','plysimple_sin.py',49),
+  ('Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval PF','Lfunc',9,'p_Lfunc','plysimple_sin.py',53),
+  ('Tval -> TVALUE','Tval',1,'p_Tval','plysimple_sin.py',58),
+  ('Tval -> TYPE PA TVALUE PF','Tval',4,'p_Tval_type','plysimple_sin.py',62),
+  ('Lfuncerror -> LFUNC RGX DOTS ER Codigos PF','Lfuncerror',6,'p_Lfuncerror','plysimple_sin.py',66),
+  ('Lfuncerror -> <empty>','Lfuncerror',0,'p_Lfuncerror_empty','plysimple_sin.py',70),
+  ('Codigos -> Codigos Codigo','Codigos',2,'p_Codigos','plysimple_sin.py',74),
+  ('Codigos -> <empty>','Codigos',0,'p_Codigos_empty','plysimple_sin.py',78),
+  ('Codigo -> cod','Codigo',1,'p_Codigo','plysimple_sin.py',82),
+  ('Codigo -> PCA Codigo PCF','Codigo',3,'p_Codigo_pc','plysimple_sin.py',86),
+  ('Codigo -> PA Codigo PF','Codigo',3,'p_Codigo_p','plysimple_sin.py',90),
 ]
