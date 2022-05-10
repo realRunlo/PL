@@ -3,8 +3,8 @@ import ply.yacc as yacc
 from plysimple_limpo import tokens, literals 
 
 def p_Ply(p):
-    "Ply : Lexer Yc"
-    p[0] = p[1] + "\n" + p[2]
+    "Ply : Lexer Yc Grammar Yfs"
+    p[0] = p[1] + "\n" + p[2] + "\n" + p[3] + "\n" + p[4]
 
 def p_Lexer(p):
     "Lexer : LEX Literals Ignore Tokens Lfuncs Lerror"
@@ -13,6 +13,14 @@ def p_Lexer(p):
 def p_Yacc(p):
     "Yc : YACC Precedents Declarations"
     p[0] = p[2] + "\n" + p[3]
+
+def p_Grammar(p):
+    "Grammar : GRM Productions"
+    p[0] = p[2]
+
+def p_Yfs(p):
+    "Yfs : YFUNCS Funcs"
+    p[0] = p[2]
 
 def p_Literals(p):
     "Literals : LTS '=' aspval"
@@ -89,6 +97,34 @@ def p_Declaration(p): #TODO: ver o que fazer com isto
     "Declaration : id '=' P"
     p[0] = p[1] + "=" + p[3]
 
+def p_Productions(p):
+    "Productions : Productions Production"
+    p[0] = p[1] + p[2] + "\n"
+
+def p_Productions_empty(p):
+    "Productions : "
+    p[0] = ""
+
+def p_Production(p):
+    "Production : nt DS Symbols PCA Codes PCF"
+    p[0] = p[1] + ":" + p[3] + "{" + p[5] + "}"
+
+def p_Symbols(p):
+    "Symbols : Symbols S"
+    p[0] = p[1] + p[2] + " "
+
+def p_Symbols_empty(p):
+    "Symbols : "
+    p[0] = ""
+
+def p_S(p):
+    "S : symbol"
+    p[0] = p[1]
+
+def p_S_Prec(p):
+    "S : PREC symbol"
+    p[0] = "%prec " + p[2]
+
 def p_P_pr(p): #TODO: ver o que fazer com isto
     "P : PRA PRF"
     p[0] = "[]"
@@ -112,6 +148,18 @@ def p_Pelvals(p):
 def p_Pelvals_empty(p):
     "Pelvals : "
     p[0] = ""
+
+def p_Funcs(p):
+    "Funcs : Funcs Func"
+    p[0] = p[1] + p[2] + "\n"
+
+def p_Funcs_empty(p):
+    "Funcs : "
+    p[0] = ""
+
+def p_Func(p):
+    "Func : DEF name PA name PF PCA Codes PCF"
+    p[0] = "def " + p[2] + "(" + p[4] + "):" + p[7]
 
 def p_Codes(p):
     "Codes : Codes Code"
@@ -137,17 +185,6 @@ def p_Code_pc(p):
     "Code : PCA Codes PCF"
     p[0] = "{" + p[2] + "}"
 
-"""
-"Codes : Codes Code"
-"Codes : "
-"Code : cod"
-"Code : PA Codes PF"
-"Code : PRA Codes PRF"
-"Code : PCA Codes PCF"
-"""
-
-
-
 
 def p_error(p):
     print('Erro sintático: ', p)
@@ -155,8 +192,6 @@ def p_error(p):
 
 # Build the parser
 parser = yacc.yacc()
-
-# Read line from input and parse it
 import sys
 parser.success = True
 

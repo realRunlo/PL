@@ -926,7 +926,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_tabversion = '3.10'\n_lr_method = 'LALR'\n_lr_signature = \"DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer YcLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Codes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF\"\n_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,4,8,13,19,32,35,41,42,],[0,-1,-20,-3,-19,-21,-18,-22,-23,]),'YACC':([2,15,22,27,28,44,51,73,],[5,-12,-17,-2,-11,-16,-8,-13,]),'LTS':([3,],[7,]),'IG':([3,6,18,],[-5,11,-4,]),'TKS':([3,6,10,18,24,],[-5,-7,16,-4,-6,]),'PRCD':([5,],[9,]),'=':([7,9,11,16,20,],[12,14,17,23,25,]),'id':([8,13,19,32,35,41,42,],[-20,20,-19,-21,-18,-22,-23,]),'aspval':([12,17,],[18,24,]),'PRA':([14,23,25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[21,31,33,-29,48,-28,-30,-29,-29,-29,48,48,48,-31,-32,-33,]),'ER':([15,22,28,51,73,],[-12,29,-11,-8,-13,]),'LFUNC':([15,22,28,51,73,],[-12,30,-11,-8,-13,]),'PRF':([21,26,33,39,40,45,46,48,55,58,60,61,62,69,],[-25,35,41,51,-10,-28,-30,-29,61,-9,-31,-32,-33,-24,]),'PA':([21,26,29,37,45,46,47,48,49,54,55,56,57,60,61,62,69,72,],[-25,36,-29,47,-28,-30,-29,-29,-29,47,47,47,63,-31,-32,-33,-24,74,]),'PCA':([25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[34,-29,49,-28,-30,-29,-29,-29,49,49,49,-31,-32,-33,]),'PF':([29,37,45,46,47,54,60,61,62,64,70,71,75,76,],[-29,44,-28,-30,-29,60,-31,-32,-33,67,73,-14,76,-15,]),'cod':([29,37,45,46,47,48,49,54,55,56,60,61,62,],[-29,46,-28,-30,-29,-29,-29,46,46,46,-31,-32,-33,]),'rgx':([30,],[38,]),'pelval':([31,52,53,59,63,66,],[40,58,-27,64,65,-26,]),'PCF':([34,45,46,49,56,60,61,62,],[42,-28,-30,-29,62,-31,-32,-33,]),'LTRG':([36,],[43,]),'DS':([38,],[50,]),',':([39,40,43,58,64,65,67,],[52,-10,53,-9,66,68,69,]),'RT':([50,],[57,]),'TVAL':([68,74,],[71,75,]),'TYPE':([68,],[72,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items",
+        "peekOfCode": "_tabversion = '3.10'\n_lr_method = 'LALR'\n_lr_signature = \"DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer Yc Grammar YfsLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsGrammar : GRM ProductionsYfs : YFUNCS FuncsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PProductions : Productions ProductionProductions : Production : nt DS Symbols PCA Codes PCFSymbols : Symbols SSymbols : S : symbolS : PREC symbolP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Funcs : Funcs FuncFuncs : Func : DEF name PA name PF PCA Codes PCFCodes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF\"\n_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,15,16,24,33,94,],[0,-1,-38,-5,-37,-39,]),'YACC':([2,20,30,38,39,62,69,99,],[5,-14,-19,-2,-13,-18,-10,-15,]),'LTS':([3,],[7,]),'IG':([3,6,23,],[-7,13,-6,]),'TKS':([3,6,12,23,32,],[-7,-9,21,-6,-8,]),'GRM':([4,10,18,27,45,48,59,60,],[9,-22,-3,-21,-23,-20,-31,-32,]),'PRCD':([5,],[11,]),'=':([7,11,13,21,28,],[14,19,22,31,36,]),'YFUNCS':([8,9,17,25,81,],[16,-25,-4,-24,-26,]),'nt':([9,17,25,81,],[-25,26,-24,-26,]),'id':([10,18,27,45,48,59,60,],[-22,28,-21,-23,-20,-31,-32,]),'aspval':([14,22,],[23,32,]),'DEF':([16,24,33,94,],[-38,34,-37,-39,]),'PRA':([19,31,36,40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[29,42,46,-41,66,-41,-40,-42,-41,-41,-41,66,66,66,66,-43,-44,-45,-41,66,]),'ER':([20,30,39,69,99,],[-14,40,-13,-10,-15,]),'LFUNC':([20,30,39,69,99,],[-14,41,-13,-10,-15,]),'DS':([26,51,],[35,68,]),'PRF':([29,37,46,52,53,63,64,66,76,79,83,84,85,95,],[-34,48,59,69,-12,-40,-42,-41,84,-11,-43,-44,-45,-33,]),'PA':([29,37,40,43,50,55,63,64,65,66,67,72,75,76,77,78,83,84,85,87,90,95,98,],[-34,49,-41,54,65,-41,-40,-42,-41,-41,-41,65,65,65,65,86,-43,-44,-45,-41,65,-33,100,]),'name':([34,54,],[43,71,]),'PCA':([35,36,40,44,50,55,56,57,63,64,65,66,67,72,73,75,76,77,80,83,84,85,87,90,],[-28,47,-41,55,67,-41,-27,-29,-40,-42,-41,-41,-41,67,-30,67,67,67,87,-43,-44,-45,-41,67,]),'symbol':([35,44,56,57,58,73,],[-28,57,-27,-29,73,-30,]),'PREC':([35,44,56,57,73,],[-28,58,-27,-29,-30,]),'PF':([40,50,63,64,65,71,75,83,84,85,88,96,97,101,102,],[-41,62,-40,-42,-41,80,83,-43,-44,-45,92,99,-16,102,-17,]),'cod':([40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[-41,64,-41,-40,-42,-41,-41,-41,64,64,64,64,-43,-44,-45,-41,64,]),'rgx':([41,],[51,]),'pelval':([42,70,74,82,86,91,],[53,79,-36,88,89,-35,]),'PCF':([47,55,63,64,67,72,77,83,84,85,87,90,],[60,-41,-40,-42,-41,81,85,-43,-44,-45,-41,94,]),'LTRG':([49,],[61,]),',':([52,53,61,79,88,89,92,],[70,-12,74,-11,91,93,95,]),'RT':([68,],[78,]),'TVAL':([93,100,],[97,101,]),'TYPE':([93,],[98,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -935,7 +935,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_method = 'LALR'\n_lr_signature = \"DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer YcLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Codes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF\"\n_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,4,8,13,19,32,35,41,42,],[0,-1,-20,-3,-19,-21,-18,-22,-23,]),'YACC':([2,15,22,27,28,44,51,73,],[5,-12,-17,-2,-11,-16,-8,-13,]),'LTS':([3,],[7,]),'IG':([3,6,18,],[-5,11,-4,]),'TKS':([3,6,10,18,24,],[-5,-7,16,-4,-6,]),'PRCD':([5,],[9,]),'=':([7,9,11,16,20,],[12,14,17,23,25,]),'id':([8,13,19,32,35,41,42,],[-20,20,-19,-21,-18,-22,-23,]),'aspval':([12,17,],[18,24,]),'PRA':([14,23,25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[21,31,33,-29,48,-28,-30,-29,-29,-29,48,48,48,-31,-32,-33,]),'ER':([15,22,28,51,73,],[-12,29,-11,-8,-13,]),'LFUNC':([15,22,28,51,73,],[-12,30,-11,-8,-13,]),'PRF':([21,26,33,39,40,45,46,48,55,58,60,61,62,69,],[-25,35,41,51,-10,-28,-30,-29,61,-9,-31,-32,-33,-24,]),'PA':([21,26,29,37,45,46,47,48,49,54,55,56,57,60,61,62,69,72,],[-25,36,-29,47,-28,-30,-29,-29,-29,47,47,47,63,-31,-32,-33,-24,74,]),'PCA':([25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[34,-29,49,-28,-30,-29,-29,-29,49,49,49,-31,-32,-33,]),'PF':([29,37,45,46,47,54,60,61,62,64,70,71,75,76,],[-29,44,-28,-30,-29,60,-31,-32,-33,67,73,-14,76,-15,]),'cod':([29,37,45,46,47,48,49,54,55,56,60,61,62,],[-29,46,-28,-30,-29,-29,-29,46,46,46,-31,-32,-33,]),'rgx':([30,],[38,]),'pelval':([31,52,53,59,63,66,],[40,58,-27,64,65,-26,]),'PCF':([34,45,46,49,56,60,61,62,],[42,-28,-30,-29,62,-31,-32,-33,]),'LTRG':([36,],[43,]),'DS':([38,],[50,]),',':([39,40,43,58,64,65,67,],[52,-10,53,-9,66,68,69,]),'RT':([50,],[57,]),'TVAL':([68,74,],[71,75,]),'TYPE':([68,],[72,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Precedents':([5,],[8,]),'Ignore':([6,],[10,]),'Declarations':([8,],[13,]),'Tokens':([10,],[15,]),'Declaration':([13,],[19,]),'Lfuncs':([15,],[22,]),'Prcdlist':([21,],[26,]),'Lerror':([22,],[27,]),'Lfunc':([22,],[28,]),'P':([25,],[32,]),'Codes':([29,47,48,49,],[37,54,55,56,]),'Tokl':([31,],[39,]),'Code':([37,54,55,56,],[45,45,45,45,]),'Pelvals':([53,],[59,]),'Tv':([68,],[70,]),}",
+        "peekOfCode": "_lr_method = 'LALR'\n_lr_signature = \"DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer Yc Grammar YfsLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsGrammar : GRM ProductionsYfs : YFUNCS FuncsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PProductions : Productions ProductionProductions : Production : nt DS Symbols PCA Codes PCFSymbols : Symbols SSymbols : S : symbolS : PREC symbolP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Funcs : Funcs FuncFuncs : Func : DEF name PA name PF PCA Codes PCFCodes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF\"\n_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,15,16,24,33,94,],[0,-1,-38,-5,-37,-39,]),'YACC':([2,20,30,38,39,62,69,99,],[5,-14,-19,-2,-13,-18,-10,-15,]),'LTS':([3,],[7,]),'IG':([3,6,23,],[-7,13,-6,]),'TKS':([3,6,12,23,32,],[-7,-9,21,-6,-8,]),'GRM':([4,10,18,27,45,48,59,60,],[9,-22,-3,-21,-23,-20,-31,-32,]),'PRCD':([5,],[11,]),'=':([7,11,13,21,28,],[14,19,22,31,36,]),'YFUNCS':([8,9,17,25,81,],[16,-25,-4,-24,-26,]),'nt':([9,17,25,81,],[-25,26,-24,-26,]),'id':([10,18,27,45,48,59,60,],[-22,28,-21,-23,-20,-31,-32,]),'aspval':([14,22,],[23,32,]),'DEF':([16,24,33,94,],[-38,34,-37,-39,]),'PRA':([19,31,36,40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[29,42,46,-41,66,-41,-40,-42,-41,-41,-41,66,66,66,66,-43,-44,-45,-41,66,]),'ER':([20,30,39,69,99,],[-14,40,-13,-10,-15,]),'LFUNC':([20,30,39,69,99,],[-14,41,-13,-10,-15,]),'DS':([26,51,],[35,68,]),'PRF':([29,37,46,52,53,63,64,66,76,79,83,84,85,95,],[-34,48,59,69,-12,-40,-42,-41,84,-11,-43,-44,-45,-33,]),'PA':([29,37,40,43,50,55,63,64,65,66,67,72,75,76,77,78,83,84,85,87,90,95,98,],[-34,49,-41,54,65,-41,-40,-42,-41,-41,-41,65,65,65,65,86,-43,-44,-45,-41,65,-33,100,]),'name':([34,54,],[43,71,]),'PCA':([35,36,40,44,50,55,56,57,63,64,65,66,67,72,73,75,76,77,80,83,84,85,87,90,],[-28,47,-41,55,67,-41,-27,-29,-40,-42,-41,-41,-41,67,-30,67,67,67,87,-43,-44,-45,-41,67,]),'symbol':([35,44,56,57,58,73,],[-28,57,-27,-29,73,-30,]),'PREC':([35,44,56,57,73,],[-28,58,-27,-29,-30,]),'PF':([40,50,63,64,65,71,75,83,84,85,88,96,97,101,102,],[-41,62,-40,-42,-41,80,83,-43,-44,-45,92,99,-16,102,-17,]),'cod':([40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[-41,64,-41,-40,-42,-41,-41,-41,64,64,64,64,-43,-44,-45,-41,64,]),'rgx':([41,],[51,]),'pelval':([42,70,74,82,86,91,],[53,79,-36,88,89,-35,]),'PCF':([47,55,63,64,67,72,77,83,84,85,87,90,],[60,-41,-40,-42,-41,81,85,-43,-44,-45,-41,94,]),'LTRG':([49,],[61,]),',':([52,53,61,79,88,89,92,],[70,-12,74,-11,91,93,95,]),'RT':([68,],[78,]),'TVAL':([93,100,],[97,101,]),'TYPE':([93,],[98,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Grammar':([4,],[8,]),'Precedents':([5,],[10,]),'Ignore':([6,],[12,]),'Yfs':([8,],[15,]),'Productions':([9,],[17,]),'Declarations':([10,],[18,]),'Tokens':([12,],[20,]),'Funcs':([16,],[24,]),'Production':([17,],[25,]),'Declaration':([18,],[27,]),'Lfuncs':([20,],[30,]),'Func':([24,],[33,]),'Prcdlist':([29,],[37,]),'Lerror':([30,],[38,]),'Lfunc':([30,],[39,]),'Symbols':([35,],[44,]),'P':([36,],[45,]),'Codes':([40,55,65,66,67,87,],[50,72,75,76,77,90,]),'Tokl':([42,],[52,]),'S':([44,],[56,]),'Code':([50,72,75,76,77,90,],[63,63,63,63,63,63,]),'Pelvals':([74,],[82,]),'Tv':([93,],[96,]),}",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -944,7 +944,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_signature = \"DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer YcLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Codes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF\"\n_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,4,8,13,19,32,35,41,42,],[0,-1,-20,-3,-19,-21,-18,-22,-23,]),'YACC':([2,15,22,27,28,44,51,73,],[5,-12,-17,-2,-11,-16,-8,-13,]),'LTS':([3,],[7,]),'IG':([3,6,18,],[-5,11,-4,]),'TKS':([3,6,10,18,24,],[-5,-7,16,-4,-6,]),'PRCD':([5,],[9,]),'=':([7,9,11,16,20,],[12,14,17,23,25,]),'id':([8,13,19,32,35,41,42,],[-20,20,-19,-21,-18,-22,-23,]),'aspval':([12,17,],[18,24,]),'PRA':([14,23,25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[21,31,33,-29,48,-28,-30,-29,-29,-29,48,48,48,-31,-32,-33,]),'ER':([15,22,28,51,73,],[-12,29,-11,-8,-13,]),'LFUNC':([15,22,28,51,73,],[-12,30,-11,-8,-13,]),'PRF':([21,26,33,39,40,45,46,48,55,58,60,61,62,69,],[-25,35,41,51,-10,-28,-30,-29,61,-9,-31,-32,-33,-24,]),'PA':([21,26,29,37,45,46,47,48,49,54,55,56,57,60,61,62,69,72,],[-25,36,-29,47,-28,-30,-29,-29,-29,47,47,47,63,-31,-32,-33,-24,74,]),'PCA':([25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[34,-29,49,-28,-30,-29,-29,-29,49,49,49,-31,-32,-33,]),'PF':([29,37,45,46,47,54,60,61,62,64,70,71,75,76,],[-29,44,-28,-30,-29,60,-31,-32,-33,67,73,-14,76,-15,]),'cod':([29,37,45,46,47,48,49,54,55,56,60,61,62,],[-29,46,-28,-30,-29,-29,-29,46,46,46,-31,-32,-33,]),'rgx':([30,],[38,]),'pelval':([31,52,53,59,63,66,],[40,58,-27,64,65,-26,]),'PCF':([34,45,46,49,56,60,61,62,],[42,-28,-30,-29,62,-31,-32,-33,]),'LTRG':([36,],[43,]),'DS':([38,],[50,]),',':([39,40,43,58,64,65,67,],[52,-10,53,-9,66,68,69,]),'RT':([50,],[57,]),'TVAL':([68,74,],[71,75,]),'TYPE':([68,],[72,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Precedents':([5,],[8,]),'Ignore':([6,],[10,]),'Declarations':([8,],[13,]),'Tokens':([10,],[15,]),'Declaration':([13,],[19,]),'Lfuncs':([15,],[22,]),'Prcdlist':([21,],[26,]),'Lerror':([22,],[27,]),'Lfunc':([22,],[28,]),'P':([25,],[32,]),'Codes':([29,47,48,49,],[37,54,55,56,]),'Tokl':([31,],[39,]),'Code':([37,54,55,56,],[45,45,45,45,]),'Pelvals':([53,],[59,]),'Tv':([68,],[70,]),}\n_lr_goto = {}",
+        "peekOfCode": "_lr_signature = \"DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer Yc Grammar YfsLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsGrammar : GRM ProductionsYfs : YFUNCS FuncsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PProductions : Productions ProductionProductions : Production : nt DS Symbols PCA Codes PCFSymbols : Symbols SSymbols : S : symbolS : PREC symbolP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Funcs : Funcs FuncFuncs : Func : DEF name PA name PF PCA Codes PCFCodes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF\"\n_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,15,16,24,33,94,],[0,-1,-38,-5,-37,-39,]),'YACC':([2,20,30,38,39,62,69,99,],[5,-14,-19,-2,-13,-18,-10,-15,]),'LTS':([3,],[7,]),'IG':([3,6,23,],[-7,13,-6,]),'TKS':([3,6,12,23,32,],[-7,-9,21,-6,-8,]),'GRM':([4,10,18,27,45,48,59,60,],[9,-22,-3,-21,-23,-20,-31,-32,]),'PRCD':([5,],[11,]),'=':([7,11,13,21,28,],[14,19,22,31,36,]),'YFUNCS':([8,9,17,25,81,],[16,-25,-4,-24,-26,]),'nt':([9,17,25,81,],[-25,26,-24,-26,]),'id':([10,18,27,45,48,59,60,],[-22,28,-21,-23,-20,-31,-32,]),'aspval':([14,22,],[23,32,]),'DEF':([16,24,33,94,],[-38,34,-37,-39,]),'PRA':([19,31,36,40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[29,42,46,-41,66,-41,-40,-42,-41,-41,-41,66,66,66,66,-43,-44,-45,-41,66,]),'ER':([20,30,39,69,99,],[-14,40,-13,-10,-15,]),'LFUNC':([20,30,39,69,99,],[-14,41,-13,-10,-15,]),'DS':([26,51,],[35,68,]),'PRF':([29,37,46,52,53,63,64,66,76,79,83,84,85,95,],[-34,48,59,69,-12,-40,-42,-41,84,-11,-43,-44,-45,-33,]),'PA':([29,37,40,43,50,55,63,64,65,66,67,72,75,76,77,78,83,84,85,87,90,95,98,],[-34,49,-41,54,65,-41,-40,-42,-41,-41,-41,65,65,65,65,86,-43,-44,-45,-41,65,-33,100,]),'name':([34,54,],[43,71,]),'PCA':([35,36,40,44,50,55,56,57,63,64,65,66,67,72,73,75,76,77,80,83,84,85,87,90,],[-28,47,-41,55,67,-41,-27,-29,-40,-42,-41,-41,-41,67,-30,67,67,67,87,-43,-44,-45,-41,67,]),'symbol':([35,44,56,57,58,73,],[-28,57,-27,-29,73,-30,]),'PREC':([35,44,56,57,73,],[-28,58,-27,-29,-30,]),'PF':([40,50,63,64,65,71,75,83,84,85,88,96,97,101,102,],[-41,62,-40,-42,-41,80,83,-43,-44,-45,92,99,-16,102,-17,]),'cod':([40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[-41,64,-41,-40,-42,-41,-41,-41,64,64,64,64,-43,-44,-45,-41,64,]),'rgx':([41,],[51,]),'pelval':([42,70,74,82,86,91,],[53,79,-36,88,89,-35,]),'PCF':([47,55,63,64,67,72,77,83,84,85,87,90,],[60,-41,-40,-42,-41,81,85,-43,-44,-45,-41,94,]),'LTRG':([49,],[61,]),',':([52,53,61,79,88,89,92,],[70,-12,74,-11,91,93,95,]),'RT':([68,],[78,]),'TVAL':([93,100,],[97,101,]),'TYPE':([93,],[98,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Grammar':([4,],[8,]),'Precedents':([5,],[10,]),'Ignore':([6,],[12,]),'Yfs':([8,],[15,]),'Productions':([9,],[17,]),'Declarations':([10,],[18,]),'Tokens':([12,],[20,]),'Funcs':([16,],[24,]),'Production':([17,],[25,]),'Declaration':([18,],[27,]),'Lfuncs':([20,],[30,]),'Func':([24,],[33,]),'Prcdlist':([29,],[37,]),'Lerror':([30,],[38,]),'Lfunc':([30,],[39,]),'Symbols':([35,],[44,]),'P':([36,],[45,]),'Codes':([40,55,65,66,67,87,],[50,72,75,76,77,90,]),'Tokl':([42,],[52,]),'S':([44,],[56,]),'Code':([50,72,75,76,77,90,],[63,63,63,63,63,63,]),'Pelvals':([74,],[82,]),'Tv':([93,],[96,]),}\n_lr_goto = {}",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -953,7 +953,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,4,8,13,19,32,35,41,42,],[0,-1,-20,-3,-19,-21,-18,-22,-23,]),'YACC':([2,15,22,27,28,44,51,73,],[5,-12,-17,-2,-11,-16,-8,-13,]),'LTS':([3,],[7,]),'IG':([3,6,18,],[-5,11,-4,]),'TKS':([3,6,10,18,24,],[-5,-7,16,-4,-6,]),'PRCD':([5,],[9,]),'=':([7,9,11,16,20,],[12,14,17,23,25,]),'id':([8,13,19,32,35,41,42,],[-20,20,-19,-21,-18,-22,-23,]),'aspval':([12,17,],[18,24,]),'PRA':([14,23,25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[21,31,33,-29,48,-28,-30,-29,-29,-29,48,48,48,-31,-32,-33,]),'ER':([15,22,28,51,73,],[-12,29,-11,-8,-13,]),'LFUNC':([15,22,28,51,73,],[-12,30,-11,-8,-13,]),'PRF':([21,26,33,39,40,45,46,48,55,58,60,61,62,69,],[-25,35,41,51,-10,-28,-30,-29,61,-9,-31,-32,-33,-24,]),'PA':([21,26,29,37,45,46,47,48,49,54,55,56,57,60,61,62,69,72,],[-25,36,-29,47,-28,-30,-29,-29,-29,47,47,47,63,-31,-32,-33,-24,74,]),'PCA':([25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[34,-29,49,-28,-30,-29,-29,-29,49,49,49,-31,-32,-33,]),'PF':([29,37,45,46,47,54,60,61,62,64,70,71,75,76,],[-29,44,-28,-30,-29,60,-31,-32,-33,67,73,-14,76,-15,]),'cod':([29,37,45,46,47,48,49,54,55,56,60,61,62,],[-29,46,-28,-30,-29,-29,-29,46,46,46,-31,-32,-33,]),'rgx':([30,],[38,]),'pelval':([31,52,53,59,63,66,],[40,58,-27,64,65,-26,]),'PCF':([34,45,46,49,56,60,61,62,],[42,-28,-30,-29,62,-31,-32,-33,]),'LTRG':([36,],[43,]),'DS':([38,],[50,]),',':([39,40,43,58,64,65,67,],[52,-10,53,-9,66,68,69,]),'RT':([50,],[57,]),'TVAL':([68,74,],[71,75,]),'TYPE':([68,],[72,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Precedents':([5,],[8,]),'Ignore':([6,],[10,]),'Declarations':([8,],[13,]),'Tokens':([10,],[15,]),'Declaration':([13,],[19,]),'Lfuncs':([15,],[22,]),'Prcdlist':([21,],[26,]),'Lerror':([22,],[27,]),'Lfunc':([22,],[28,]),'P':([25,],[32,]),'Codes':([29,47,48,49,],[37,54,55,56,]),'Tokl':([31,],[39,]),'Code':([37,54,55,56,],[45,45,45,45,]),'Pelvals':([53,],[59,]),'Tv':([68,],[70,]),}\n_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():",
+        "peekOfCode": "_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,15,16,24,33,94,],[0,-1,-38,-5,-37,-39,]),'YACC':([2,20,30,38,39,62,69,99,],[5,-14,-19,-2,-13,-18,-10,-15,]),'LTS':([3,],[7,]),'IG':([3,6,23,],[-7,13,-6,]),'TKS':([3,6,12,23,32,],[-7,-9,21,-6,-8,]),'GRM':([4,10,18,27,45,48,59,60,],[9,-22,-3,-21,-23,-20,-31,-32,]),'PRCD':([5,],[11,]),'=':([7,11,13,21,28,],[14,19,22,31,36,]),'YFUNCS':([8,9,17,25,81,],[16,-25,-4,-24,-26,]),'nt':([9,17,25,81,],[-25,26,-24,-26,]),'id':([10,18,27,45,48,59,60,],[-22,28,-21,-23,-20,-31,-32,]),'aspval':([14,22,],[23,32,]),'DEF':([16,24,33,94,],[-38,34,-37,-39,]),'PRA':([19,31,36,40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[29,42,46,-41,66,-41,-40,-42,-41,-41,-41,66,66,66,66,-43,-44,-45,-41,66,]),'ER':([20,30,39,69,99,],[-14,40,-13,-10,-15,]),'LFUNC':([20,30,39,69,99,],[-14,41,-13,-10,-15,]),'DS':([26,51,],[35,68,]),'PRF':([29,37,46,52,53,63,64,66,76,79,83,84,85,95,],[-34,48,59,69,-12,-40,-42,-41,84,-11,-43,-44,-45,-33,]),'PA':([29,37,40,43,50,55,63,64,65,66,67,72,75,76,77,78,83,84,85,87,90,95,98,],[-34,49,-41,54,65,-41,-40,-42,-41,-41,-41,65,65,65,65,86,-43,-44,-45,-41,65,-33,100,]),'name':([34,54,],[43,71,]),'PCA':([35,36,40,44,50,55,56,57,63,64,65,66,67,72,73,75,76,77,80,83,84,85,87,90,],[-28,47,-41,55,67,-41,-27,-29,-40,-42,-41,-41,-41,67,-30,67,67,67,87,-43,-44,-45,-41,67,]),'symbol':([35,44,56,57,58,73,],[-28,57,-27,-29,73,-30,]),'PREC':([35,44,56,57,73,],[-28,58,-27,-29,-30,]),'PF':([40,50,63,64,65,71,75,83,84,85,88,96,97,101,102,],[-41,62,-40,-42,-41,80,83,-43,-44,-45,92,99,-16,102,-17,]),'cod':([40,50,55,63,64,65,66,67,72,75,76,77,83,84,85,87,90,],[-41,64,-41,-40,-42,-41,-41,-41,64,64,64,64,-43,-44,-45,-41,64,]),'rgx':([41,],[51,]),'pelval':([42,70,74,82,86,91,],[53,79,-36,88,89,-35,]),'PCF':([47,55,63,64,67,72,77,83,84,85,87,90,],[60,-41,-40,-42,-41,81,85,-43,-44,-45,-41,94,]),'LTRG':([49,],[61,]),',':([52,53,61,79,88,89,92,],[70,-12,74,-11,91,93,95,]),'RT':([68,],[78,]),'TVAL':([93,100,],[97,101,]),'TYPE':([93,],[98,]),}\n_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Grammar':([4,],[8,]),'Precedents':([5,],[10,]),'Ignore':([6,],[12,]),'Yfs':([8,],[15,]),'Productions':([9,],[17,]),'Declarations':([10,],[18,]),'Tokens':([12,],[20,]),'Funcs':([16,],[24,]),'Production':([17,],[25,]),'Declaration':([18,],[27,]),'Lfuncs':([20,],[30,]),'Func':([24,],[33,]),'Prcdlist':([29,],[37,]),'Lerror':([30,],[38,]),'Lfunc':([30,],[39,]),'Symbols':([35,],[44,]),'P':([36,],[45,]),'Codes':([40,55,65,66,67,87,],[50,72,75,76,77,90,]),'Tokl':([42,],[52,]),'S':([44,],[56,]),'Code':([50,72,75,76,77,90,],[63,63,63,63,63,63,]),'Pelvals':([74,],[82,]),'Tv':([93,],[96,]),}\n_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -962,7 +962,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Precedents':([5,],[8,]),'Ignore':([6,],[10,]),'Declarations':([8,],[13,]),'Tokens':([10,],[15,]),'Declaration':([13,],[19,]),'Lfuncs':([15,],[22,]),'Prcdlist':([21,],[26,]),'Lerror':([22,],[27,]),'Lfunc':([22,],[28,]),'P':([25,],[32,]),'Codes':([29,47,48,49,],[37,54,55,56,]),'Tokl':([31,],[39,]),'Code':([37,54,55,56,],[45,45,45,45,]),'Pelvals':([53,],[59,]),'Tv':([68,],[70,]),}\n_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):",
+        "peekOfCode": "_lr_action = {}\nfor _k, _v in _lr_action_items.items():\n   for _x,_y in zip(_v[0],_v[1]):\n      if not _x in _lr_action:  _lr_action[_x] = {}\n      _lr_action[_x][_k] = _y\ndel _lr_action_items\n_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Grammar':([4,],[8,]),'Precedents':([5,],[10,]),'Ignore':([6,],[12,]),'Yfs':([8,],[15,]),'Productions':([9,],[17,]),'Declarations':([10,],[18,]),'Tokens':([12,],[20,]),'Funcs':([16,],[24,]),'Production':([17,],[25,]),'Declaration':([18,],[27,]),'Lfuncs':([20,],[30,]),'Func':([24,],[33,]),'Prcdlist':([29,],[37,]),'Lerror':([30,],[38,]),'Lfunc':([30,],[39,]),'Symbols':([35,],[44,]),'P':([36,],[45,]),'Codes':([40,55,65,66,67,87,],[50,72,75,76,77,90,]),'Tokl':([42,],[52,]),'S':([44,],[56,]),'Code':([50,72,75,76,77,90,],[63,63,63,63,63,63,]),'Pelvals':([74,],[82,]),'Tv':([93,],[96,]),}\n_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -971,7 +971,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Precedents':([5,],[8,]),'Ignore':([6,],[10,]),'Declarations':([8,],[13,]),'Tokens':([10,],[15,]),'Declaration':([13,],[19,]),'Lfuncs':([15,],[22,]),'Prcdlist':([21,],[26,]),'Lerror':([22,],[27,]),'Lfunc':([22,],[28,]),'P':([25,],[32,]),'Codes':([29,47,48,49,],[37,54,55,56,]),'Tokl':([31,],[39,]),'Code':([37,54,55,56,],[45,45,45,45,]),'Pelvals':([53,],[59,]),'Tv':([68,],[70,]),}\n_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):\n       if not _x in _lr_goto: _lr_goto[_x] = {}\n       _lr_goto[_x][_k] = _y\ndel _lr_goto_items\n_lr_productions = [\n  (\"S' -> Ply\",\"S'\",1,None,None,None),\n  ('Ply -> Lexer Yc','Ply',2,'p_Ply','plysimple_sin.py',6),",
+        "peekOfCode": "_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Grammar':([4,],[8,]),'Precedents':([5,],[10,]),'Ignore':([6,],[12,]),'Yfs':([8,],[15,]),'Productions':([9,],[17,]),'Declarations':([10,],[18,]),'Tokens':([12,],[20,]),'Funcs':([16,],[24,]),'Production':([17,],[25,]),'Declaration':([18,],[27,]),'Lfuncs':([20,],[30,]),'Func':([24,],[33,]),'Prcdlist':([29,],[37,]),'Lerror':([30,],[38,]),'Lfunc':([30,],[39,]),'Symbols':([35,],[44,]),'P':([36,],[45,]),'Codes':([40,55,65,66,67,87,],[50,72,75,76,77,90,]),'Tokl':([42,],[52,]),'S':([44,],[56,]),'Code':([50,72,75,76,77,90,],[63,63,63,63,63,63,]),'Pelvals':([74,],[82,]),'Tv':([93,],[96,]),}\n_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):\n       if not _x in _lr_goto: _lr_goto[_x] = {}\n       _lr_goto[_x][_k] = _y\ndel _lr_goto_items\n_lr_productions = [\n  (\"S' -> Ply\",\"S'\",1,None,None,None),\n  ('Ply -> Lexer Yc Grammar Yfs','Ply',4,'p_Ply','plysimple_sin.py',6),",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -980,7 +980,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):\n       if not _x in _lr_goto: _lr_goto[_x] = {}\n       _lr_goto[_x][_k] = _y\ndel _lr_goto_items\n_lr_productions = [\n  (\"S' -> Ply\",\"S'\",1,None,None,None),\n  ('Ply -> Lexer Yc','Ply',2,'p_Ply','plysimple_sin.py',6),\n  ('Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror','Lexer',6,'p_Lexer','plysimple_sin.py',10),",
+        "peekOfCode": "_lr_goto = {}\nfor _k, _v in _lr_goto_items.items():\n   for _x, _y in zip(_v[0], _v[1]):\n       if not _x in _lr_goto: _lr_goto[_x] = {}\n       _lr_goto[_x][_k] = _y\ndel _lr_goto_items\n_lr_productions = [\n  (\"S' -> Ply\",\"S'\",1,None,None,None),\n  ('Ply -> Lexer Yc Grammar Yfs','Ply',4,'p_Ply','plysimple_sin.py',6),\n  ('Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror','Lexer',6,'p_Lexer','plysimple_sin.py',10),",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -989,7 +989,7 @@
         "kind": 5,
         "importPath": "parsetab",
         "description": "parsetab",
-        "peekOfCode": "_lr_productions = [\n  (\"S' -> Ply\",\"S'\",1,None,None,None),\n  ('Ply -> Lexer Yc','Ply',2,'p_Ply','plysimple_sin.py',6),\n  ('Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror','Lexer',6,'p_Lexer','plysimple_sin.py',10),\n  ('Yc -> YACC Precedents Declarations','Yc',3,'p_Yacc','plysimple_sin.py',14),\n  ('Literals -> LTS = aspval','Literals',3,'p_Literals','plysimple_sin.py',18),\n  ('Literals -> <empty>','Literals',0,'p_Literals_empty','plysimple_sin.py',24),\n  ('Ignore -> IG = aspval','Ignore',3,'p_Ignore','plysimple_sin.py',28),\n  ('Ignore -> <empty>','Ignore',0,'p_Ignore_empty','plysimple_sin.py',32),\n  ('Tokens -> TKS = PRA Tokl PRF','Tokens',5,'p_Tokens','plysimple_sin.py',36),",
+        "peekOfCode": "_lr_productions = [\n  (\"S' -> Ply\",\"S'\",1,None,None,None),\n  ('Ply -> Lexer Yc Grammar Yfs','Ply',4,'p_Ply','plysimple_sin.py',6),\n  ('Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror','Lexer',6,'p_Lexer','plysimple_sin.py',10),\n  ('Yc -> YACC Precedents Declarations','Yc',3,'p_Yacc','plysimple_sin.py',14),\n  ('Grammar -> GRM Productions','Grammar',2,'p_Grammar','plysimple_sin.py',18),\n  ('Yfs -> YFUNCS Funcs','Yfs',2,'p_Yfs','plysimple_sin.py',22),\n  ('Literals -> LTS = aspval','Literals',3,'p_Literals','plysimple_sin.py',25),\n  ('Literals -> <empty>','Literals',0,'p_Literals_empty','plysimple_sin.py',31),\n  ('Ignore -> IG = aspval','Ignore',3,'p_Ignore','plysimple_sin.py',35),",
         "detail": "parsetab",
         "documentation": {}
     },
@@ -1817,7 +1817,7 @@
         "kind": 2,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "def t_REGEX_rgx(t):\n    r\"((\\\\:)|[^:])+\" #TODO: ver isto melhor\n    return t\ndef t_ANY_error(t):\n    print(f\"Illegal character '{t.value[0]}', [{t.lexer.lineno}]\")\n    t.lexer.skip(1)\nlexer = lex.lex()\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:",
+        "peekOfCode": "def t_REGEX_rgx(t):\n    r\"((\\\\:)|[^:])+\" #TODO: ver isto melhor\n    return t\ndef t_ANY_error(t):\n    print(f\"Illegal character '{t.value[0]}', [{t.lexer.lineno}]\")\n    t.lexer.skip(1)\nlexer = lex.lex()\n\"\"\"\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1826,7 +1826,7 @@
         "kind": 2,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "def t_ANY_error(t):\n    print(f\"Illegal character '{t.value[0]}', [{t.lexer.lineno}]\")\n    t.lexer.skip(1)\nlexer = lex.lex()\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:\n    print(token)",
+        "peekOfCode": "def t_ANY_error(t):\n    print(f\"Illegal character '{t.value[0]}', [{t.lexer.lineno}]\")\n    t.lexer.skip(1)\nlexer = lex.lex()\n\"\"\"\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:\n    print(token)\n\"\"\"",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1835,7 +1835,7 @@
         "kind": 5,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "states = [('REGEX','exclusive'),('GRAMMAR','exclusive'),('CODE','exclusive'),('YFUNC','exclusive'),('SYMBOLS','exclusive')]\nliterals = ['=',',']\ntokens = [\"LEX\",\"LTS\",\"IG\",\"TKS\",\"LFUNC\",\n\"RT\",\"ER\",\"TVAL\",\"TYPE\",\"YACC\",\"PRCD\",\"LTRG\",\n\"GRM\",\"PREC\",\"YFUNCS\",\"DEF\",\"PA\",\"PF\",\n\"PCA\",\"PCF\",\"PRA\",\"PRF\",\"DS\",\n\"aspval\",\"pelval\",\"cod\",\"id\",\"nt\",\"symbol\",\"name\",\"rgx\"]\nt_ANY_ignore = \"\\t\\n \"\ndef t_LEX(t):\n    r'LEX:'",
+        "peekOfCode": "states = [('REGEX','exclusive'),('GRAMMAR','exclusive'),('CODE','exclusive'),('YFUNC','exclusive'),('SYMBOLS','exclusive')]\nliterals = ['=',',']\ntokens = [\"LEX\",\"LTS\",\"IG\",\"TKS\",\"LFUNC\",\n\"RT\",\"ER\",\"TVAL\",\"TYPE\",\"YACC\",\"PRCD\",\"LTRG\",\n\"GRM\",\"PREC\",\"YFUNCS\",\"DEF\",\"PA\",\"PF\",\n\"PCA\",\"PCF\",\"PRA\",\"PRF\",\"DS\",\n\"aspval\",\"pelval\",\"cod\",\"id\",\"nt\",\"symbol\",\"name\",\"rgx\"]\nt_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore = \" \\t\\n \"\nt_CODE_ignore = \" \"\ndef t_LEX(t):",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1844,7 +1844,7 @@
         "kind": 5,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "literals = ['=',',']\ntokens = [\"LEX\",\"LTS\",\"IG\",\"TKS\",\"LFUNC\",\n\"RT\",\"ER\",\"TVAL\",\"TYPE\",\"YACC\",\"PRCD\",\"LTRG\",\n\"GRM\",\"PREC\",\"YFUNCS\",\"DEF\",\"PA\",\"PF\",\n\"PCA\",\"PCF\",\"PRA\",\"PRF\",\"DS\",\n\"aspval\",\"pelval\",\"cod\",\"id\",\"nt\",\"symbol\",\"name\",\"rgx\"]\nt_ANY_ignore = \"\\t\\n \"\ndef t_LEX(t):\n    r'LEX:'\n    return t",
+        "peekOfCode": "literals = ['=',',']\ntokens = [\"LEX\",\"LTS\",\"IG\",\"TKS\",\"LFUNC\",\n\"RT\",\"ER\",\"TVAL\",\"TYPE\",\"YACC\",\"PRCD\",\"LTRG\",\n\"GRM\",\"PREC\",\"YFUNCS\",\"DEF\",\"PA\",\"PF\",\n\"PCA\",\"PCF\",\"PRA\",\"PRF\",\"DS\",\n\"aspval\",\"pelval\",\"cod\",\"id\",\"nt\",\"symbol\",\"name\",\"rgx\"]\nt_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore = \" \\t\\n \"\nt_CODE_ignore = \" \"\ndef t_LEX(t):\n    r'LEX:'",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1853,16 +1853,25 @@
         "kind": 5,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "tokens = [\"LEX\",\"LTS\",\"IG\",\"TKS\",\"LFUNC\",\n\"RT\",\"ER\",\"TVAL\",\"TYPE\",\"YACC\",\"PRCD\",\"LTRG\",\n\"GRM\",\"PREC\",\"YFUNCS\",\"DEF\",\"PA\",\"PF\",\n\"PCA\",\"PCF\",\"PRA\",\"PRF\",\"DS\",\n\"aspval\",\"pelval\",\"cod\",\"id\",\"nt\",\"symbol\",\"name\",\"rgx\"]\nt_ANY_ignore = \"\\t\\n \"\ndef t_LEX(t):\n    r'LEX:'\n    return t\ndef t_LTS(t):",
+        "peekOfCode": "tokens = [\"LEX\",\"LTS\",\"IG\",\"TKS\",\"LFUNC\",\n\"RT\",\"ER\",\"TVAL\",\"TYPE\",\"YACC\",\"PRCD\",\"LTRG\",\n\"GRM\",\"PREC\",\"YFUNCS\",\"DEF\",\"PA\",\"PF\",\n\"PCA\",\"PCF\",\"PRA\",\"PRF\",\"DS\",\n\"aspval\",\"pelval\",\"cod\",\"id\",\"nt\",\"symbol\",\"name\",\"rgx\"]\nt_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore = \" \\t\\n \"\nt_CODE_ignore = \" \"\ndef t_LEX(t):\n    r'LEX:'\n    return t",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
     {
-        "label": "t_ANY_ignore",
+        "label": "t_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore",
         "kind": 5,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "t_ANY_ignore = \"\\t\\n \"\ndef t_LEX(t):\n    r'LEX:'\n    return t\ndef t_LTS(t):\n    r\"literals\"\n    return t\ndef t_IG(t):\n    r\"ignore\"\n    return t",
+        "peekOfCode": "t_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore = \" \\t\\n \"\nt_CODE_ignore = \" \"\ndef t_LEX(t):\n    r'LEX:'\n    return t\ndef t_LTS(t):\n    r\"literals\"\n    return t\ndef t_IG(t):\n    r\"ignore\"",
+        "detail": "plysimple_limpo",
+        "documentation": {}
+    },
+    {
+        "label": "t_CODE_ignore",
+        "kind": 5,
+        "importPath": "plysimple_limpo",
+        "description": "plysimple_limpo",
+        "peekOfCode": "t_CODE_ignore = \" \"\ndef t_LEX(t):\n    r'LEX:'\n    return t\ndef t_LTS(t):\n    r\"literals\"\n    return t\ndef t_IG(t):\n    r\"ignore\"\n    return t",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1871,7 +1880,7 @@
         "kind": 5,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "lexer = lex.lex()\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:\n    print(token)",
+        "peekOfCode": "lexer = lex.lex()\n\"\"\"\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:\n    print(token)\n\"\"\"",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1880,7 +1889,7 @@
         "kind": 5,
         "importPath": "plysimple_limpo",
         "description": "plysimple_limpo",
-        "peekOfCode": "file = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:\n    print(token)",
+        "peekOfCode": "file = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nlexer.input(file.read())\nfor token in lexer:\n    print(token)\n\"\"\"",
         "detail": "plysimple_limpo",
         "documentation": {}
     },
@@ -1889,7 +1898,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Ply(p):\n    \"Ply : Lexer Yc\"\n    p[0] = p[1] + \"\\n\" + p[2]\ndef p_Lexer(p):\n    \"Lexer : LEX Literals Ignore Tokens Lfuncs Lerror\"\n    p[0] = p[2] + \"\\n\" + p[3] +\"\\n\" + p[4] + \"\\n\" + p[5] + \"\\n\" + p[6]\ndef p_Yacc(p):\n    \"Yc : YACC Precedents Declarations\"\n    p[0] = p[2] + \"\\n\" + p[3]\ndef p_Literals(p):",
+        "peekOfCode": "def p_Ply(p):\n    \"Ply : Lexer Yc Grammar Yfs\"\n    p[0] = p[1] + \"\\n\" + p[2] + \"\\n\" + p[3] + \"\\n\" + p[4]\ndef p_Lexer(p):\n    \"Lexer : LEX Literals Ignore Tokens Lfuncs Lerror\"\n    p[0] = p[2] + \"\\n\" + p[3] +\"\\n\" + p[4] + \"\\n\" + p[5] + \"\\n\" + p[6]\ndef p_Yacc(p):\n    \"Yc : YACC Precedents Declarations\"\n    p[0] = p[2] + \"\\n\" + p[3]\ndef p_Grammar(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -1898,7 +1907,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Lexer(p):\n    \"Lexer : LEX Literals Ignore Tokens Lfuncs Lerror\"\n    p[0] = p[2] + \"\\n\" + p[3] +\"\\n\" + p[4] + \"\\n\" + p[5] + \"\\n\" + p[6]\ndef p_Yacc(p):\n    \"Yc : YACC Precedents Declarations\"\n    p[0] = p[2] + \"\\n\" + p[3]\ndef p_Literals(p):\n    \"Literals : LTS '=' aspval\"\n    p[3] = p[3][1:-1] #remove as aspas\n    lits = [char for char in p[3]] #transforma a string numa lista de chars",
+        "peekOfCode": "def p_Lexer(p):\n    \"Lexer : LEX Literals Ignore Tokens Lfuncs Lerror\"\n    p[0] = p[2] + \"\\n\" + p[3] +\"\\n\" + p[4] + \"\\n\" + p[5] + \"\\n\" + p[6]\ndef p_Yacc(p):\n    \"Yc : YACC Precedents Declarations\"\n    p[0] = p[2] + \"\\n\" + p[3]\ndef p_Grammar(p):\n    \"Grammar : GRM Productions\"\n    p[0] = p[2]\ndef p_Yfs(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -1907,7 +1916,25 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Yacc(p):\n    \"Yc : YACC Precedents Declarations\"\n    p[0] = p[2] + \"\\n\" + p[3]\ndef p_Literals(p):\n    \"Literals : LTS '=' aspval\"\n    p[3] = p[3][1:-1] #remove as aspas\n    lits = [char for char in p[3]] #transforma a string numa lista de chars\n    p[0] = \"literals = \" + str(lits)\ndef p_Literals_empty(p):\n    \"Literals : \"",
+        "peekOfCode": "def p_Yacc(p):\n    \"Yc : YACC Precedents Declarations\"\n    p[0] = p[2] + \"\\n\" + p[3]\ndef p_Grammar(p):\n    \"Grammar : GRM Productions\"\n    p[0] = p[2]\ndef p_Yfs(p):\n    \"Yfs : YFUNCS Funcs\"\n    p[0] = p[2]\ndef p_Literals(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Grammar",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Grammar(p):\n    \"Grammar : GRM Productions\"\n    p[0] = p[2]\ndef p_Yfs(p):\n    \"Yfs : YFUNCS Funcs\"\n    p[0] = p[2]\ndef p_Literals(p):\n    \"Literals : LTS '=' aspval\"\n    p[3] = p[3][1:-1] #remove as aspas\n    lits = [char for char in p[3]] #transforma a string numa lista de chars",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Yfs",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Yfs(p):\n    \"Yfs : YFUNCS Funcs\"\n    p[0] = p[2]\ndef p_Literals(p):\n    \"Literals : LTS '=' aspval\"\n    p[3] = p[3][1:-1] #remove as aspas\n    lits = [char for char in p[3]] #transforma a string numa lista de chars\n    p[0] = \"literals = \" + str(lits)\ndef p_Literals_empty(p):\n    \"Literals : \"",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2051,7 +2078,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Declarations(p):\n    \"Declarations : Declarations Declaration\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Declarations_empty(p):\n    \"Declarations : \"\n    p[0] = \"\"\ndef p_Declaration(p): #TODO: ver o que fazer com isto\n    \"Declaration : id '=' P\"\n    p[0] = p[1] + \"=\" + p[3]\ndef p_P_pr(p): #TODO: ver o que fazer com isto",
+        "peekOfCode": "def p_Declarations(p):\n    \"Declarations : Declarations Declaration\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Declarations_empty(p):\n    \"Declarations : \"\n    p[0] = \"\"\ndef p_Declaration(p): #TODO: ver o que fazer com isto\n    \"Declaration : id '=' P\"\n    p[0] = p[1] + \"=\" + p[3]\ndef p_Productions(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2060,7 +2087,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Declarations_empty(p):\n    \"Declarations : \"\n    p[0] = \"\"\ndef p_Declaration(p): #TODO: ver o que fazer com isto\n    \"Declaration : id '=' P\"\n    p[0] = p[1] + \"=\" + p[3]\ndef p_P_pr(p): #TODO: ver o que fazer com isto\n    \"P : PRA PRF\"\n    p[0] = \"[]\"\ndef p_P_pc(p): #TODO: ver o que fazer com isto",
+        "peekOfCode": "def p_Declarations_empty(p):\n    \"Declarations : \"\n    p[0] = \"\"\ndef p_Declaration(p): #TODO: ver o que fazer com isto\n    \"Declaration : id '=' P\"\n    p[0] = p[1] + \"=\" + p[3]\ndef p_Productions(p):\n    \"Productions : Productions Production\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Productions_empty(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2069,7 +2096,70 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Declaration(p): #TODO: ver o que fazer com isto\n    \"Declaration : id '=' P\"\n    p[0] = p[1] + \"=\" + p[3]\ndef p_P_pr(p): #TODO: ver o que fazer com isto\n    \"P : PRA PRF\"\n    p[0] = \"[]\"\ndef p_P_pc(p): #TODO: ver o que fazer com isto\n    \"P : PCA PCF\"\n    p[0] = \"{}\"\ndef p_Prcdlist(p):",
+        "peekOfCode": "def p_Declaration(p): #TODO: ver o que fazer com isto\n    \"Declaration : id '=' P\"\n    p[0] = p[1] + \"=\" + p[3]\ndef p_Productions(p):\n    \"Productions : Productions Production\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Productions_empty(p):\n    \"Productions : \"\n    p[0] = \"\"\ndef p_Production(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Productions",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Productions(p):\n    \"Productions : Productions Production\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Productions_empty(p):\n    \"Productions : \"\n    p[0] = \"\"\ndef p_Production(p):\n    \"Production : nt DS Symbols PCA Codes PCF\"\n    p[0] = p[1] + \":\" + p[3] + \"{\" + p[5] + \"}\"\ndef p_Symbols(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Productions_empty",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Productions_empty(p):\n    \"Productions : \"\n    p[0] = \"\"\ndef p_Production(p):\n    \"Production : nt DS Symbols PCA Codes PCF\"\n    p[0] = p[1] + \":\" + p[3] + \"{\" + p[5] + \"}\"\ndef p_Symbols(p):\n    \"Symbols : Symbols S\"\n    p[0] = p[1] + p[2] + \" \"\ndef p_Symbols_empty(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Production",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Production(p):\n    \"Production : nt DS Symbols PCA Codes PCF\"\n    p[0] = p[1] + \":\" + p[3] + \"{\" + p[5] + \"}\"\ndef p_Symbols(p):\n    \"Symbols : Symbols S\"\n    p[0] = p[1] + p[2] + \" \"\ndef p_Symbols_empty(p):\n    \"Symbols : \"\n    p[0] = \"\"\ndef p_S(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Symbols",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Symbols(p):\n    \"Symbols : Symbols S\"\n    p[0] = p[1] + p[2] + \" \"\ndef p_Symbols_empty(p):\n    \"Symbols : \"\n    p[0] = \"\"\ndef p_S(p):\n    \"S : symbol\"\n    p[0] = p[1]\ndef p_S_Prec(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Symbols_empty",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Symbols_empty(p):\n    \"Symbols : \"\n    p[0] = \"\"\ndef p_S(p):\n    \"S : symbol\"\n    p[0] = p[1]\ndef p_S_Prec(p):\n    \"S : PREC symbol\"\n    p[0] = \"%prec \" + p[2]\ndef p_P_pr(p): #TODO: ver o que fazer com isto",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_S",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_S(p):\n    \"S : symbol\"\n    p[0] = p[1]\ndef p_S_Prec(p):\n    \"S : PREC symbol\"\n    p[0] = \"%prec \" + p[2]\ndef p_P_pr(p): #TODO: ver o que fazer com isto\n    \"P : PRA PRF\"\n    p[0] = \"[]\"\ndef p_P_pc(p): #TODO: ver o que fazer com isto",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_S_Prec",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_S_Prec(p):\n    \"S : PREC symbol\"\n    p[0] = \"%prec \" + p[2]\ndef p_P_pr(p): #TODO: ver o que fazer com isto\n    \"P : PRA PRF\"\n    p[0] = \"[]\"\ndef p_P_pc(p): #TODO: ver o que fazer com isto\n    \"P : PCA PCF\"\n    p[0] = \"{}\"\ndef p_Prcdlist(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2105,7 +2195,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Prcdlist_empty(p):\n    \"Prcdlist : \"\n    p[0] = \"\"\ndef p_Pelvals(p):\n    \"Pelvals : Pelvals pelval ','\"\n    p[0] = p[1] + p[2] + ','\ndef p_Pelvals_empty(p):\n    \"Pelvals : \"\n    p[0] = \"\"\ndef p_Codes(p):",
+        "peekOfCode": "def p_Prcdlist_empty(p):\n    \"Prcdlist : \"\n    p[0] = \"\"\ndef p_Pelvals(p):\n    \"Pelvals : Pelvals pelval ','\"\n    p[0] = p[1] + p[2] + ','\ndef p_Pelvals_empty(p):\n    \"Pelvals : \"\n    p[0] = \"\"\ndef p_Funcs(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2114,7 +2204,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Pelvals(p):\n    \"Pelvals : Pelvals pelval ','\"\n    p[0] = p[1] + p[2] + ','\ndef p_Pelvals_empty(p):\n    \"Pelvals : \"\n    p[0] = \"\"\ndef p_Codes(p):\n    \"Codes : Codes Code\"\n    p[0] = p[1] + p[2]\ndef p_Codes_empty(p):",
+        "peekOfCode": "def p_Pelvals(p):\n    \"Pelvals : Pelvals pelval ','\"\n    p[0] = p[1] + p[2] + ','\ndef p_Pelvals_empty(p):\n    \"Pelvals : \"\n    p[0] = \"\"\ndef p_Funcs(p):\n    \"Funcs : Funcs Func\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Funcs_empty(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2123,7 +2213,34 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Pelvals_empty(p):\n    \"Pelvals : \"\n    p[0] = \"\"\ndef p_Codes(p):\n    \"Codes : Codes Code\"\n    p[0] = p[1] + p[2]\ndef p_Codes_empty(p):\n    \"Codes : \"\n    p[0] = \"\"\ndef p_Code(p):",
+        "peekOfCode": "def p_Pelvals_empty(p):\n    \"Pelvals : \"\n    p[0] = \"\"\ndef p_Funcs(p):\n    \"Funcs : Funcs Func\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Funcs_empty(p):\n    \"Funcs : \"\n    p[0] = \"\"\ndef p_Func(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Funcs",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Funcs(p):\n    \"Funcs : Funcs Func\"\n    p[0] = p[1] + p[2] + \"\\n\"\ndef p_Funcs_empty(p):\n    \"Funcs : \"\n    p[0] = \"\"\ndef p_Func(p):\n    \"Func : DEF name PA name PF PCA Codes PCF\"\n    p[0] = \"def \" + p[2] + \"(\" + p[4] + \"):\" + p[7]\ndef p_Codes(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Funcs_empty",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Funcs_empty(p):\n    \"Funcs : \"\n    p[0] = \"\"\ndef p_Func(p):\n    \"Func : DEF name PA name PF PCA Codes PCF\"\n    p[0] = \"def \" + p[2] + \"(\" + p[4] + \"):\" + p[7]\ndef p_Codes(p):\n    \"Codes : Codes Code\"\n    p[0] = p[1] + p[2]\ndef p_Codes_empty(p):",
+        "detail": "plysimple_sin",
+        "documentation": {}
+    },
+    {
+        "label": "p_Func",
+        "kind": 2,
+        "importPath": "plysimple_sin",
+        "description": "plysimple_sin",
+        "peekOfCode": "def p_Func(p):\n    \"Func : DEF name PA name PF PCA Codes PCF\"\n    p[0] = \"def \" + p[2] + \"(\" + p[4] + \"):\" + p[7]\ndef p_Codes(p):\n    \"Codes : Codes Code\"\n    p[0] = p[1] + p[2]\ndef p_Codes_empty(p):\n    \"Codes : \"\n    p[0] = \"\"\ndef p_Code(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2159,7 +2276,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Code_p(p):\n    \"Code : PA Codes PF\"\n    p[0] = \"(\" + p[2] + \")\"\ndef p_Code_pr(p):\n    \"Code : PRA Codes PRF\"\n    p[0] = \"[\" + p[2] + \"]\"\ndef p_Code_pc(p):\n    \"Code : PCA Codes PCF\"\n    p[0] = \"{\" + p[2] + \"}\"\n\"\"\"",
+        "peekOfCode": "def p_Code_p(p):\n    \"Code : PA Codes PF\"\n    p[0] = \"(\" + p[2] + \")\"\ndef p_Code_pr(p):\n    \"Code : PRA Codes PRF\"\n    p[0] = \"[\" + p[2] + \"]\"\ndef p_Code_pc(p):\n    \"Code : PCA Codes PCF\"\n    p[0] = \"{\" + p[2] + \"}\"\ndef p_error(p):",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2168,7 +2285,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Code_pr(p):\n    \"Code : PRA Codes PRF\"\n    p[0] = \"[\" + p[2] + \"]\"\ndef p_Code_pc(p):\n    \"Code : PCA Codes PCF\"\n    p[0] = \"{\" + p[2] + \"}\"\n\"\"\"\n\"Codes : Codes Code\"\n\"Codes : \"\n\"Code : cod\"",
+        "peekOfCode": "def p_Code_pr(p):\n    \"Code : PRA Codes PRF\"\n    p[0] = \"[\" + p[2] + \"]\"\ndef p_Code_pc(p):\n    \"Code : PCA Codes PCF\"\n    p[0] = \"{\" + p[2] + \"}\"\ndef p_error(p):\n    print('Erro sintático: ', p)\n    parser.success = False\n# Build the parser",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2177,7 +2294,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_Code_pc(p):\n    \"Code : PCA Codes PCF\"\n    p[0] = \"{\" + p[2] + \"}\"\n\"\"\"\n\"Codes : Codes Code\"\n\"Codes : \"\n\"Code : cod\"\n\"Code : PA Codes PF\"\n\"Code : PRA Codes PRF\"\n\"Code : PCA Codes PCF\"",
+        "peekOfCode": "def p_Code_pc(p):\n    \"Code : PCA Codes PCF\"\n    p[0] = \"{\" + p[2] + \"}\"\ndef p_error(p):\n    print('Erro sintático: ', p)\n    parser.success = False\n# Build the parser\nparser = yacc.yacc()\nimport sys\nparser.success = True",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2186,7 +2303,7 @@
         "kind": 2,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "def p_error(p):\n    print('Erro sintático: ', p)\n    parser.success = False\n# Build the parser\nparser = yacc.yacc()\n# Read line from input and parse it\nimport sys\nparser.success = True\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nprogram = file.read()",
+        "peekOfCode": "def p_error(p):\n    print('Erro sintático: ', p)\n    parser.success = False\n# Build the parser\nparser = yacc.yacc()\nimport sys\nparser.success = True\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nprogram = file.read()\ncodigo = parser.parse(program)",
         "detail": "plysimple_sin",
         "documentation": {}
     },
@@ -2195,7 +2312,7 @@
         "kind": 5,
         "importPath": "plysimple_sin",
         "description": "plysimple_sin",
-        "peekOfCode": "parser = yacc.yacc()\n# Read line from input and parse it\nimport sys\nparser.success = True\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nprogram = file.read()\ncodigo = parser.parse(program)\nif parser.success:\n    print(\"Programa estruturalmente correto!\")\n    print(codigo)",
+        "peekOfCode": "parser = yacc.yacc()\nimport sys\nparser.success = True\nfile = open(\"t.txt\",\"r\",encoding=\"utf-8\",errors=\"surrogateescape\")\nprogram = file.read()\ncodigo = parser.parse(program)\nif parser.success:\n    print(\"Programa estruturalmente correto!\")\n    print(codigo)\nelse:",
         "detail": "plysimple_sin",
         "documentation": {}
     },

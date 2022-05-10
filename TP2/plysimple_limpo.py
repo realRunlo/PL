@@ -13,7 +13,8 @@ tokens = ["LEX","LTS","IG","TKS","LFUNC",
 "PCA","PCF","PRA","PRF","DS",
 "aspval","pelval","cod","id","nt","symbol","name","rgx"]
 
-t_ANY_ignore = "\t\n "
+t_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore = " \t\n "
+t_CODE_ignore = " "
 
 def t_LEX(t):
     r'LEX:'
@@ -205,7 +206,7 @@ def t_ANY_error(t):
 
 
 lexer = lex.lex()
-
+"""
 file = open("t.txt","r",encoding="utf-8",errors="surrogateescape")
 lexer.input(file.read())
 
@@ -213,4 +214,4 @@ for token in lexer:
     print(token)
 
 
-
+"""

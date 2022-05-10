@@ -1,117 +1,127 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
-Unused terminals:
-
-    DEF
-    GRM
-    PREC
-    YFUNCS
-    name
-    nt
-    symbol
-
 Grammar
 
 Rule 0     S' -> Ply
-Rule 1     Ply -> Lexer Yc
+Rule 1     Ply -> Lexer Yc Grammar Yfs
 Rule 2     Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror
 Rule 3     Yc -> YACC Precedents Declarations
-Rule 4     Literals -> LTS = aspval
-Rule 5     Literals -> <empty>
-Rule 6     Ignore -> IG = aspval
-Rule 7     Ignore -> <empty>
-Rule 8     Tokens -> TKS = PRA Tokl PRF
-Rule 9     Tokl -> Tokl , pelval
-Rule 10    Tokl -> pelval
-Rule 11    Lfuncs -> Lfuncs Lfunc
-Rule 12    Lfuncs -> <empty>
-Rule 13    Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF
-Rule 14    Tv -> TVAL
-Rule 15    Tv -> TYPE PA TVAL PF
-Rule 16    Lerror -> ER Codes PF
-Rule 17    Lerror -> <empty>
-Rule 18    Precedents -> PRCD = PRA Prcdlist PRF
-Rule 19    Declarations -> Declarations Declaration
-Rule 20    Declarations -> <empty>
-Rule 21    Declaration -> id = P
-Rule 22    P -> PRA PRF
-Rule 23    P -> PCA PCF
-Rule 24    Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF ,
-Rule 25    Prcdlist -> <empty>
-Rule 26    Pelvals -> Pelvals pelval ,
-Rule 27    Pelvals -> <empty>
-Rule 28    Codes -> Codes Code
-Rule 29    Codes -> <empty>
-Rule 30    Code -> cod
-Rule 31    Code -> PA Codes PF
-Rule 32    Code -> PRA Codes PRF
-Rule 33    Code -> PCA Codes PCF
+Rule 4     Grammar -> GRM Productions
+Rule 5     Yfs -> YFUNCS Funcs
+Rule 6     Literals -> LTS = aspval
+Rule 7     Literals -> <empty>
+Rule 8     Ignore -> IG = aspval
+Rule 9     Ignore -> <empty>
+Rule 10    Tokens -> TKS = PRA Tokl PRF
+Rule 11    Tokl -> Tokl , pelval
+Rule 12    Tokl -> pelval
+Rule 13    Lfuncs -> Lfuncs Lfunc
+Rule 14    Lfuncs -> <empty>
+Rule 15    Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF
+Rule 16    Tv -> TVAL
+Rule 17    Tv -> TYPE PA TVAL PF
+Rule 18    Lerror -> ER Codes PF
+Rule 19    Lerror -> <empty>
+Rule 20    Precedents -> PRCD = PRA Prcdlist PRF
+Rule 21    Declarations -> Declarations Declaration
+Rule 22    Declarations -> <empty>
+Rule 23    Declaration -> id = P
+Rule 24    Productions -> Productions Production
+Rule 25    Productions -> <empty>
+Rule 26    Production -> nt DS Symbols PCA Codes PCF
+Rule 27    Symbols -> Symbols S
+Rule 28    Symbols -> <empty>
+Rule 29    S -> symbol
+Rule 30    S -> PREC symbol
+Rule 31    P -> PRA PRF
+Rule 32    P -> PCA PCF
+Rule 33    Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF ,
+Rule 34    Prcdlist -> <empty>
+Rule 35    Pelvals -> Pelvals pelval ,
+Rule 36    Pelvals -> <empty>
+Rule 37    Funcs -> Funcs Func
+Rule 38    Funcs -> <empty>
+Rule 39    Func -> DEF name PA name PF PCA Codes PCF
+Rule 40    Codes -> Codes Code
+Rule 41    Codes -> <empty>
+Rule 42    Code -> cod
+Rule 43    Code -> PA Codes PF
+Rule 44    Code -> PRA Codes PRF
+Rule 45    Code -> PCA Codes PCF
 
 Terminals, with rules where they appear
 
-,                    : 9 13 24 24 26
-=                    : 4 6 8 18 21
-DEF                  : 
-DS                   : 13
-ER                   : 16
-GRM                  : 
-IG                   : 6
+,                    : 11 15 33 33 35
+=                    : 6 8 10 20 23
+DEF                  : 39
+DS                   : 15 26
+ER                   : 18
+GRM                  : 4
+IG                   : 8
 LEX                  : 2
-LFUNC                : 13
-LTRG                 : 24
-LTS                  : 4
-PA                   : 13 15 24 31
-PCA                  : 23 33
-PCF                  : 23 33
-PF                   : 13 15 16 24 31
-PRA                  : 8 18 22 32
-PRCD                 : 18
-PREC                 : 
-PRF                  : 8 18 22 32
-RT                   : 13
-TKS                  : 8
-TVAL                 : 14 15
-TYPE                 : 15
+LFUNC                : 15
+LTRG                 : 33
+LTS                  : 6
+PA                   : 15 17 33 39 43
+PCA                  : 26 32 39 45
+PCF                  : 26 32 39 45
+PF                   : 15 17 18 33 39 43
+PRA                  : 10 20 31 44
+PRCD                 : 20
+PREC                 : 30
+PRF                  : 10 20 31 44
+RT                   : 15
+TKS                  : 10
+TVAL                 : 16 17
+TYPE                 : 17
 YACC                 : 3
-YFUNCS               : 
-aspval               : 4 6
-cod                  : 30
+YFUNCS               : 5
+aspval               : 6 8
+cod                  : 42
 error                : 
-id                   : 21
-name                 : 
-nt                   : 
-pelval               : 9 10 13 24 26
-rgx                  : 13
-symbol               : 
+id                   : 23
+name                 : 39 39
+nt                   : 26
+pelval               : 11 12 15 33 35
+rgx                  : 15
+symbol               : 29 30
 
 Nonterminals, with rules where they appear
 
-Code                 : 28
-Codes                : 16 28 31 32 33
-Declaration          : 19
-Declarations         : 3 19
+Code                 : 40
+Codes                : 18 26 39 40 43 44 45
+Declaration          : 21
+Declarations         : 3 21
+Func                 : 37
+Funcs                : 5 37
+Grammar              : 1
 Ignore               : 2
 Lerror               : 2
 Lexer                : 1
-Lfunc                : 11
-Lfuncs               : 2 11
+Lfunc                : 13
+Lfuncs               : 2 13
 Literals             : 2
-P                    : 21
-Pelvals              : 24 26
+P                    : 23
+Pelvals              : 33 35
 Ply                  : 0
-Prcdlist             : 18 24
+Prcdlist             : 20 33
 Precedents           : 3
+Production           : 24
+Productions          : 4 24
+S                    : 27
+Symbols              : 26 27
 Tokens               : 2
-Tokl                 : 8 9
-Tv                   : 13
+Tokl                 : 10 11
+Tv                   : 15
 Yc                   : 1
+Yfs                  : 1
 
 Parsing method: LALR
 
 state 0
 
     (0) S' -> . Ply
-    (1) Ply -> . Lexer Yc
+    (1) Ply -> . Lexer Yc Grammar Yfs
     (2) Lexer -> . LEX Literals Ignore Tokens Lfuncs Lerror
 
     LEX             shift and go to state 3
@@ -127,7 +137,7 @@ state 1
 
 state 2
 
-    (1) Ply -> Lexer . Yc
+    (1) Ply -> Lexer . Yc Grammar Yfs
     (3) Yc -> . YACC Precedents Declarations
 
     YACC            shift and go to state 5
@@ -137,689 +147,946 @@ state 2
 state 3
 
     (2) Lexer -> LEX . Literals Ignore Tokens Lfuncs Lerror
-    (4) Literals -> . LTS = aspval
-    (5) Literals -> .
+    (6) Literals -> . LTS = aspval
+    (7) Literals -> .
 
     LTS             shift and go to state 7
-    IG              reduce using rule 5 (Literals -> .)
-    TKS             reduce using rule 5 (Literals -> .)
+    IG              reduce using rule 7 (Literals -> .)
+    TKS             reduce using rule 7 (Literals -> .)
 
     Literals                       shift and go to state 6
 
 state 4
 
-    (1) Ply -> Lexer Yc .
+    (1) Ply -> Lexer Yc . Grammar Yfs
+    (4) Grammar -> . GRM Productions
 
-    $end            reduce using rule 1 (Ply -> Lexer Yc .)
+    GRM             shift and go to state 9
 
+    Grammar                        shift and go to state 8
 
 state 5
 
     (3) Yc -> YACC . Precedents Declarations
-    (18) Precedents -> . PRCD = PRA Prcdlist PRF
+    (20) Precedents -> . PRCD = PRA Prcdlist PRF
 
-    PRCD            shift and go to state 9
+    PRCD            shift and go to state 11
 
-    Precedents                     shift and go to state 8
+    Precedents                     shift and go to state 10
 
 state 6
 
     (2) Lexer -> LEX Literals . Ignore Tokens Lfuncs Lerror
-    (6) Ignore -> . IG = aspval
-    (7) Ignore -> .
+    (8) Ignore -> . IG = aspval
+    (9) Ignore -> .
 
-    IG              shift and go to state 11
-    TKS             reduce using rule 7 (Ignore -> .)
+    IG              shift and go to state 13
+    TKS             reduce using rule 9 (Ignore -> .)
 
-    Ignore                         shift and go to state 10
+    Ignore                         shift and go to state 12
 
 state 7
 
-    (4) Literals -> LTS . = aspval
-
-    =               shift and go to state 12
-
-
-state 8
-
-    (3) Yc -> YACC Precedents . Declarations
-    (19) Declarations -> . Declarations Declaration
-    (20) Declarations -> .
-
-    id              reduce using rule 20 (Declarations -> .)
-    $end            reduce using rule 20 (Declarations -> .)
-
-    Declarations                   shift and go to state 13
-
-state 9
-
-    (18) Precedents -> PRCD . = PRA Prcdlist PRF
+    (6) Literals -> LTS . = aspval
 
     =               shift and go to state 14
 
 
+state 8
+
+    (1) Ply -> Lexer Yc Grammar . Yfs
+    (5) Yfs -> . YFUNCS Funcs
+
+    YFUNCS          shift and go to state 16
+
+    Yfs                            shift and go to state 15
+
+state 9
+
+    (4) Grammar -> GRM . Productions
+    (24) Productions -> . Productions Production
+    (25) Productions -> .
+
+    nt              reduce using rule 25 (Productions -> .)
+    YFUNCS          reduce using rule 25 (Productions -> .)
+
+    Productions                    shift and go to state 17
+
 state 10
 
-    (2) Lexer -> LEX Literals Ignore . Tokens Lfuncs Lerror
-    (8) Tokens -> . TKS = PRA Tokl PRF
+    (3) Yc -> YACC Precedents . Declarations
+    (21) Declarations -> . Declarations Declaration
+    (22) Declarations -> .
 
-    TKS             shift and go to state 16
+    id              reduce using rule 22 (Declarations -> .)
+    GRM             reduce using rule 22 (Declarations -> .)
 
-    Tokens                         shift and go to state 15
+    Declarations                   shift and go to state 18
 
 state 11
 
-    (6) Ignore -> IG . = aspval
+    (20) Precedents -> PRCD . = PRA Prcdlist PRF
 
-    =               shift and go to state 17
+    =               shift and go to state 19
 
 
 state 12
 
-    (4) Literals -> LTS = . aspval
+    (2) Lexer -> LEX Literals Ignore . Tokens Lfuncs Lerror
+    (10) Tokens -> . TKS = PRA Tokl PRF
 
-    aspval          shift and go to state 18
+    TKS             shift and go to state 21
 
+    Tokens                         shift and go to state 20
 
 state 13
 
-    (3) Yc -> YACC Precedents Declarations .
-    (19) Declarations -> Declarations . Declaration
-    (21) Declaration -> . id = P
+    (8) Ignore -> IG . = aspval
 
-    $end            reduce using rule 3 (Yc -> YACC Precedents Declarations .)
-    id              shift and go to state 20
+    =               shift and go to state 22
 
-    Declaration                    shift and go to state 19
 
 state 14
 
-    (18) Precedents -> PRCD = . PRA Prcdlist PRF
+    (6) Literals -> LTS = . aspval
 
-    PRA             shift and go to state 21
+    aspval          shift and go to state 23
 
 
 state 15
 
-    (2) Lexer -> LEX Literals Ignore Tokens . Lfuncs Lerror
-    (11) Lfuncs -> . Lfuncs Lfunc
-    (12) Lfuncs -> .
+    (1) Ply -> Lexer Yc Grammar Yfs .
 
-    ER              reduce using rule 12 (Lfuncs -> .)
-    LFUNC           reduce using rule 12 (Lfuncs -> .)
-    YACC            reduce using rule 12 (Lfuncs -> .)
+    $end            reduce using rule 1 (Ply -> Lexer Yc Grammar Yfs .)
 
-    Lfuncs                         shift and go to state 22
 
 state 16
 
-    (8) Tokens -> TKS . = PRA Tokl PRF
+    (5) Yfs -> YFUNCS . Funcs
+    (37) Funcs -> . Funcs Func
+    (38) Funcs -> .
 
-    =               shift and go to state 23
+    DEF             reduce using rule 38 (Funcs -> .)
+    $end            reduce using rule 38 (Funcs -> .)
 
+    Funcs                          shift and go to state 24
 
 state 17
 
-    (6) Ignore -> IG = . aspval
+    (4) Grammar -> GRM Productions .
+    (24) Productions -> Productions . Production
+    (26) Production -> . nt DS Symbols PCA Codes PCF
 
-    aspval          shift and go to state 24
+    YFUNCS          reduce using rule 4 (Grammar -> GRM Productions .)
+    nt              shift and go to state 26
 
+    Production                     shift and go to state 25
 
 state 18
 
-    (4) Literals -> LTS = aspval .
+    (3) Yc -> YACC Precedents Declarations .
+    (21) Declarations -> Declarations . Declaration
+    (23) Declaration -> . id = P
 
-    IG              reduce using rule 4 (Literals -> LTS = aspval .)
-    TKS             reduce using rule 4 (Literals -> LTS = aspval .)
+    GRM             reduce using rule 3 (Yc -> YACC Precedents Declarations .)
+    id              shift and go to state 28
 
+    Declaration                    shift and go to state 27
 
 state 19
 
-    (19) Declarations -> Declarations Declaration .
+    (20) Precedents -> PRCD = . PRA Prcdlist PRF
 
-    id              reduce using rule 19 (Declarations -> Declarations Declaration .)
-    $end            reduce using rule 19 (Declarations -> Declarations Declaration .)
+    PRA             shift and go to state 29
 
 
 state 20
 
-    (21) Declaration -> id . = P
+    (2) Lexer -> LEX Literals Ignore Tokens . Lfuncs Lerror
+    (13) Lfuncs -> . Lfuncs Lfunc
+    (14) Lfuncs -> .
 
-    =               shift and go to state 25
+    ER              reduce using rule 14 (Lfuncs -> .)
+    LFUNC           reduce using rule 14 (Lfuncs -> .)
+    YACC            reduce using rule 14 (Lfuncs -> .)
 
+    Lfuncs                         shift and go to state 30
 
 state 21
 
-    (18) Precedents -> PRCD = PRA . Prcdlist PRF
-    (24) Prcdlist -> . Prcdlist PA LTRG , Pelvals pelval PF ,
-    (25) Prcdlist -> .
+    (10) Tokens -> TKS . = PRA Tokl PRF
 
-    PRF             reduce using rule 25 (Prcdlist -> .)
-    PA              reduce using rule 25 (Prcdlist -> .)
+    =               shift and go to state 31
 
-    Prcdlist                       shift and go to state 26
 
 state 22
 
-    (2) Lexer -> LEX Literals Ignore Tokens Lfuncs . Lerror
-    (11) Lfuncs -> Lfuncs . Lfunc
-    (16) Lerror -> . ER Codes PF
-    (17) Lerror -> .
-    (13) Lfunc -> . LFUNC rgx DS RT PA pelval , Tv PF
+    (8) Ignore -> IG = . aspval
 
-    ER              shift and go to state 29
-    YACC            reduce using rule 17 (Lerror -> .)
-    LFUNC           shift and go to state 30
+    aspval          shift and go to state 32
 
-    Lerror                         shift and go to state 27
-    Lfunc                          shift and go to state 28
 
 state 23
 
-    (8) Tokens -> TKS = . PRA Tokl PRF
+    (6) Literals -> LTS = aspval .
 
-    PRA             shift and go to state 31
+    IG              reduce using rule 6 (Literals -> LTS = aspval .)
+    TKS             reduce using rule 6 (Literals -> LTS = aspval .)
 
 
 state 24
 
-    (6) Ignore -> IG = aspval .
+    (5) Yfs -> YFUNCS Funcs .
+    (37) Funcs -> Funcs . Func
+    (39) Func -> . DEF name PA name PF PCA Codes PCF
 
-    TKS             reduce using rule 6 (Ignore -> IG = aspval .)
+    $end            reduce using rule 5 (Yfs -> YFUNCS Funcs .)
+    DEF             shift and go to state 34
 
+    Func                           shift and go to state 33
 
 state 25
 
-    (21) Declaration -> id = . P
-    (22) P -> . PRA PRF
-    (23) P -> . PCA PCF
+    (24) Productions -> Productions Production .
 
-    PRA             shift and go to state 33
-    PCA             shift and go to state 34
+    nt              reduce using rule 24 (Productions -> Productions Production .)
+    YFUNCS          reduce using rule 24 (Productions -> Productions Production .)
 
-    P                              shift and go to state 32
 
 state 26
 
-    (18) Precedents -> PRCD = PRA Prcdlist . PRF
-    (24) Prcdlist -> Prcdlist . PA LTRG , Pelvals pelval PF ,
+    (26) Production -> nt . DS Symbols PCA Codes PCF
 
-    PRF             shift and go to state 35
-    PA              shift and go to state 36
+    DS              shift and go to state 35
 
 
 state 27
+
+    (21) Declarations -> Declarations Declaration .
+
+    id              reduce using rule 21 (Declarations -> Declarations Declaration .)
+    GRM             reduce using rule 21 (Declarations -> Declarations Declaration .)
+
+
+state 28
+
+    (23) Declaration -> id . = P
+
+    =               shift and go to state 36
+
+
+state 29
+
+    (20) Precedents -> PRCD = PRA . Prcdlist PRF
+    (33) Prcdlist -> . Prcdlist PA LTRG , Pelvals pelval PF ,
+    (34) Prcdlist -> .
+
+    PRF             reduce using rule 34 (Prcdlist -> .)
+    PA              reduce using rule 34 (Prcdlist -> .)
+
+    Prcdlist                       shift and go to state 37
+
+state 30
+
+    (2) Lexer -> LEX Literals Ignore Tokens Lfuncs . Lerror
+    (13) Lfuncs -> Lfuncs . Lfunc
+    (18) Lerror -> . ER Codes PF
+    (19) Lerror -> .
+    (15) Lfunc -> . LFUNC rgx DS RT PA pelval , Tv PF
+
+    ER              shift and go to state 40
+    YACC            reduce using rule 19 (Lerror -> .)
+    LFUNC           shift and go to state 41
+
+    Lerror                         shift and go to state 38
+    Lfunc                          shift and go to state 39
+
+state 31
+
+    (10) Tokens -> TKS = . PRA Tokl PRF
+
+    PRA             shift and go to state 42
+
+
+state 32
+
+    (8) Ignore -> IG = aspval .
+
+    TKS             reduce using rule 8 (Ignore -> IG = aspval .)
+
+
+state 33
+
+    (37) Funcs -> Funcs Func .
+
+    DEF             reduce using rule 37 (Funcs -> Funcs Func .)
+    $end            reduce using rule 37 (Funcs -> Funcs Func .)
+
+
+state 34
+
+    (39) Func -> DEF . name PA name PF PCA Codes PCF
+
+    name            shift and go to state 43
+
+
+state 35
+
+    (26) Production -> nt DS . Symbols PCA Codes PCF
+    (27) Symbols -> . Symbols S
+    (28) Symbols -> .
+
+    PCA             reduce using rule 28 (Symbols -> .)
+    symbol          reduce using rule 28 (Symbols -> .)
+    PREC            reduce using rule 28 (Symbols -> .)
+
+    Symbols                        shift and go to state 44
+
+state 36
+
+    (23) Declaration -> id = . P
+    (31) P -> . PRA PRF
+    (32) P -> . PCA PCF
+
+    PRA             shift and go to state 46
+    PCA             shift and go to state 47
+
+    P                              shift and go to state 45
+
+state 37
+
+    (20) Precedents -> PRCD = PRA Prcdlist . PRF
+    (33) Prcdlist -> Prcdlist . PA LTRG , Pelvals pelval PF ,
+
+    PRF             shift and go to state 48
+    PA              shift and go to state 49
+
+
+state 38
 
     (2) Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror .
 
     YACC            reduce using rule 2 (Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror .)
 
 
-state 28
-
-    (11) Lfuncs -> Lfuncs Lfunc .
-
-    ER              reduce using rule 11 (Lfuncs -> Lfuncs Lfunc .)
-    LFUNC           reduce using rule 11 (Lfuncs -> Lfuncs Lfunc .)
-    YACC            reduce using rule 11 (Lfuncs -> Lfuncs Lfunc .)
-
-
-state 29
-
-    (16) Lerror -> ER . Codes PF
-    (28) Codes -> . Codes Code
-    (29) Codes -> .
-
-    PF              reduce using rule 29 (Codes -> .)
-    cod             reduce using rule 29 (Codes -> .)
-    PA              reduce using rule 29 (Codes -> .)
-    PRA             reduce using rule 29 (Codes -> .)
-    PCA             reduce using rule 29 (Codes -> .)
-
-    Codes                          shift and go to state 37
-
-state 30
-
-    (13) Lfunc -> LFUNC . rgx DS RT PA pelval , Tv PF
-
-    rgx             shift and go to state 38
-
-
-state 31
-
-    (8) Tokens -> TKS = PRA . Tokl PRF
-    (9) Tokl -> . Tokl , pelval
-    (10) Tokl -> . pelval
-
-    pelval          shift and go to state 40
-
-    Tokl                           shift and go to state 39
-
-state 32
-
-    (21) Declaration -> id = P .
-
-    id              reduce using rule 21 (Declaration -> id = P .)
-    $end            reduce using rule 21 (Declaration -> id = P .)
-
-
-state 33
-
-    (22) P -> PRA . PRF
-
-    PRF             shift and go to state 41
-
-
-state 34
-
-    (23) P -> PCA . PCF
-
-    PCF             shift and go to state 42
-
-
-state 35
-
-    (18) Precedents -> PRCD = PRA Prcdlist PRF .
-
-    id              reduce using rule 18 (Precedents -> PRCD = PRA Prcdlist PRF .)
-    $end            reduce using rule 18 (Precedents -> PRCD = PRA Prcdlist PRF .)
-
-
-state 36
-
-    (24) Prcdlist -> Prcdlist PA . LTRG , Pelvals pelval PF ,
-
-    LTRG            shift and go to state 43
-
-
-state 37
-
-    (16) Lerror -> ER Codes . PF
-    (28) Codes -> Codes . Code
-    (30) Code -> . cod
-    (31) Code -> . PA Codes PF
-    (32) Code -> . PRA Codes PRF
-    (33) Code -> . PCA Codes PCF
-
-    PF              shift and go to state 44
-    cod             shift and go to state 46
-    PA              shift and go to state 47
-    PRA             shift and go to state 48
-    PCA             shift and go to state 49
-
-    Code                           shift and go to state 45
-
-state 38
-
-    (13) Lfunc -> LFUNC rgx . DS RT PA pelval , Tv PF
-
-    DS              shift and go to state 50
-
-
 state 39
 
-    (8) Tokens -> TKS = PRA Tokl . PRF
-    (9) Tokl -> Tokl . , pelval
+    (13) Lfuncs -> Lfuncs Lfunc .
 
-    PRF             shift and go to state 51
-    ,               shift and go to state 52
+    ER              reduce using rule 13 (Lfuncs -> Lfuncs Lfunc .)
+    LFUNC           reduce using rule 13 (Lfuncs -> Lfuncs Lfunc .)
+    YACC            reduce using rule 13 (Lfuncs -> Lfuncs Lfunc .)
 
 
 state 40
 
-    (10) Tokl -> pelval .
+    (18) Lerror -> ER . Codes PF
+    (40) Codes -> . Codes Code
+    (41) Codes -> .
 
-    PRF             reduce using rule 10 (Tokl -> pelval .)
-    ,               reduce using rule 10 (Tokl -> pelval .)
+    PF              reduce using rule 41 (Codes -> .)
+    cod             reduce using rule 41 (Codes -> .)
+    PA              reduce using rule 41 (Codes -> .)
+    PRA             reduce using rule 41 (Codes -> .)
+    PCA             reduce using rule 41 (Codes -> .)
 
+    Codes                          shift and go to state 50
 
 state 41
 
-    (22) P -> PRA PRF .
+    (15) Lfunc -> LFUNC . rgx DS RT PA pelval , Tv PF
 
-    id              reduce using rule 22 (P -> PRA PRF .)
-    $end            reduce using rule 22 (P -> PRA PRF .)
+    rgx             shift and go to state 51
 
 
 state 42
 
-    (23) P -> PCA PCF .
+    (10) Tokens -> TKS = PRA . Tokl PRF
+    (11) Tokl -> . Tokl , pelval
+    (12) Tokl -> . pelval
 
-    id              reduce using rule 23 (P -> PCA PCF .)
-    $end            reduce using rule 23 (P -> PCA PCF .)
+    pelval          shift and go to state 53
 
+    Tokl                           shift and go to state 52
 
 state 43
 
-    (24) Prcdlist -> Prcdlist PA LTRG . , Pelvals pelval PF ,
+    (39) Func -> DEF name . PA name PF PCA Codes PCF
 
-    ,               shift and go to state 53
+    PA              shift and go to state 54
 
 
 state 44
 
-    (16) Lerror -> ER Codes PF .
+    (26) Production -> nt DS Symbols . PCA Codes PCF
+    (27) Symbols -> Symbols . S
+    (29) S -> . symbol
+    (30) S -> . PREC symbol
 
-    YACC            reduce using rule 16 (Lerror -> ER Codes PF .)
+    PCA             shift and go to state 55
+    symbol          shift and go to state 57
+    PREC            shift and go to state 58
 
+    S                              shift and go to state 56
 
 state 45
 
-    (28) Codes -> Codes Code .
+    (23) Declaration -> id = P .
 
-    PF              reduce using rule 28 (Codes -> Codes Code .)
-    cod             reduce using rule 28 (Codes -> Codes Code .)
-    PA              reduce using rule 28 (Codes -> Codes Code .)
-    PRA             reduce using rule 28 (Codes -> Codes Code .)
-    PCA             reduce using rule 28 (Codes -> Codes Code .)
-    PRF             reduce using rule 28 (Codes -> Codes Code .)
-    PCF             reduce using rule 28 (Codes -> Codes Code .)
+    id              reduce using rule 23 (Declaration -> id = P .)
+    GRM             reduce using rule 23 (Declaration -> id = P .)
 
 
 state 46
 
-    (30) Code -> cod .
+    (31) P -> PRA . PRF
 
-    PF              reduce using rule 30 (Code -> cod .)
-    cod             reduce using rule 30 (Code -> cod .)
-    PA              reduce using rule 30 (Code -> cod .)
-    PRA             reduce using rule 30 (Code -> cod .)
-    PCA             reduce using rule 30 (Code -> cod .)
-    PRF             reduce using rule 30 (Code -> cod .)
-    PCF             reduce using rule 30 (Code -> cod .)
+    PRF             shift and go to state 59
 
 
 state 47
 
-    (31) Code -> PA . Codes PF
-    (28) Codes -> . Codes Code
-    (29) Codes -> .
+    (32) P -> PCA . PCF
 
-    PF              reduce using rule 29 (Codes -> .)
-    cod             reduce using rule 29 (Codes -> .)
-    PA              reduce using rule 29 (Codes -> .)
-    PRA             reduce using rule 29 (Codes -> .)
-    PCA             reduce using rule 29 (Codes -> .)
+    PCF             shift and go to state 60
 
-    Codes                          shift and go to state 54
 
 state 48
 
-    (32) Code -> PRA . Codes PRF
-    (28) Codes -> . Codes Code
-    (29) Codes -> .
+    (20) Precedents -> PRCD = PRA Prcdlist PRF .
 
-    PRF             reduce using rule 29 (Codes -> .)
-    cod             reduce using rule 29 (Codes -> .)
-    PA              reduce using rule 29 (Codes -> .)
-    PRA             reduce using rule 29 (Codes -> .)
-    PCA             reduce using rule 29 (Codes -> .)
+    id              reduce using rule 20 (Precedents -> PRCD = PRA Prcdlist PRF .)
+    GRM             reduce using rule 20 (Precedents -> PRCD = PRA Prcdlist PRF .)
 
-    Codes                          shift and go to state 55
 
 state 49
 
-    (33) Code -> PCA . Codes PCF
-    (28) Codes -> . Codes Code
-    (29) Codes -> .
+    (33) Prcdlist -> Prcdlist PA . LTRG , Pelvals pelval PF ,
 
-    PCF             reduce using rule 29 (Codes -> .)
-    cod             reduce using rule 29 (Codes -> .)
-    PA              reduce using rule 29 (Codes -> .)
-    PRA             reduce using rule 29 (Codes -> .)
-    PCA             reduce using rule 29 (Codes -> .)
+    LTRG            shift and go to state 61
 
-    Codes                          shift and go to state 56
 
 state 50
 
-    (13) Lfunc -> LFUNC rgx DS . RT PA pelval , Tv PF
+    (18) Lerror -> ER Codes . PF
+    (40) Codes -> Codes . Code
+    (42) Code -> . cod
+    (43) Code -> . PA Codes PF
+    (44) Code -> . PRA Codes PRF
+    (45) Code -> . PCA Codes PCF
 
-    RT              shift and go to state 57
+    PF              shift and go to state 62
+    cod             shift and go to state 64
+    PA              shift and go to state 65
+    PRA             shift and go to state 66
+    PCA             shift and go to state 67
 
+    Code                           shift and go to state 63
 
 state 51
 
-    (8) Tokens -> TKS = PRA Tokl PRF .
+    (15) Lfunc -> LFUNC rgx . DS RT PA pelval , Tv PF
 
-    ER              reduce using rule 8 (Tokens -> TKS = PRA Tokl PRF .)
-    LFUNC           reduce using rule 8 (Tokens -> TKS = PRA Tokl PRF .)
-    YACC            reduce using rule 8 (Tokens -> TKS = PRA Tokl PRF .)
+    DS              shift and go to state 68
 
 
 state 52
 
-    (9) Tokl -> Tokl , . pelval
+    (10) Tokens -> TKS = PRA Tokl . PRF
+    (11) Tokl -> Tokl . , pelval
 
-    pelval          shift and go to state 58
+    PRF             shift and go to state 69
+    ,               shift and go to state 70
 
 
 state 53
 
-    (24) Prcdlist -> Prcdlist PA LTRG , . Pelvals pelval PF ,
-    (26) Pelvals -> . Pelvals pelval ,
-    (27) Pelvals -> .
+    (12) Tokl -> pelval .
 
-    pelval          reduce using rule 27 (Pelvals -> .)
+    PRF             reduce using rule 12 (Tokl -> pelval .)
+    ,               reduce using rule 12 (Tokl -> pelval .)
 
-    Pelvals                        shift and go to state 59
 
 state 54
 
-    (31) Code -> PA Codes . PF
-    (28) Codes -> Codes . Code
-    (30) Code -> . cod
-    (31) Code -> . PA Codes PF
-    (32) Code -> . PRA Codes PRF
-    (33) Code -> . PCA Codes PCF
+    (39) Func -> DEF name PA . name PF PCA Codes PCF
 
-    PF              shift and go to state 60
-    cod             shift and go to state 46
-    PA              shift and go to state 47
-    PRA             shift and go to state 48
-    PCA             shift and go to state 49
+    name            shift and go to state 71
 
-    Code                           shift and go to state 45
 
 state 55
 
-    (32) Code -> PRA Codes . PRF
-    (28) Codes -> Codes . Code
-    (30) Code -> . cod
-    (31) Code -> . PA Codes PF
-    (32) Code -> . PRA Codes PRF
-    (33) Code -> . PCA Codes PCF
+    (26) Production -> nt DS Symbols PCA . Codes PCF
+    (40) Codes -> . Codes Code
+    (41) Codes -> .
 
-    PRF             shift and go to state 61
-    cod             shift and go to state 46
-    PA              shift and go to state 47
-    PRA             shift and go to state 48
-    PCA             shift and go to state 49
+    PCF             reduce using rule 41 (Codes -> .)
+    cod             reduce using rule 41 (Codes -> .)
+    PA              reduce using rule 41 (Codes -> .)
+    PRA             reduce using rule 41 (Codes -> .)
+    PCA             reduce using rule 41 (Codes -> .)
 
-    Code                           shift and go to state 45
+    Codes                          shift and go to state 72
 
 state 56
 
-    (33) Code -> PCA Codes . PCF
-    (28) Codes -> Codes . Code
-    (30) Code -> . cod
-    (31) Code -> . PA Codes PF
-    (32) Code -> . PRA Codes PRF
-    (33) Code -> . PCA Codes PCF
+    (27) Symbols -> Symbols S .
 
-    PCF             shift and go to state 62
-    cod             shift and go to state 46
-    PA              shift and go to state 47
-    PRA             shift and go to state 48
-    PCA             shift and go to state 49
+    PCA             reduce using rule 27 (Symbols -> Symbols S .)
+    symbol          reduce using rule 27 (Symbols -> Symbols S .)
+    PREC            reduce using rule 27 (Symbols -> Symbols S .)
 
-    Code                           shift and go to state 45
 
 state 57
 
-    (13) Lfunc -> LFUNC rgx DS RT . PA pelval , Tv PF
+    (29) S -> symbol .
 
-    PA              shift and go to state 63
+    PCA             reduce using rule 29 (S -> symbol .)
+    symbol          reduce using rule 29 (S -> symbol .)
+    PREC            reduce using rule 29 (S -> symbol .)
 
 
 state 58
 
-    (9) Tokl -> Tokl , pelval .
+    (30) S -> PREC . symbol
 
-    PRF             reduce using rule 9 (Tokl -> Tokl , pelval .)
-    ,               reduce using rule 9 (Tokl -> Tokl , pelval .)
+    symbol          shift and go to state 73
 
 
 state 59
 
-    (24) Prcdlist -> Prcdlist PA LTRG , Pelvals . pelval PF ,
-    (26) Pelvals -> Pelvals . pelval ,
+    (31) P -> PRA PRF .
 
-    pelval          shift and go to state 64
+    id              reduce using rule 31 (P -> PRA PRF .)
+    GRM             reduce using rule 31 (P -> PRA PRF .)
 
 
 state 60
 
-    (31) Code -> PA Codes PF .
+    (32) P -> PCA PCF .
 
-    PF              reduce using rule 31 (Code -> PA Codes PF .)
-    cod             reduce using rule 31 (Code -> PA Codes PF .)
-    PA              reduce using rule 31 (Code -> PA Codes PF .)
-    PRA             reduce using rule 31 (Code -> PA Codes PF .)
-    PCA             reduce using rule 31 (Code -> PA Codes PF .)
-    PRF             reduce using rule 31 (Code -> PA Codes PF .)
-    PCF             reduce using rule 31 (Code -> PA Codes PF .)
+    id              reduce using rule 32 (P -> PCA PCF .)
+    GRM             reduce using rule 32 (P -> PCA PCF .)
 
 
 state 61
 
-    (32) Code -> PRA Codes PRF .
+    (33) Prcdlist -> Prcdlist PA LTRG . , Pelvals pelval PF ,
 
-    PF              reduce using rule 32 (Code -> PRA Codes PRF .)
-    cod             reduce using rule 32 (Code -> PRA Codes PRF .)
-    PA              reduce using rule 32 (Code -> PRA Codes PRF .)
-    PRA             reduce using rule 32 (Code -> PRA Codes PRF .)
-    PCA             reduce using rule 32 (Code -> PRA Codes PRF .)
-    PRF             reduce using rule 32 (Code -> PRA Codes PRF .)
-    PCF             reduce using rule 32 (Code -> PRA Codes PRF .)
+    ,               shift and go to state 74
 
 
 state 62
 
-    (33) Code -> PCA Codes PCF .
+    (18) Lerror -> ER Codes PF .
 
-    PF              reduce using rule 33 (Code -> PCA Codes PCF .)
-    cod             reduce using rule 33 (Code -> PCA Codes PCF .)
-    PA              reduce using rule 33 (Code -> PCA Codes PCF .)
-    PRA             reduce using rule 33 (Code -> PCA Codes PCF .)
-    PCA             reduce using rule 33 (Code -> PCA Codes PCF .)
-    PRF             reduce using rule 33 (Code -> PCA Codes PCF .)
-    PCF             reduce using rule 33 (Code -> PCA Codes PCF .)
+    YACC            reduce using rule 18 (Lerror -> ER Codes PF .)
 
 
 state 63
 
-    (13) Lfunc -> LFUNC rgx DS RT PA . pelval , Tv PF
+    (40) Codes -> Codes Code .
 
-    pelval          shift and go to state 65
+    PF              reduce using rule 40 (Codes -> Codes Code .)
+    cod             reduce using rule 40 (Codes -> Codes Code .)
+    PA              reduce using rule 40 (Codes -> Codes Code .)
+    PRA             reduce using rule 40 (Codes -> Codes Code .)
+    PCA             reduce using rule 40 (Codes -> Codes Code .)
+    PCF             reduce using rule 40 (Codes -> Codes Code .)
+    PRF             reduce using rule 40 (Codes -> Codes Code .)
 
 
 state 64
 
-    (24) Prcdlist -> Prcdlist PA LTRG , Pelvals pelval . PF ,
-    (26) Pelvals -> Pelvals pelval . ,
+    (42) Code -> cod .
 
-    PF              shift and go to state 67
-    ,               shift and go to state 66
+    PF              reduce using rule 42 (Code -> cod .)
+    cod             reduce using rule 42 (Code -> cod .)
+    PA              reduce using rule 42 (Code -> cod .)
+    PRA             reduce using rule 42 (Code -> cod .)
+    PCA             reduce using rule 42 (Code -> cod .)
+    PCF             reduce using rule 42 (Code -> cod .)
+    PRF             reduce using rule 42 (Code -> cod .)
 
 
 state 65
 
-    (13) Lfunc -> LFUNC rgx DS RT PA pelval . , Tv PF
+    (43) Code -> PA . Codes PF
+    (40) Codes -> . Codes Code
+    (41) Codes -> .
 
-    ,               shift and go to state 68
+    PF              reduce using rule 41 (Codes -> .)
+    cod             reduce using rule 41 (Codes -> .)
+    PA              reduce using rule 41 (Codes -> .)
+    PRA             reduce using rule 41 (Codes -> .)
+    PCA             reduce using rule 41 (Codes -> .)
 
+    Codes                          shift and go to state 75
 
 state 66
 
-    (26) Pelvals -> Pelvals pelval , .
+    (44) Code -> PRA . Codes PRF
+    (40) Codes -> . Codes Code
+    (41) Codes -> .
 
-    pelval          reduce using rule 26 (Pelvals -> Pelvals pelval , .)
+    PRF             reduce using rule 41 (Codes -> .)
+    cod             reduce using rule 41 (Codes -> .)
+    PA              reduce using rule 41 (Codes -> .)
+    PRA             reduce using rule 41 (Codes -> .)
+    PCA             reduce using rule 41 (Codes -> .)
 
+    Codes                          shift and go to state 76
 
 state 67
 
-    (24) Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF . ,
+    (45) Code -> PCA . Codes PCF
+    (40) Codes -> . Codes Code
+    (41) Codes -> .
 
-    ,               shift and go to state 69
+    PCF             reduce using rule 41 (Codes -> .)
+    cod             reduce using rule 41 (Codes -> .)
+    PA              reduce using rule 41 (Codes -> .)
+    PRA             reduce using rule 41 (Codes -> .)
+    PCA             reduce using rule 41 (Codes -> .)
 
+    Codes                          shift and go to state 77
 
 state 68
 
-    (13) Lfunc -> LFUNC rgx DS RT PA pelval , . Tv PF
-    (14) Tv -> . TVAL
-    (15) Tv -> . TYPE PA TVAL PF
+    (15) Lfunc -> LFUNC rgx DS . RT PA pelval , Tv PF
 
-    TVAL            shift and go to state 71
-    TYPE            shift and go to state 72
+    RT              shift and go to state 78
 
-    Tv                             shift and go to state 70
 
 state 69
 
-    (24) Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF , .
+    (10) Tokens -> TKS = PRA Tokl PRF .
 
-    PRF             reduce using rule 24 (Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF , .)
-    PA              reduce using rule 24 (Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF , .)
+    ER              reduce using rule 10 (Tokens -> TKS = PRA Tokl PRF .)
+    LFUNC           reduce using rule 10 (Tokens -> TKS = PRA Tokl PRF .)
+    YACC            reduce using rule 10 (Tokens -> TKS = PRA Tokl PRF .)
 
 
 state 70
 
-    (13) Lfunc -> LFUNC rgx DS RT PA pelval , Tv . PF
+    (11) Tokl -> Tokl , . pelval
 
-    PF              shift and go to state 73
+    pelval          shift and go to state 79
 
 
 state 71
 
-    (14) Tv -> TVAL .
+    (39) Func -> DEF name PA name . PF PCA Codes PCF
 
-    PF              reduce using rule 14 (Tv -> TVAL .)
+    PF              shift and go to state 80
 
 
 state 72
 
-    (15) Tv -> TYPE . PA TVAL PF
+    (26) Production -> nt DS Symbols PCA Codes . PCF
+    (40) Codes -> Codes . Code
+    (42) Code -> . cod
+    (43) Code -> . PA Codes PF
+    (44) Code -> . PRA Codes PRF
+    (45) Code -> . PCA Codes PCF
 
-    PA              shift and go to state 74
+    PCF             shift and go to state 81
+    cod             shift and go to state 64
+    PA              shift and go to state 65
+    PRA             shift and go to state 66
+    PCA             shift and go to state 67
 
+    Code                           shift and go to state 63
 
 state 73
 
-    (13) Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .
+    (30) S -> PREC symbol .
 
-    ER              reduce using rule 13 (Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .)
-    LFUNC           reduce using rule 13 (Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .)
-    YACC            reduce using rule 13 (Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .)
+    PCA             reduce using rule 30 (S -> PREC symbol .)
+    symbol          reduce using rule 30 (S -> PREC symbol .)
+    PREC            reduce using rule 30 (S -> PREC symbol .)
 
 
 state 74
 
-    (15) Tv -> TYPE PA . TVAL PF
+    (33) Prcdlist -> Prcdlist PA LTRG , . Pelvals pelval PF ,
+    (35) Pelvals -> . Pelvals pelval ,
+    (36) Pelvals -> .
 
-    TVAL            shift and go to state 75
+    pelval          reduce using rule 36 (Pelvals -> .)
 
+    Pelvals                        shift and go to state 82
 
 state 75
 
-    (15) Tv -> TYPE PA TVAL . PF
+    (43) Code -> PA Codes . PF
+    (40) Codes -> Codes . Code
+    (42) Code -> . cod
+    (43) Code -> . PA Codes PF
+    (44) Code -> . PRA Codes PRF
+    (45) Code -> . PCA Codes PCF
 
-    PF              shift and go to state 76
+    PF              shift and go to state 83
+    cod             shift and go to state 64
+    PA              shift and go to state 65
+    PRA             shift and go to state 66
+    PCA             shift and go to state 67
 
+    Code                           shift and go to state 63
 
 state 76
 
-    (15) Tv -> TYPE PA TVAL PF .
+    (44) Code -> PRA Codes . PRF
+    (40) Codes -> Codes . Code
+    (42) Code -> . cod
+    (43) Code -> . PA Codes PF
+    (44) Code -> . PRA Codes PRF
+    (45) Code -> . PCA Codes PCF
 
-    PF              reduce using rule 15 (Tv -> TYPE PA TVAL PF .)
+    PRF             shift and go to state 84
+    cod             shift and go to state 64
+    PA              shift and go to state 65
+    PRA             shift and go to state 66
+    PCA             shift and go to state 67
+
+    Code                           shift and go to state 63
+
+state 77
+
+    (45) Code -> PCA Codes . PCF
+    (40) Codes -> Codes . Code
+    (42) Code -> . cod
+    (43) Code -> . PA Codes PF
+    (44) Code -> . PRA Codes PRF
+    (45) Code -> . PCA Codes PCF
+
+    PCF             shift and go to state 85
+    cod             shift and go to state 64
+    PA              shift and go to state 65
+    PRA             shift and go to state 66
+    PCA             shift and go to state 67
+
+    Code                           shift and go to state 63
+
+state 78
+
+    (15) Lfunc -> LFUNC rgx DS RT . PA pelval , Tv PF
+
+    PA              shift and go to state 86
+
+
+state 79
+
+    (11) Tokl -> Tokl , pelval .
+
+    PRF             reduce using rule 11 (Tokl -> Tokl , pelval .)
+    ,               reduce using rule 11 (Tokl -> Tokl , pelval .)
+
+
+state 80
+
+    (39) Func -> DEF name PA name PF . PCA Codes PCF
+
+    PCA             shift and go to state 87
+
+
+state 81
+
+    (26) Production -> nt DS Symbols PCA Codes PCF .
+
+    nt              reduce using rule 26 (Production -> nt DS Symbols PCA Codes PCF .)
+    YFUNCS          reduce using rule 26 (Production -> nt DS Symbols PCA Codes PCF .)
+
+
+state 82
+
+    (33) Prcdlist -> Prcdlist PA LTRG , Pelvals . pelval PF ,
+    (35) Pelvals -> Pelvals . pelval ,
+
+    pelval          shift and go to state 88
+
+
+state 83
+
+    (43) Code -> PA Codes PF .
+
+    PF              reduce using rule 43 (Code -> PA Codes PF .)
+    cod             reduce using rule 43 (Code -> PA Codes PF .)
+    PA              reduce using rule 43 (Code -> PA Codes PF .)
+    PRA             reduce using rule 43 (Code -> PA Codes PF .)
+    PCA             reduce using rule 43 (Code -> PA Codes PF .)
+    PCF             reduce using rule 43 (Code -> PA Codes PF .)
+    PRF             reduce using rule 43 (Code -> PA Codes PF .)
+
+
+state 84
+
+    (44) Code -> PRA Codes PRF .
+
+    PF              reduce using rule 44 (Code -> PRA Codes PRF .)
+    cod             reduce using rule 44 (Code -> PRA Codes PRF .)
+    PA              reduce using rule 44 (Code -> PRA Codes PRF .)
+    PRA             reduce using rule 44 (Code -> PRA Codes PRF .)
+    PCA             reduce using rule 44 (Code -> PRA Codes PRF .)
+    PCF             reduce using rule 44 (Code -> PRA Codes PRF .)
+    PRF             reduce using rule 44 (Code -> PRA Codes PRF .)
+
+
+state 85
+
+    (45) Code -> PCA Codes PCF .
+
+    PF              reduce using rule 45 (Code -> PCA Codes PCF .)
+    cod             reduce using rule 45 (Code -> PCA Codes PCF .)
+    PA              reduce using rule 45 (Code -> PCA Codes PCF .)
+    PRA             reduce using rule 45 (Code -> PCA Codes PCF .)
+    PCA             reduce using rule 45 (Code -> PCA Codes PCF .)
+    PCF             reduce using rule 45 (Code -> PCA Codes PCF .)
+    PRF             reduce using rule 45 (Code -> PCA Codes PCF .)
+
+
+state 86
+
+    (15) Lfunc -> LFUNC rgx DS RT PA . pelval , Tv PF
+
+    pelval          shift and go to state 89
+
+
+state 87
+
+    (39) Func -> DEF name PA name PF PCA . Codes PCF
+    (40) Codes -> . Codes Code
+    (41) Codes -> .
+
+    PCF             reduce using rule 41 (Codes -> .)
+    cod             reduce using rule 41 (Codes -> .)
+    PA              reduce using rule 41 (Codes -> .)
+    PRA             reduce using rule 41 (Codes -> .)
+    PCA             reduce using rule 41 (Codes -> .)
+
+    Codes                          shift and go to state 90
+
+state 88
+
+    (33) Prcdlist -> Prcdlist PA LTRG , Pelvals pelval . PF ,
+    (35) Pelvals -> Pelvals pelval . ,
+
+    PF              shift and go to state 92
+    ,               shift and go to state 91
+
+
+state 89
+
+    (15) Lfunc -> LFUNC rgx DS RT PA pelval . , Tv PF
+
+    ,               shift and go to state 93
+
+
+state 90
+
+    (39) Func -> DEF name PA name PF PCA Codes . PCF
+    (40) Codes -> Codes . Code
+    (42) Code -> . cod
+    (43) Code -> . PA Codes PF
+    (44) Code -> . PRA Codes PRF
+    (45) Code -> . PCA Codes PCF
+
+    PCF             shift and go to state 94
+    cod             shift and go to state 64
+    PA              shift and go to state 65
+    PRA             shift and go to state 66
+    PCA             shift and go to state 67
+
+    Code                           shift and go to state 63
+
+state 91
+
+    (35) Pelvals -> Pelvals pelval , .
+
+    pelval          reduce using rule 35 (Pelvals -> Pelvals pelval , .)
+
+
+state 92
+
+    (33) Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF . ,
+
+    ,               shift and go to state 95
+
+
+state 93
+
+    (15) Lfunc -> LFUNC rgx DS RT PA pelval , . Tv PF
+    (16) Tv -> . TVAL
+    (17) Tv -> . TYPE PA TVAL PF
+
+    TVAL            shift and go to state 97
+    TYPE            shift and go to state 98
+
+    Tv                             shift and go to state 96
+
+state 94
+
+    (39) Func -> DEF name PA name PF PCA Codes PCF .
+
+    DEF             reduce using rule 39 (Func -> DEF name PA name PF PCA Codes PCF .)
+    $end            reduce using rule 39 (Func -> DEF name PA name PF PCA Codes PCF .)
+
+
+state 95
+
+    (33) Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF , .
+
+    PRF             reduce using rule 33 (Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF , .)
+    PA              reduce using rule 33 (Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF , .)
+
+
+state 96
+
+    (15) Lfunc -> LFUNC rgx DS RT PA pelval , Tv . PF
+
+    PF              shift and go to state 99
+
+
+state 97
+
+    (16) Tv -> TVAL .
+
+    PF              reduce using rule 16 (Tv -> TVAL .)
+
+
+state 98
+
+    (17) Tv -> TYPE . PA TVAL PF
+
+    PA              shift and go to state 100
+
+
+state 99
+
+    (15) Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .
+
+    ER              reduce using rule 15 (Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .)
+    LFUNC           reduce using rule 15 (Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .)
+    YACC            reduce using rule 15 (Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF .)
+
+
+state 100
+
+    (17) Tv -> TYPE PA . TVAL PF
+
+    TVAL            shift and go to state 101
+
+
+state 101
+
+    (17) Tv -> TYPE PA TVAL . PF
+
+    PF              shift and go to state 102
+
+
+state 102
+
+    (17) Tv -> TYPE PA TVAL PF .
+
+    PF              reduce using rule 17 (Tv -> TYPE PA TVAL PF .)
 
