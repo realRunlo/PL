@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = "DEC DEF DOTS ER FUNC ID IG L LEFT LFUNC LT LX NT PA PCA PCF PF PREC PRECEDENT RGX RIGHT RT T TK TVALUE TYPE YC arg aspval cod grammar pelval str yfuncsPly : LexLex : LX Literals Ignore Tokens Lfuncs LfuncerrorLiterals : LT '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TK '=' '[' Tokl ']'Tokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC RGX DOTS RT PA pelval ',' Tval PF Tval : TVALUETval : TYPE PA TVALUE PFLfuncerror : LFUNC RGX DOTS ER Codigos PFLfuncerror : Codigos : Codigos CodigoCodigos : Codigo : codCodigo : PCA Codigo PCFCodigo : PA Codigo PF"
+_lr_signature = "DEF DS ER GRM IG LEX LFUNC LTRG LTS PA PCA PCF PF PRA PRCD PREC PRF RT TKS TVAL TYPE YACC YFUNCS aspval cod id name nt pelval rgx symbolPly : Lexer YcLexer : LEX Literals Ignore Tokens Lfuncs LerrorYc : YACC Precedents DeclarationsLiterals : LTS '=' aspvalLiterals : Ignore : IG '=' aspvalIgnore : Tokens : TKS '=' PRA Tokl PRFTokl : Tokl ',' pelvalTokl : pelvalLfuncs : Lfuncs LfuncLfuncs : Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF Tv : TVALTv : TYPE PA TVAL PFLerror : ER Codes PFLerror : Precedents : PRCD '=' PRA Prcdlist PRFDeclarations : Declarations DeclarationDeclarations : Declaration : id '=' PP : PRA PRFP : PCA PCFPrcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','Prcdlist : Pelvals : Pelvals pelval ','Pelvals : Codes : Codes CodeCodes : Code : codCode : PA Codes PFCode : PRA Codes PRFCode : PCA Codes PCF"
     
-_lr_action_items = {'LX':([0,],[3,]),'$end':([1,2,9,13,16,17,24,31,45,],[0,-1,-11,-16,-2,-10,-7,-15,-12,]),'LT':([3,],[5,]),'IG':([3,4,12,],[-4,7,-3,]),'TK':([3,4,6,12,15,],[-4,-6,10,-3,-5,]),'=':([5,7,10,],[8,11,14,]),'aspval':([8,11,],[12,15,]),'LFUNC':([9,13,17,24,45,],[-11,18,-10,-7,-12,]),'[':([14,],[19,]),'RGX':([18,],[20,]),'pelval':([19,25,30,],[22,28,36,]),'DOTS':([20,],[23,]),']':([21,22,28,],[24,-9,-8,]),',':([21,22,28,36,],[25,-9,-8,39,]),'ER':([23,],[26,]),'RT':([23,],[27,]),'PF':([26,29,32,33,38,40,41,42,43,47,48,],[-18,31,-17,-19,41,-20,-21,45,-13,48,-14,]),'cod':([26,29,32,33,34,35,40,41,],[-18,33,-17,-19,33,33,-20,-21,]),'PCA':([26,29,32,33,34,35,40,41,],[-18,34,-17,-19,34,34,-20,-21,]),'PA':([26,27,29,32,33,34,35,40,41,44,],[-18,30,35,-17,-19,35,35,-20,-21,46,]),'PCF':([33,37,40,41,],[-19,40,-20,-21,]),'TVALUE':([39,46,],[43,47,]),'TYPE':([39,],[44,]),}
+_lr_action_items = {'LEX':([0,],[3,]),'$end':([1,4,8,13,19,32,35,41,42,],[0,-1,-20,-3,-19,-21,-18,-22,-23,]),'YACC':([2,15,22,27,28,44,51,73,],[5,-12,-17,-2,-11,-16,-8,-13,]),'LTS':([3,],[7,]),'IG':([3,6,18,],[-5,11,-4,]),'TKS':([3,6,10,18,24,],[-5,-7,16,-4,-6,]),'PRCD':([5,],[9,]),'=':([7,9,11,16,20,],[12,14,17,23,25,]),'id':([8,13,19,32,35,41,42,],[-20,20,-19,-21,-18,-22,-23,]),'aspval':([12,17,],[18,24,]),'PRA':([14,23,25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[21,31,33,-29,48,-28,-30,-29,-29,-29,48,48,48,-31,-32,-33,]),'ER':([15,22,28,51,73,],[-12,29,-11,-8,-13,]),'LFUNC':([15,22,28,51,73,],[-12,30,-11,-8,-13,]),'PRF':([21,26,33,39,40,45,46,48,55,58,60,61,62,69,],[-25,35,41,51,-10,-28,-30,-29,61,-9,-31,-32,-33,-24,]),'PA':([21,26,29,37,45,46,47,48,49,54,55,56,57,60,61,62,69,72,],[-25,36,-29,47,-28,-30,-29,-29,-29,47,47,47,63,-31,-32,-33,-24,74,]),'PCA':([25,29,37,45,46,47,48,49,54,55,56,60,61,62,],[34,-29,49,-28,-30,-29,-29,-29,49,49,49,-31,-32,-33,]),'PF':([29,37,45,46,47,54,60,61,62,64,70,71,75,76,],[-29,44,-28,-30,-29,60,-31,-32,-33,67,73,-14,76,-15,]),'cod':([29,37,45,46,47,48,49,54,55,56,60,61,62,],[-29,46,-28,-30,-29,-29,-29,46,46,46,-31,-32,-33,]),'rgx':([30,],[38,]),'pelval':([31,52,53,59,63,66,],[40,58,-27,64,65,-26,]),'PCF':([34,45,46,49,56,60,61,62,],[42,-28,-30,-29,62,-31,-32,-33,]),'LTRG':([36,],[43,]),'DS':([38,],[50,]),',':([39,40,43,58,64,65,67,],[52,-10,53,-9,66,68,69,]),'RT':([50,],[57,]),'TVAL':([68,74,],[71,75,]),'TYPE':([68,],[72,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Ply':([0,],[1,]),'Lex':([0,],[2,]),'Literals':([3,],[4,]),'Ignore':([4,],[6,]),'Tokens':([6,],[9,]),'Lfuncs':([9,],[13,]),'Lfuncerror':([13,],[16,]),'Lfunc':([13,],[17,]),'Tokl':([19,],[21,]),'Codigos':([26,],[29,]),'Codigo':([29,34,35,],[32,37,38,]),'Tval':([39,],[42,]),}
+_lr_goto_items = {'Ply':([0,],[1,]),'Lexer':([0,],[2,]),'Yc':([2,],[4,]),'Literals':([3,],[6,]),'Precedents':([5,],[8,]),'Ignore':([6,],[10,]),'Declarations':([8,],[13,]),'Tokens':([10,],[15,]),'Declaration':([13,],[19,]),'Lfuncs':([15,],[22,]),'Prcdlist':([21,],[26,]),'Lerror':([22,],[27,]),'Lfunc':([22,],[28,]),'P':([25,],[32,]),'Codes':([29,47,48,49,],[37,54,55,56,]),'Tokl':([31,],[39,]),'Code':([37,54,55,56,],[45,45,45,45,]),'Pelvals':([53,],[59,]),'Tv':([68,],[70,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,25 +27,37 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Ply","S'",1,None,None,None),
-  ('Ply -> Lex','Ply',1,'p_Ply','plysimple_sin.py',6),
-  ('Lex -> LX Literals Ignore Tokens Lfuncs Lfuncerror','Lex',6,'p_Lex','plysimple_sin.py',10),
-  ('Literals -> LT = aspval','Literals',3,'p_Literals','plysimple_sin.py',14),
-  ('Literals -> <empty>','Literals',0,'p_Literals_empty','plysimple_sin.py',20),
-  ('Ignore -> IG = aspval','Ignore',3,'p_Ignore','plysimple_sin.py',24),
-  ('Ignore -> <empty>','Ignore',0,'p_Ignore_empty','plysimple_sin.py',28),
-  ('Tokens -> TK = [ Tokl ]','Tokens',5,'p_Tokens','plysimple_sin.py',32),
-  ('Tokl -> Tokl , pelval','Tokl',3,'p_Tokl','plysimple_sin.py',36),
-  ('Tokl -> pelval','Tokl',1,'p_Tokl_single','plysimple_sin.py',40),
-  ('Lfuncs -> Lfuncs Lfunc','Lfuncs',2,'p_Lfuncs','plysimple_sin.py',44),
-  ('Lfuncs -> <empty>','Lfuncs',0,'p_Lfuncs_empty','plysimple_sin.py',49),
-  ('Lfunc -> LFUNC RGX DOTS RT PA pelval , Tval PF','Lfunc',9,'p_Lfunc','plysimple_sin.py',53),
-  ('Tval -> TVALUE','Tval',1,'p_Tval','plysimple_sin.py',58),
-  ('Tval -> TYPE PA TVALUE PF','Tval',4,'p_Tval_type','plysimple_sin.py',62),
-  ('Lfuncerror -> LFUNC RGX DOTS ER Codigos PF','Lfuncerror',6,'p_Lfuncerror','plysimple_sin.py',66),
-  ('Lfuncerror -> <empty>','Lfuncerror',0,'p_Lfuncerror_empty','plysimple_sin.py',70),
-  ('Codigos -> Codigos Codigo','Codigos',2,'p_Codigos','plysimple_sin.py',74),
-  ('Codigos -> <empty>','Codigos',0,'p_Codigos_empty','plysimple_sin.py',78),
-  ('Codigo -> cod','Codigo',1,'p_Codigo','plysimple_sin.py',82),
-  ('Codigo -> PCA Codigo PCF','Codigo',3,'p_Codigo_pc','plysimple_sin.py',86),
-  ('Codigo -> PA Codigo PF','Codigo',3,'p_Codigo_p','plysimple_sin.py',90),
+  ('Ply -> Lexer Yc','Ply',2,'p_Ply','plysimple_sin.py',6),
+  ('Lexer -> LEX Literals Ignore Tokens Lfuncs Lerror','Lexer',6,'p_Lexer','plysimple_sin.py',10),
+  ('Yc -> YACC Precedents Declarations','Yc',3,'p_Yacc','plysimple_sin.py',14),
+  ('Literals -> LTS = aspval','Literals',3,'p_Literals','plysimple_sin.py',18),
+  ('Literals -> <empty>','Literals',0,'p_Literals_empty','plysimple_sin.py',24),
+  ('Ignore -> IG = aspval','Ignore',3,'p_Ignore','plysimple_sin.py',28),
+  ('Ignore -> <empty>','Ignore',0,'p_Ignore_empty','plysimple_sin.py',32),
+  ('Tokens -> TKS = PRA Tokl PRF','Tokens',5,'p_Tokens','plysimple_sin.py',36),
+  ('Tokl -> Tokl , pelval','Tokl',3,'p_Tokl','plysimple_sin.py',40),
+  ('Tokl -> pelval','Tokl',1,'p_Tokl_single','plysimple_sin.py',44),
+  ('Lfuncs -> Lfuncs Lfunc','Lfuncs',2,'p_Lfuncs','plysimple_sin.py',48),
+  ('Lfuncs -> <empty>','Lfuncs',0,'p_Lfuncs_empty','plysimple_sin.py',52),
+  ('Lfunc -> LFUNC rgx DS RT PA pelval , Tv PF','Lfunc',9,'p_Lfunc','plysimple_sin.py',56),
+  ('Tv -> TVAL','Tv',1,'p_Tv','plysimple_sin.py',61),
+  ('Tv -> TYPE PA TVAL PF','Tv',4,'p_Tv_type','plysimple_sin.py',65),
+  ('Lerror -> ER Codes PF','Lerror',3,'p_Lerror','plysimple_sin.py',69),
+  ('Lerror -> <empty>','Lerror',0,'p_Lerror_empty','plysimple_sin.py',73),
+  ('Precedents -> PRCD = PRA Prcdlist PRF','Precedents',5,'p_Precedents','plysimple_sin.py',77),
+  ('Declarations -> Declarations Declaration','Declarations',2,'p_Declarations','plysimple_sin.py',81),
+  ('Declarations -> <empty>','Declarations',0,'p_Declarations_empty','plysimple_sin.py',85),
+  ('Declaration -> id = P','Declaration',3,'p_Declaration','plysimple_sin.py',89),
+  ('P -> PRA PRF','P',2,'p_P_pr','plysimple_sin.py',93),
+  ('P -> PCA PCF','P',2,'p_P_pc','plysimple_sin.py',97),
+  ('Prcdlist -> Prcdlist PA LTRG , Pelvals pelval PF ,','Prcdlist',8,'p_Prcdlist','plysimple_sin.py',101),
+  ('Prcdlist -> <empty>','Prcdlist',0,'p_Prcdlist_empty','plysimple_sin.py',105),
+  ('Pelvals -> Pelvals pelval ,','Pelvals',3,'p_Pelvals','plysimple_sin.py',109),
+  ('Pelvals -> <empty>','Pelvals',0,'p_Pelvals_empty','plysimple_sin.py',113),
+  ('Codes -> Codes Code','Codes',2,'p_Codes','plysimple_sin.py',117),
+  ('Codes -> <empty>','Codes',0,'p_Codes_empty','plysimple_sin.py',121),
+  ('Code -> cod','Code',1,'p_Code','plysimple_sin.py',125),
+  ('Code -> PA Codes PF','Code',3,'p_Code_p','plysimple_sin.py',129),
+  ('Code -> PRA Codes PRF','Code',3,'p_Code_pr','plysimple_sin.py',133),
+  ('Code -> PCA Codes PCF','Code',3,'p_Code_pc','plysimple_sin.py',137),
 ]

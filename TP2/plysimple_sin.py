@@ -1,17 +1,21 @@
 import re
 import ply.yacc as yacc 
-from plysimple_lex import tokens, literals 
+from plysimple_limpo import tokens, literals 
 
 def p_Ply(p):
-    "Ply : Lex"
-    p[0] = p[1]
+    "Ply : Lexer Yc"
+    p[0] = p[1] + "\n" + p[2]
 
-def p_Lex(p):
-    "Lex : LX Literals Ignore Tokens Lfuncs Lfuncerror"
+def p_Lexer(p):
+    "Lexer : LEX Literals Ignore Tokens Lfuncs Lerror"
     p[0] = p[2] + "\n" + p[3] +"\n" + p[4] + "\n" + p[5] + "\n" + p[6]
 
+def p_Yacc(p):
+    "Yc : YACC Precedents Declarations"
+    p[0] = p[2] + "\n" + p[3]
+
 def p_Literals(p):
-    "Literals : LT '=' aspval"
+    "Literals : LTS '=' aspval"
     p[3] = p[3][1:-1] #remove as aspas
     lits = [char for char in p[3]] #transforma a string numa lista de chars
     p[0] = "literals = " + str(lits)
@@ -29,7 +33,7 @@ def p_Ignore_empty(p):
     p[0] = ""
 
 def p_Tokens(p):
-    "Tokens : TK '=' '[' Tokl ']'"
+    "Tokens : TKS '=' PRA Tokl PRF"
     p[0] = "tokens = " + str(p[4])
 
 def p_Tokl(p):
@@ -44,51 +48,106 @@ def p_Lfuncs(p):
     "Lfuncs : Lfuncs Lfunc"
     p[0] = p[1] + "\n" + p[2]
 
-
 def p_Lfuncs_empty(p):
     "Lfuncs : "
     p[0] = ""
 
 def p_Lfunc(p):
-    "Lfunc : LFUNC RGX DOTS RT PA pelval ',' Tval PF "
+    "Lfunc : LFUNC rgx DS RT PA pelval ',' Tv PF "
     p[2] = re.sub(r'(\\:)',r':',p[2])
     p[0] = "def t_" + p[6][1:-1] + "(t):\n\tr'" + p[2] + "'\n" + p[8]
 
-def p_Tval(p):
-    "Tval : TVALUE"
+def p_Tv(p):
+    "Tv : TVAL"
     p[0] = "\treturn t"
 
-def p_Tval_type(p):
-    "Tval : TYPE PA TVALUE PF"
+def p_Tv_type(p):
+    "Tv : TYPE PA TVAL PF"
     p[0] = "\tt.value = " + p[1] + "(t.value)\n\treturn t"
 
-def p_Lfuncerror(p):
-    "Lfuncerror : LFUNC RGX DOTS ER Codigos PF" #o lexer n está a apanhar tudo para o ER,rever
-    p[0] = "def t_error(t):\n\tprintf(" + p[5] + ")"
+def p_Lerror(p):
+    "Lerror : ER Codes PF" #o lexer n está a apanhar tudo para o ER,rever
+    p[0] = "def t_error(t):\n\tprintf(" + p[2] + ")"
 
-def p_Lfuncerror_empty(p):
-    "Lfuncerror : "
+def p_Lerror_empty(p):
+    "Lerror : "
     p[0] = 'def t_ANY_error(t):\n\tprint(f"Illegal character \'{t.value[0]}\', [{t.lexer.lineno}]")\n\tt.lexer.skip(1)'
 
-def p_Codigos(p):
-    "Codigos : Codigos Codigo"
-    p[0] = p[1] + p[2]
+def p_Precedents(p):
+    "Precedents : PRCD '=' PRA Prcdlist PRF"
+    p[0] = "precedent = [" + p[4] + "]"
 
-def p_Codigos_empty(p):
-    "Codigos : "
+def p_Declarations(p):
+    "Declarations : Declarations Declaration"
+    p[0] = p[1] + p[2] + "\n"
+
+def p_Declarations_empty(p):
+    "Declarations : "
     p[0] = ""
 
-def p_Codigo(p):
-    "Codigo : cod"
+def p_Declaration(p): #TODO: ver o que fazer com isto
+    "Declaration : id '=' P"
+    p[0] = p[1] + "=" + p[3]
+
+def p_P_pr(p): #TODO: ver o que fazer com isto
+    "P : PRA PRF"
+    p[0] = "[]"
+
+def p_P_pc(p): #TODO: ver o que fazer com isto
+    "P : PCA PCF"
+    p[0] = "{}"
+
+def p_Prcdlist(p):
+    "Prcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','"
+    p[0] = p[1] + "(" + p[3] + "," + p[5] + p[6] + "),"
+
+def p_Prcdlist_empty(p):
+    "Prcdlist : "
+    p[0] = ""
+
+def p_Pelvals(p):
+    "Pelvals : Pelvals pelval ','"
+    p[0] = p[1] + p[2] + ','
+
+def p_Pelvals_empty(p):
+    "Pelvals : "
+    p[0] = ""
+
+def p_Codes(p):
+    "Codes : Codes Code"
+    p[0] = p[1] + p[2]
+
+def p_Codes_empty(p):
+    "Codes : "
+    p[0] = ""
+
+def p_Code(p):
+    "Code : cod"
     p[0] = p[1]
 
-def p_Codigo_pc(p):
-    "Codigo : PCA Codigo PCF"
-    p[0] = "{" + p[1] + "}"
+def p_Code_p(p):
+    "Code : PA Codes PF"
+    p[0] = "(" + p[2] + ")"
 
-def p_Codigo_p(p):
-    "Codigo : PA Codigo PF"
-    p[0] = "(" + p[1] + ")"
+def p_Code_pr(p):
+    "Code : PRA Codes PRF"
+    p[0] = "[" + p[2] + "]"
+
+def p_Code_pc(p):
+    "Code : PCA Codes PCF"
+    p[0] = "{" + p[2] + "}"
+
+"""
+"Codes : Codes Code"
+"Codes : "
+"Code : cod"
+"Code : PA Codes PF"
+"Code : PRA Codes PRF"
+"Code : PCA Codes PCF"
+"""
+
+
+
 
 def p_error(p):
     print('Erro sintático: ', p)
