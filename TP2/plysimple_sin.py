@@ -4,7 +4,7 @@ from plysimple_limpo import tokens, literals
 
 def p_Ply(p):
     "Ply : Lexer Yc"
-    p[0] = p[1] + "\n" + p[2]
+    p[0] = p[1] + "\n\n" + p[2]
 
 def p_Lexer(p):
     "Lexer : LEX Literals Ignore Tokens Lfuncs Lerror"
@@ -12,7 +12,7 @@ def p_Lexer(p):
 
 def p_Yc(p):
     "Yc : YACC Precedents Declarations Grammar Yfs"
-    p[0] = p[2] + "\n" + p[3] + "\n" + p[4] + "\n" + p[5]
+    p[0] = p[2] + "\n\n" + p[3] + "\n" + p[4] + "\n" + p[5]
 
 def p_Grammar(p):
     "Grammar : GRM Productions"
@@ -26,6 +26,8 @@ def p_Literals(p):
     "Literals : LTS '=' aspval"
     p[3] = p[3][1:-1] #remove as aspas
     lits = [char for char in p[3]] #transforma a string numa lista de chars
+    for lit in lits:
+        parser.tt[lit] = False #add literal, value False (not used)
     p[0] = "literals = " + str(lits)
 
 def p_Literals_empty(p):
@@ -48,9 +50,12 @@ def p_Tokl(p):
     "Tokl : Tokl ',' pelval"
     p[0] = p[1] + [p[3][1:-1]]
 
+    parser.tt[p[3][1:-1]] = False #adiciona token com valor a False(n usado)
+
 def p_Tokl_single(p):
     "Tokl : pelval"
     p[0] = [p[1][1:-1]]
+    parser.tt[p[1][1:-1]] = False #adiciona token com valor a False(n usado)
 
 def p_Lfuncs(p):
     "Lfuncs : Lfuncs Lfunc"
@@ -99,7 +104,7 @@ def p_Declaration(p): #TODO: ver o que fazer com isto
 
 def p_Productions(p):
     "Productions : Productions Production"
-    p[0] = p[1] + p[2] + "\n"
+    p[0] = p[1] + p[2] + "\n\n"
 
 def p_Productions_empty(p):
     "Productions : "
@@ -107,7 +112,12 @@ def p_Productions_empty(p):
 
 def p_Production(p):
     "Production : nt DS Symbols PCA Codes PCF"
-    p[0] = "def p_" + p[1] + "(p):\n\t" + '"' + p[1] + " : " + p[3] + '"\n\t' + p[5]
+    if p[1] in parser.tntDef:
+        p[0] = "def p_" + p[1] + "_" + str(parser.tntDef[p[1]]) + "(p):\n\t" + '"' + p[1] + " : " + p[3] + '"\n\t' + p[5]
+        parser.tntDef[p[1]] += 1
+    else:
+        p[0] = "def p_" + p[1] + "(p):\n\t" + '"' + p[1] + " : " + p[3] + '"\n\t' + p[5]
+        parser.tntDef[p[1]] = 1
 
 def p_Symbols(p):
     "Symbols : Symbols S"
@@ -120,6 +130,13 @@ def p_Symbols_empty(p):
 def p_S(p):
     "S : symbol"
     p[0] = p[1]
+
+    if p[1] in parser.tt:
+        parser.tt[p[1]] = True #token used
+    elif p[1][1:-1] in parser.tt:
+        parser.tt[p[1][1:-1]] = True #literal used
+    else:
+        parser.tntUsed[p[1]] = 0 #non terminal symbol used
 
 def p_S_Prec(p):
     "S : PREC symbol"
@@ -219,6 +236,18 @@ def p_error(p):
 
 # Build the parser
 parser = yacc.yacc()
+
+"""Variaveis de estado"""
+
+#Terminal symbols table
+parser.tt = {}
+#Defined Non-terminal symbols table (left side of the production)
+parser.tntDef = {}
+#Used Non-terminal symbols table (right side of the production)
+parser.tntUsed = {}
+
+
+
 import sys
 parser.success = True
 
@@ -226,7 +255,20 @@ file = open("t.txt","r",encoding="utf-8",errors="surrogateescape")
 program = file.read()
 codigo = parser.parse(program)
 if parser.success:
-    print("Programa estruturalmente correto!")
+   # print("Programa estruturalmente correto!")
     print(codigo)
+
+    #verify unused tokens/literals
+    for key in parser.tt:
+        if not parser.tt[key]:
+            print("Terminal symbol",key,"defined but not used.")
+
+    #verify used but not defined 
+    for key in parser.tntUsed:
+        if key not in parser.tntDef:
+            print("Non-terminal",key,"symbol used but not defined.")
+
 else:
     print("Programa com erros... Corrija e tente novamente!")
+
+
