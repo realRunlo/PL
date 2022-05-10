@@ -11,7 +11,7 @@ tokens = ["LEX","LTS","IG","TKS","LFUNC",
 "RT","ER","TVAL","TYPE","YACC","PRCD","LTRG",
 "GRM","PREC","YFUNCS","DEF","PA","PF",
 "PCA","PCF","PRA","PRF","DS",
-"aspval","pelval","cod","id","nt","symbol","name","rgx"]
+"aspval","pelval","cod","id","nt","symbol","name","rgx","num"]
 
 t_INITIAL_REGEX_GRAMMAR_YFUNC_SYMBOLS_ignore = " \t\n "
 t_CODE_ignore = " "
@@ -198,6 +198,10 @@ def t_YFUNC_name(t):
 
 def t_REGEX_rgx(t):
     r"((\\:)|[^:])+" #TODO: ver isto melhor
+    return t
+
+def t_num(t):
+    r"\d+(\.\d+)?" #TODO: verificar depois
     return t
 
 def t_ANY_error(t):

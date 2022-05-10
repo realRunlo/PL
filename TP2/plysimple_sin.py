@@ -94,7 +94,7 @@ def p_Declarations_empty(p):
     p[0] = ""
 
 def p_Declaration(p): #TODO: ver o que fazer com isto
-    "Declaration : id '=' P"
+    "Declaration : id '=' Values"
     p[0] = p[1] + "=" + p[3]
 
 def p_Productions(p):
@@ -107,7 +107,7 @@ def p_Productions_empty(p):
 
 def p_Production(p):
     "Production : nt DS Symbols PCA Codes PCF"
-    p[0] = p[1] + ":" + p[3] + "{" + p[5] + "}"
+    p[0] = "def p_" + p[1] + "(p):\n\t" + '"' + p[1] + " : " + p[3] + '"\n\t' + p[5]
 
 def p_Symbols(p):
     "Symbols : Symbols S"
@@ -124,14 +124,6 @@ def p_S(p):
 def p_S_Prec(p):
     "S : PREC symbol"
     p[0] = "%prec " + p[2]
-
-def p_P_pr(p): #TODO: ver o que fazer com isto
-    "P : PRA PRF"
-    p[0] = "[]"
-
-def p_P_pc(p): #TODO: ver o que fazer com isto
-    "P : PCA PCF"
-    p[0] = "{}"
 
 def p_Prcdlist(p):
     "Prcdlist : Prcdlist PA LTRG ',' Pelvals pelval PF ','"
@@ -185,6 +177,41 @@ def p_Code_pc(p):
     "Code : PCA Codes PCF"
     p[0] = "{" + p[2] + "}"
 
+def p_Values(p):
+    "Values : Values ',' Type"
+    p[0] = p[1] + "," + p[3]
+
+def p_Values_type(p):
+    "Values : Type"
+    p[0] = p[1]
+
+def p_Type_num(p):
+    "Type : num"
+    p[0] = p[1]
+
+def p_Type_aspval(p):
+    "Type : aspval"
+    p[0] = p[1]
+
+def p_Type_pelval(p):
+    "Type : pelval"
+    p[0] = p[1]
+
+def p_Type_lists(p):
+    "Type : PRA Values PRF"
+    p[0] = "[" + p[2] + "]"
+
+def p_Type_tuples(p):
+    "Type : PA Values PF"
+    p[0] = "(" + p[2] + ")"
+
+def p_Type_dict(p):
+    "Type : PCA Values PCF"
+    p[0] = "{" + p[2] + "}"
+
+def p_Type_empty(p):
+    "Type : "
+    p[0] = ""
 
 def p_error(p):
     print('Erro sintático: ', p)

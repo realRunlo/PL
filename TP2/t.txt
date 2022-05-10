@@ -15,8 +15,8 @@ precedend =  [
             ('right','UMINUS'),
             ]
 
-ts = { }
-td = []
+ts = 
+td = [5,5,55,5]
 
 grammar:
 stat : VAR '=' exp { ts[t[1]] = t[3] }
