@@ -1,4 +1,6 @@
+from distutils import errors
 import re
+import warnings
 import ply.yacc as yacc 
 from plysimple_limpo import tokens, literals 
 
@@ -246,12 +248,12 @@ parser.tntDef = {}
 #Used Non-terminal symbols table (right side of the production)
 parser.tntUsed = {}
 
-
-
 import sys
 parser.success = True
 
 file = open("t.txt","r",encoding="utf-8",errors="surrogateescape")
+warnings = 0 
+errors = 0
 program = file.read()
 codigo = parser.parse(program)
 if parser.success:
@@ -261,13 +263,19 @@ if parser.success:
     #verify unused tokens/literals
     for key in parser.tt:
         if not parser.tt[key]:
-            print("Terminal symbol",key,"defined but not used.")
-
+            print("WARNING! :: Terminal symbol",key,"defined but not used.")
+            warnings +=1
+            
     #verify used but not defined 
     for key in parser.tntUsed:
         if key not in parser.tntDef:
-            print("Non-terminal",key,"symbol used but not defined.")
+            print("ERROR! :: Non-terminal",key,"symbol used but not defined.")
+            errors+=1
 
+    if errors > 0:
+        print("Couldn't generate PLY :: Total",warnings,"warnings and",errors,"errors")
+    else:
+        print("PLY generated successfully :: Total",warnings,"warnings and",errors,"errors")
 else:
     print("Programa com erros... Corrija e tente novamente!")
 
