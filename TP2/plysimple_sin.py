@@ -3,16 +3,16 @@ import ply.yacc as yacc
 from plysimple_limpo import tokens, literals 
 
 def p_Ply(p):
-    "Ply : Lexer Yc Grammar Yfs"
-    p[0] = p[1] + "\n" + p[2] + "\n" + p[3] + "\n" + p[4]
+    "Ply : Lexer Yc"
+    p[0] = p[1] + "\n" + p[2]
 
 def p_Lexer(p):
     "Lexer : LEX Literals Ignore Tokens Lfuncs Lerror"
     p[0] = p[2] + "\n" + p[3] +"\n" + p[4] + "\n" + p[5] + "\n" + p[6]
 
-def p_Yacc(p):
-    "Yc : YACC Precedents Declarations"
-    p[0] = p[2] + "\n" + p[3]
+def p_Yc(p):
+    "Yc : YACC Precedents Declarations Grammar Yfs"
+    p[0] = p[2] + "\n" + p[3] + "\n" + p[4] + "\n" + p[5]
 
 def p_Grammar(p):
     "Grammar : GRM Productions"
