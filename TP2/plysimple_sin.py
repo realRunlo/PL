@@ -217,19 +217,23 @@ def p_Type_pelval(p):
     p[0] = p[1]
 
 def p_Type_lists(p):
-    "Type : PRA Values PRF"
+    "Type : PRA Cont PRF"
     p[0] = "[" + p[2] + "]"
 
 def p_Type_tuples(p):
-    "Type : PA Values PF"
+    "Type : PA Cont PF"
     p[0] = "(" + p[2] + ")"
 
 def p_Type_dict(p):
-    "Type : PCA Values PCF"
+    "Type : PCA Cont PCF"
     p[0] = "{" + p[2] + "}"
 
-def p_Type_empty(p):
-    "Type : "
+def p_Cont(p):
+    "Cont : Values"
+    p[0] = p[1]
+
+def p_Cont_empty(p):
+    "Cont : "
     p[0] = ""
 
 def p_error(p):
@@ -276,6 +280,9 @@ if parser.success:
         print("Couldn't generate PLY :: Total",warnings,"warnings and",errors,"errors")
     else:
         print("PLY generated successfully :: Total",warnings,"warnings and",errors,"errors")
+        result_final = open("ply.txt","w+",encoding="utf-8",errors="surrogateescape")
+        result_final.write(codigo)
+        result_final.close()
 else:
     print("Programa com erros... Corrija e tente novamente!")
 

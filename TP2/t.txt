@@ -1,5 +1,5 @@
 LEX:
-literals = "+-/*=()"
+literals = "+-{*=()"
 ignore  = " \t\n "
 tokens = ['VAR','NUMBER']
 
@@ -11,12 +11,12 @@ YACC:
 
 precedend =  [
             ('left','+','-'),
-            ('left','*','/'),
+            ('left','*','{'),
             ('right','UMINUS'),
             ]
 
-ts = 
 td = [5,5,55,5]
+ola =[]
 
 grammar:
 stat : VAR '=' exp { ts[t[1]] = t[3] }
@@ -24,7 +24,7 @@ stat : exp { print(t[1]) }
 exp : exp '+' exp { t[0] = t[1] + t[3] }
 exp : exp '-' exp { t[0] = t[1] - t[3] }
 exp : exp '*' exp { t[0] = t[1] * t[3] }
-exp : exp '/' exp { t[0] = t[1] / t[3] }
+exp : exp '{' exp { t[0] = t[1] / t[3] }
 exp : '-' exp %prec UMINUS { t[0] = -t[2] }
 exp : '(' exp ')' { t[0] = t[2] }
 exp : NUMBER { t[0] = t[1] }

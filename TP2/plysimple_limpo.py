@@ -169,15 +169,15 @@ def t_GRAMMAR_DS(t):
     return t
 
 def t_aspval(t):
-    r"\"[^0-9\n]+\"" #TODO: \" tem de passar 
+    r'"((\\")|[^0-9\n"])+"'
     return t
 
 def t_pelval(t):
-    r"'[^']+'" #TODO: \' tem de passar
+    r"'((\\')|[^0-9\n'])+'"
     return t
 
 def t_CODE_cod(t):
-    r"([^{}\(\)\[\]])+" #TODO: \( , \) , \{ , \} , \[ e \] tem de passar 
+    r'((("[^"]+")|(\'[^\']+\'))|([^{}\(\)\[\]]))+'
     return t
 
 def t_id(t):
@@ -189,7 +189,7 @@ def t_GRAMMAR_nt(t):
     return t
 
 def t_SYMBOLS_symbol(t):
-    r"([A-Za-z]+)|('.')" #TODO: '\'' e '{' tem de passar
+    r"([A-Za-z]+)|('.')|('\'')"
     return t
 
 def t_YFUNC_name(t):
@@ -201,7 +201,7 @@ def t_REGEX_rgx(t):
     return t
 
 def t_num(t):
-    r"\d+(\.\d+)?" #TODO: verificar depois
+    r"(\+|-)?\d+(\.\d+)?"
     return t
 
 def t_ANY_error(t):
@@ -217,5 +217,5 @@ lexer.input(file.read())
 for token in lexer:
     print(token)
 
-
 """
+
