@@ -90,6 +90,10 @@ def p_Precedents(p):
     "Precedents : PRCD '=' PRA Prcdlist PRF"
     p[0] = "precedent = [" + p[4] + "]"
 
+def p_Precedents_empty(p):
+    "Precedents : "
+    p[0] = ""
+
 def p_Declarations(p):
     "Declarations : Declarations Declaration"
     p[0] = p[1] + p[2] + "\n"
@@ -270,8 +274,6 @@ else:
     program = simpleFile.read()
     codigo = parser.parse(program)
     if parser.success:
-        # print("Programa estruturalmente correto!")
-        print(codigo)
 
         #verify unused tokens/literals
         for key in parser.tt:

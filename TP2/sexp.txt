@@ -1,0 +1,31 @@
+LEX:
+
+literals = "()+*-"
+ignore = "\t\n "
+tokens = ['num']
+
+lfunc: \d+ : return('num',int(t.value))
+
+YACC:
+
+grammar:
+Z : Sexp {print(p[1])}
+Sexp : '(' '+' Lista ')' {p[0] = somatorio(p[3])}
+Sexp : '(' '*' Lista ')' {p[0] = produtorio(p[3])}
+Sexp : num {p[0] = p[1]}
+Lista : Lista Sexp {p[0] = p[1] + [p[2]]}
+Lista : Sexp Sexp {p[0] = [p[1],p[2]] }
+
+yfuncs:
+def somatorio(lista){
+    res = 0
+    for n in lista:
+        res += n
+    return res
+}
+def produtorio(lista){
+    res = 1
+    for n in lista:
+        res *= n
+    return res
+}
