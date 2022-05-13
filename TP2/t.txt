@@ -15,20 +15,19 @@ precedend =  [
             ('right','UMINUS'),
             ]
 
-td = [5,5,55,5]
-ola =[]
+ts = {}
 
 grammar:
-stat : VAR '=' exp { ts[t[1]] = t[3] }
-stat : exp { print(t[1]) }
-exp : exp '+' exp { t[0] = t[1] + t[3] }
-exp : exp '-' exp { t[0] = t[1] - t[3] }
-exp : exp '*' exp { t[0] = t[1] * t[3] }
-exp : exp '{' exp { t[0] = t[1] / t[3] }
-exp : '-' exp %prec UMINUS { t[0] = -t[2] }
-exp : '(' exp ')' { t[0] = t[2] }
-exp : NUMBER { t[0] = t[1] }
-exp : VAR { t[0] = getval(t[1]) }
+stat : VAR '=' exp { ts[p[1]] = p[3] }
+stat : exp { print(p[1]) }
+exp : exp '+' exp { p[0] = p[1] + p[3] }
+exp : exp '-' exp { p[0] = p[1] - p[3] }
+exp : exp '*' exp { p[0] = p[1] * p[3] }
+exp : exp '{' exp { p[0] = p[1] / p[3] }
+exp : '-' exp %prec UMINUS { p[0] = -p[2] }
+exp : '(' exp ')' { p[0] = p[2] }
+exp : NUMBER { p[0] = p[1] }
+exp : VAR { p[0] = getval(p[1]) }
 
 yfuncs:
 def p_error(t){

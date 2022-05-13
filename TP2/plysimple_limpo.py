@@ -51,7 +51,7 @@ def t_TVAL(t):
     return t
 
 def t_TYPE(t):
-    r"(float)|(int)|(double)"
+    r"(float)|(int)|(str)"
     return t
 
 def t_YACC(t):

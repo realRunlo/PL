@@ -1,12 +1,10 @@
-from distutils import errors
 import re
-import warnings
 import ply.yacc as yacc 
 from plysimple_limpo import tokens, literals 
 
 def p_Ply(p):
     "Ply : Lexer Yc"
-    p[0] = p[1] + "\n\n" + p[2]
+    p[0] = "import ply.lex as lex\n" + p[1] + "\n\nlexer = lex.lex()\n\nimport ply.yacc as yacc\n\n" + p[2] + "\n\nparser = yacc.yacc()"
 
 def p_Lexer(p):
     "Lexer : LEX Literals Ignore Tokens Lfuncs Lerror"
@@ -82,7 +80,7 @@ def p_Tv_type(p):
 
 def p_Lerror(p):
     "Lerror : ER Codes PF" #o lexer n está a apanhar tudo para o ER,rever
-    p[0] = "def t_error(t):\n\tprintf(" + p[2] + ")"
+    p[0] = "def t_error(t):\n\tprint(" + p[2] + ")"
 
 def p_Lerror_empty(p):
     "Lerror : "
@@ -255,35 +253,46 @@ parser.tntUsed = {}
 import sys
 parser.success = True
 
-file = open("t.txt","r",encoding="utf-8",errors="surrogateescape")
-warnings = 0 
-errors = 0
-program = file.read()
-codigo = parser.parse(program)
-if parser.success:
-   # print("Programa estruturalmente correto!")
-    print(codigo)
+#arguments
+#python3 plysimple_sin.py [plysimple.txt] [plyfile.py]
+if len(sys.argv)<3:
+    print("Not enough arguments...")
 
-    #verify unused tokens/literals
-    for key in parser.tt:
-        if not parser.tt[key]:
-            print("WARNING! :: Terminal symbol",key,"defined but not used.")
-            warnings +=1
-            
-    #verify used but not defined 
-    for key in parser.tntUsed:
-        if key not in parser.tntDef:
-            print("ERROR! :: Non-terminal",key,"symbol used but not defined.")
-            errors+=1
-
-    if errors > 0:
-        print("Couldn't generate PLY :: Total",warnings,"warnings and",errors,"errors")
-    else:
-        print("PLY generated successfully :: Total",warnings,"warnings and",errors,"errors")
-        result_final = open("ply.txt","w+",encoding="utf-8",errors="surrogateescape")
-        result_final.write(codigo)
-        result_final.close()
+elif len(sys.argv)>3:
+    print("Too many arguments")
 else:
-    print("Programa com erros... Corrija e tente novamente!")
+    simpleFile = open(sys.argv[1],"r",encoding="utf-8",errors="surrogateescape")
+
+
+
+    warnings = 0 
+    errors = 0
+    program = simpleFile.read()
+    codigo = parser.parse(program)
+    if parser.success:
+        # print("Programa estruturalmente correto!")
+        print(codigo)
+
+        #verify unused tokens/literals
+        for key in parser.tt:
+            if not parser.tt[key]:
+                print("WARNING! :: Terminal symbol",key,"defined but not used.")
+                warnings +=1
+            
+        #verify used but not defined 
+        for key in parser.tntUsed:
+            if key not in parser.tntDef:
+                print("ERROR! :: Non-terminal",key,"symbol used but not defined.")
+                errors+=1
+
+        if errors > 0:
+            print("Couldn't generate PLY :: Total",warnings,"warnings and",errors,"errors")
+        else:
+            print("PLY generated successfully :: Total",warnings,"warnings and",errors,"errors")
+            result_final = open(sys.argv[2],"w+",encoding="utf-8",errors="surrogateescape")
+            result_final.write(codigo)
+            result_final.close()
+    else:
+        print("Programa com erros... Corrija e tente novamente!")
 
 
