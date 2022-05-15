@@ -203,31 +203,31 @@ def p_Values(p):
     p[0] = p[1] + "," + p[3]
 
 def p_Values_type(p):
-    "Values : Type"
+    "Values : Value"
     p[0] = p[1]
 
-def p_Type_num(p):
-    "Type : num"
+def p_Value_num(p):
+    "Value : num"
     p[0] = p[1]
 
-def p_Type_aspval(p):
-    "Type : aspval"
+def p_Value_aspval(p):
+    "Value : aspval"
     p[0] = p[1]
 
-def p_Type_pelval(p):
-    "Type : pelval"
+def p_Value_pelval(p):
+    "Value : pelval"
     p[0] = p[1]
 
-def p_Type_lists(p):
-    "Type : PRA Cont PRF"
+def p_Value_lists(p):
+    "Value : PRA Cont PRF"
     p[0] = "[" + p[2] + "]"
 
-def p_Type_tuples(p):
-    "Type : PA Cont PF"
+def p_Value_tuples(p):
+    "Value : PA Cont PF"
     p[0] = "(" + p[2] + ")"
 
-def p_Type_dict(p):
-    "Type : PCA Cont PCF"
+def p_Value_dict(p):
+    "Value : PCA Cont PCF"
     p[0] = "{" + p[2] + "}"
 
 def p_Cont(p):
